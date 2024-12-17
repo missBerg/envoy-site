@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=docs,home,public" />
-    <script>
+    <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
         const hamburger = document.querySelector(".hamburger");
         const navLinks = document.querySelector(".main-nav");
@@ -19,7 +19,7 @@
           navLinks.classList.toggle("active");
         });
       });
-    </script>
+    </script> -->
     {% include head-custom.html %}
   </head>
   <body>
@@ -32,7 +32,8 @@
             <img src="/assets/envoy-horizontal-white.png" alt="">
           </a>
         </div>
-        <nav class="main-nav">
+        <!-- <nav class="main-nav" id="menu"> -->
+          <nav class="main-nav" id="menu">
           <ul>
             <li><a href="/projects/envoy">Proxy</a></li>
             <li><a href="/projects/gateway">Gateway</a></li>
@@ -41,9 +42,10 @@
             <li><a href="/community">Community</a></li>
           </ul>
         </nav>
-        <button class="hamburger" aria-label="Toggle navigation">
+        <!-- <button class="hamburger" aria-label="Toggle navigation">
           &#9776;
-        </button>
+        </button> -->
+        {% include toggle-menu.html %}
       </div>
     </header>
     {% if page.is_index %}
