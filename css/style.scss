@@ -1,0 +1,682 @@
+---
+---
+// The lines above are needed for ensuring Jekyll liquid is processing the file to generate the CSS in the _site output
+
+@use "sass:color";
+@use "../_sass/normalize";
+@use "../_sass/rouge-github";
+@use "../_sass/variables";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700,800');
+
+@mixin large {
+  @media screen and (min-width: #{variables.$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media screen and (min-width: #{variables.$medium-breakpoint}) and (max-width: #{variables.$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (max-width: #{variables.$medium-breakpoint}) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: variables.$body-text-color;
+  height: 100%;
+}
+
+#skip-to-content {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  top: -10px;
+
+  &:focus {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    height: auto;
+    width: auto;
+    background: color.invert(variables.$body-link-color);
+    outline: thick solid color.invert(variables.$body-link-color);
+  }
+}
+
+.section-heading {
+  font-size: 4rem;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0rem;
+  color: variables.$section-headings-color
+}
+
+a {
+  color: variables.$body-link-color;
+  text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+}
+
+.pink-font {
+  color:#f3c;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(179, 25, 171, 1);
+  border-color: rgba(255, 255, 255, 0.2);
+  border-style: solid;
+  border-width: 0px;
+  border-radius: 2rem;
+  transition: color 0.5s, background-color 0.5s, border-color 0.5s;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    background-color: rgba(209, 98, 205, 0.7);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  + .btn {
+    margin-left: 1rem;
+  }
+
+  @include large {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  @include medium {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  @include small {
+    // display: block;
+    // width: 100%;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+
+    + .btn {
+      margin-top: 1rem;
+      margin-left: 0;
+    }
+  }
+}
+
+.center-horizontal{
+  text-align: center;
+}
+
+.logos {
+  display: flex;
+  flex-wrap: wrap; // Enable wrapping
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; // Add space between items
+  padding: 1rem 1rem 2rem 1rem;
+  width: 100%; // Ensure it uses the full width of the parent
+
+  img {
+    flex: 0 1 calc(20% - 1rem); // 20% width minus gap, allows wrapping
+    max-width: 120px; // Constrain size
+    min-width: 80px; // Prevent being too small
+    height: auto; // Maintain aspect ratio
+  }
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.projects-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+
+  .project-card {
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 35rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .project-links{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    
+    a {
+      padding: 1rem 1rem;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        color: rgb(102, 12, 79); // Highlight color on hover
+        text-decoration: none;
+      }
+    }
+  }
+
+  .project-content {
+    text-align: left;
+    padding: 1rem 2rem;
+    border-top: 1px solid #ccc;
+  }
+
+}
+
+.adopters-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+.adopter-card {
+  border: 1px solid #ddd;
+  text-align: center;
+  width: 15rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.adopter-logo {
+  padding: 4rem 1rem;
+  height: 12rem;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+
+  img {
+    max-height: 2rem;
+  }
+}
+
+.adopter-name {
+  border-bottom: 1px solid #ccc;
+  color: variables.$body-text-color;
+  font-size: 1rem;
+  padding: 0.5rem 0rem;
+}
+
+.page-nav {
+  background-color: variables.$header-bg-color;
+  color: white; // Default text color
+  padding: 0.2rem 2rem; // Padding for the header
+  position: fixed; // Fix header at the top
+  top: 0;
+  left: 0;
+  width: 100%; // Full-width header
+  z-index: 1000; // Ensure it stays above other content
+
+  .header-container {
+    display: flex;
+    justify-content: space-between; // Align logo and nav on opposite sides
+    align-items: center;
+    // max-width: 1200px; // Set a max width for the container
+    margin: 0 auto; // Center the container
+  }
+
+  .header-logo {
+    img {
+      max-height: 40px; // Restrict logo size
+      width: auto; // Maintain aspect ratio
+    }
+    margin: 0.5rem 0;
+  }
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .main-nav {
+    display: flex;
+
+    ul {
+      list-style: none; // Remove bullets
+      display: flex; // Inline navigation links
+      gap: 1.5rem; // Space between list items
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: 700;
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+
+          &:hover {
+            color: #f3c; // Highlight color on hover
+            text-decoration: n; // Add underline on hover
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive Design
+  @include small {
+
+    .header-container {
+      // flex-direction: column; // Stack logo and nav
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .hamburger {
+      display: block; /* Show the hamburger icon */
+    }  
+
+    .main-nav {
+      display: none; /* Hide the navigation links */
+
+      ul {
+        flex-direction: column; // Stack nav links
+        align-items: left;
+        gap: 1rem; // Adjust spacing for stacked items
+      }
+    }
+
+    .main-nav.active{
+      display: flex; /* Show the menu when active */
+      padding: 1rem 0rem;
+    }
+  }
+}
+  
+
+.page-header {
+  color: variables.$header-heading-color;
+  align-items: center;
+  background-color: variables.$header-bg-color;
+  background-image: linear-gradient(0deg, variables.$header-bg-color-secondary, variables.$header-bg-color);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+  @include large {
+    padding: 6rem 4rem 10rem 4rem;
+  }
+
+  @include medium {
+    padding: 2rem 4rem;
+    clip-path: polygon(0 0, 100% 0, 100% 87%, 0 100%);
+  }
+
+  @include small {
+    padding: 1rem 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  }
+
+  .header-content {
+    display: flex;
+    flex-direction: row; /* Logo to the right of the text */
+    align-items: start; /* Align items vertically on the same line */
+    padding: 1rem 4rem 3rem 4rem;
+    margin: 0 auto;
+
+    @include large {
+        max-width: 84rem; // Constrain the width
+        // min-height: 50vh;
+        gap: 2rem;
+      }
+    
+    @include medium {
+      flex-direction: column-reverse;
+      align-items: left;
+      padding: 2rem 1rem;
+    }
+
+    @include small {
+      flex-direction: column-reverse;
+      align-items: left;
+      padding: 3rem 0.2rem;
+    }
+
+    .header-text {
+        padding: 2rem 0rem;
+
+        @include large {
+        }
+      
+        @include medium {
+          padding: 0.5rem 0rem;
+        }
+    
+        @include small {
+          padding: 0.5rem 0rem;
+      }
+    }
+      
+    .header-logo {
+      padding: 1rem 0rem;
+        
+      img {
+        max-width: 20vw;
+        height: auto;
+        display: block;
+      }
+
+    //   @include large {
+    //     width: auto;
+    //   }
+    
+      @include medium {
+        padding: 0.5rem 1rem;
+      }
+    
+      @include small {
+        padding: 0.5rem 1rem; // Hide the logo on smaller screens
+      }
+    }
+  }
+}
+
+.project-name {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+
+  @include large {
+    font-size: 5rem;
+    line-height: 0.9;
+  }
+
+  @include medium {
+    font-size: 4rem;
+    line-height: 0.9;
+  }
+
+  @include small {
+    font-size: 2rem;
+    line-height: 0.9;
+  }
+}
+
+.project-tagline {
+  margin-bottom: 2rem;
+  font-weight: normal;
+
+  @include large {
+    font-size: 1.25rem;
+  }
+
+  @include medium {
+    font-size: 1.15rem;
+  }
+
+  @include small {
+    font-size: 1rem;
+  }
+}
+
+#adopter-feature {
+  padding: 0rem 0rem 3rem 0rem;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  min-height: 100vh; /* Ensure the wrapper is at least the height of the viewport */
+  justify-content: space-between;
+}
+
+.main-content {
+  word-wrap: break-word;
+
+  @include large {
+    max-width: 84rem;
+    padding: 5rem 6rem;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+
+  @include medium {
+    padding: 5rem 4rem;
+    font-size: 1.1rem;
+  }
+
+  @include small {
+    padding: 4rem 1rem;
+    font-size: 1rem;
+  }
+  
+  kbd {
+    background-color: #fafbfc;
+    border: 1px solid #c6cbd1;
+    border-bottom-color: #959da5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #959da5;
+    color: #444d56;
+    display: inline-block;
+    font-size: 11px;
+    line-height: 10px;
+    padding: 3px 5px;
+    vertical-align: middle;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    color: variables.$section-headings-color;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  code {
+    padding: 2px 4px;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.9rem;
+    color: variables.$code-text-color;
+    background-color: variables.$code-bg-color;
+    border-radius: 0.3rem;
+  }
+
+  pre {
+    padding: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: variables.$code-text-color;
+    word-wrap: normal;
+    background-color: variables.$code-bg-color;
+    border: solid 1px variables.$border-color;
+    border-radius: 0.3rem;
+
+    > code {
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      color: variables.$code-text-color;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0;
+    }
+  }
+
+  .highlight {
+    margin-bottom: 1rem;
+
+    pre {
+      margin-bottom: 0;
+      word-break: normal;
+    }
+  }
+
+  .highlight pre,
+  pre {
+    padding: 0.8rem;
+    overflow: auto;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    border-radius: 0.3rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  pre code,
+  pre tt {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+
+    &:before,
+    &:after {
+      content: normal;
+    }
+  }
+
+  ul,
+  ol {
+    margin-top: 0;
+  }
+
+  blockquote {
+    padding: 0 1rem;
+    margin-left: 0;
+    color: variables.$blockquote-text-color;
+    border-left: 0.3rem solid variables.$border-color;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all; // For Firefox to horizontally scroll wider tables.
+    -webkit-overflow-scrolling: touch;
+
+    th {
+      font-weight: bold;
+    }
+
+    th,
+    td {
+      padding: 0.5rem 1rem;
+      border: 1px solid variables.$table-border-color;
+    }
+  }
+
+  dl {
+    padding: 0;
+
+    dt {
+      padding: 0;
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    dd {
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  hr {
+    height: 2px;
+    padding: 0;
+    margin: 1rem 0;
+    background-color: variables.$hr-border-color;
+    border: 0;
+  }
+}
+
+.site-footer {
+  padding: 1rem;
+  margin-top: 2rem;
+  border-top: solid 1px variables.$hr-border-color;
+  background-color: #e3e3e3;
+  display: flex;
+  justify-content: center;
+
+  @include large {
+    font-size: 1rem;
+  }
+
+  @include medium {
+    font-size: 1rem;
+  }
+
+  @include small {
+    font-size: 0.9rem;
+  }
+}
+
+.site-footer-owner {
+  display: block;
+  font-weight: bold;
+}
+
+.site-footer-credits {
+  color: variables.$blockquote-text-color;
+}

@@ -1,0 +1,36 @@
+---
+layout: default
+title: Envoy Docs
+---
+
+<h1>Available Envoy Proxy Documentation</h1>
+<div class="versions">
+  {% for version_group in site.data.versions %}
+  <h2>{{ version_group.title }}</h2>
+  <dl class="versions-info">
+    {% for version in version_group.versions %}
+    <dt>
+      <a href="/docs/envoy/v{{ version.releases[0] }}/">
+        {% if  version.version == "Latest" %}
+            {{ version.version }}
+        {% else %}
+            v{{ version.version }} ({{ version.releases[0] }})
+        {% endif %}
+      </a>
+    </dt>
+    <dd>
+        <ul>
+            {% for release in version.releases %}
+            <li>
+                <a href="/docs/envoy/v{{ release }}/">
+                    {{ release }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+
+    </dd>
+    {% endfor %}
+  </dl>
+  {% endfor %}
+</div>
