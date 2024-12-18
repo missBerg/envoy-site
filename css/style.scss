@@ -314,14 +314,8 @@ a {
   @include small {
 
     .header-container {
-      // flex-direction: column; // Stack logo and nav
       justify-content: space-between;
-      align-items: flex-start;
     }
-
-    .hamburger {
-      display: block; /* Show the hamburger icon */
-    }  
 
     .main-nav {
       display: none; /* Hide the navigation links */
