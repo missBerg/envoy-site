@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  envoy-site:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - envoy_source:/home/builder/envoy
+      - builder_tools:/home/builder/tools
+      - builder_metadata:/home/builder/metadata
+      - .:/home/builder/app
+    ports:
+      - "8089:4000"
+    environment:
+      - BUILD_DOCS=true
+    platform: linux/amd64
+
+volumes:
+  builder_tools:
+  envoy_source:
+  builder_metadata:

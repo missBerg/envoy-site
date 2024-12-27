@@ -67,3 +67,8 @@ sass:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+exclude:
+  - envoy-source/
+  - build_docs.sh
+  - README.md
