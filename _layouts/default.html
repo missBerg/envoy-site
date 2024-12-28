@@ -10,10 +10,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=docs,home,public" />
-    {% include head-custom.html %}
+    {% include common/head-custom.html %}
   </head>
   <body>
-    {% include navigation.html %}
+    {% include common/navigation.html %}
 
     {% if page.has_banner %}
       {% include {{ page.banner}} %}
@@ -23,7 +23,7 @@
       <main id="content" class="main-content" role="main">
         {{ content }}
       </main>
-      {% include footer.html %}
+      {% include common/footer.html %}
     </div>
   </body>
 </html>

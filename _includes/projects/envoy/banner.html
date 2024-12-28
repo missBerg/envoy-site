@@ -1,0 +1,15 @@
+{% assign project = site.projects | where:"github", page.github  | first %}
+<div class="page-header" role="banner">
+    <div class="header-content">
+        <div class="header-text">
+        <h1 class="project-name">{{ project.name }}</h1>
+        <h2 class="project-tagline">
+            {{ project.content }}
+        </h2>
+        <a href="https://github.com/envoyproxy/{{ project.github }}" class="btn" target="_blank">View on GitHub</a>
+        </div>
+        <div class="header-logo">
+            <img src="{{ project.image }}" alt="">
+        </div>
+    </div>
+</div>
