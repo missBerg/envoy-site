@@ -1,7 +1,7 @@
 ---
 name: "Envoy Proxy"
 link: "/projects/envoy"
-docs: /envoy/docs-test/
+docs: /envoy/docs/
 github: envoy
 ---
 **Envoy Proxy** is an edge and service proxy, designed for cloud-native applications. Providing powerful traffic management, routing, observability, and extensibility features.

@@ -44,7 +44,7 @@ build_proxy_docs () {
 
         ENVOY_SOURCE_DIR="/home/builder/envoy"
         DOCS_OUTPUT="/home/builder/envoy/docs/generated/docs"
-        ENVOY_DOCS_LOCATION="/home/builder/app/_site/envoy/docs"
+        ENVOY_DOCS_LOCATION="/home/builder/app/envoy/docs"
 
         # Clone Envoy repository if necessary
 

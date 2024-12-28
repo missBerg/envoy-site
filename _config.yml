@@ -33,6 +33,21 @@ plugins:
 
 include:
   - _redirects
+  - envoy/docs/_downloads
+  - envoy/docs/_images
+  - envoy/docs/_include
+  - envoy/docs/_sources
+  - envoy/docs/_static
+
+
+keep_files:
+  - envoy/docs
+  - envoy/docs/_downloads
+  - envoy/docs/_images
+  - envoy/docs/_include
+  - envoy/docs/_sources
+  - envoy/docs/_static
+
 
 collections:
   adopters:
@@ -48,6 +63,7 @@ collections:
 sass:
   sass_dir: _sass
 
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -56,20 +72,17 @@ sass:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
 exclude:
-  - envoy-source/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
   - build_docs.sh
   - README.md
   - Dockerfile
