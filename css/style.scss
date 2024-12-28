@@ -33,17 +33,17 @@
 
   @media (max-width: 1000px) {
     #togglemenu {
-      display: block;
+      display: flex;
     }
     #menu ul {
       display: none;
     }
     .menuopen #menu ul {
-      display: block;
+      display: flex;
+      flex-direction: row-reverse;
     }
+  }
 }
-}
-
 
 
 * {
@@ -266,6 +266,19 @@ a {
   padding: 0.5rem 0rem;
 }
 
+.project-page .page-nav {
+  background-color: variables.$header-project-bg-color;
+
+  .main-nav {
+    li {
+      a {
+        color: variables.$dark-text;
+      }
+    }
+  }
+
+}
+
 .page-nav {
   background-color: variables.$header-bg-color;
   color: white; // Default text color
@@ -309,6 +322,7 @@ a {
       gap: 1.5rem; // Space between list items
       margin: 0;
       padding: 0;
+      align-items: flex-end;
 
       li {
         a {
@@ -328,6 +342,37 @@ a {
   }
 
   // Responsive Design
+  @include medium {
+
+    .header-container {
+      justify-content: space-between;
+    }
+
+    .main-nav {
+      display: none; /* Hide the navigation links */
+      width: 100%;
+      background-color: variables.$header-project-bg-color;
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      padding: 3.2rem 0 1.5rem;
+      left: 0;
+
+      ul {
+        flex-direction: column; // Stack nav links
+        gap: 0.4rem; // Adjust spacing for stacked items
+        padding: 0.4rem 2rem;
+      }
+
+    }
+
+    .main-nav.active{
+      display: flex; /* Show the menu when active */
+      padding: 1rem 0rem;
+    }
+  }
+
+  // Responsive Design
   @include small {
 
     .header-container {
@@ -337,7 +382,7 @@ a {
     .main-nav {
       display: none; /* Hide the navigation links */
       width: 100%;
-      background-color: variables.$header-bg-color;
+      background-color: variables.$header-project-bg-color;
       z-index: -1;
       position: fixed;
       top: 0;
@@ -346,8 +391,7 @@ a {
 
       ul {
         flex-direction: column; // Stack nav links
-        align-items: left;
-        gap: 1rem; // Adjust spacing for stacked items
+        gap: 0.4rem; // Adjust spacing for stacked items
         padding: 0.4rem 2rem;
       }
     }
@@ -358,7 +402,14 @@ a {
     }
   }
 }
-  
+
+.project-page .page-header {
+  color: variables.$section-headings-color;
+  background-color: variables.$header-bg-color;
+  background-image: linear-gradient(0deg, #dfaadf, variables.$header-project-bg-color);
+  background-color: variables.$header-project-bg-color;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
 
 .page-header {
   color: variables.$header-heading-color;
@@ -366,6 +417,10 @@ a {
   background-color: variables.$header-bg-color;
   background-image: linear-gradient(0deg, variables.$header-bg-color-secondary, variables.$header-bg-color);
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+
+  .project {
+    color: #ead5ea;
+  }
 
   @include large {
     padding: 6rem 4rem 10rem 4rem;
@@ -410,10 +465,12 @@ a {
         padding: 2rem 0rem;
 
         @include large {
+          max-width: 50vw;
         }
       
         @include medium {
-          padding: 0.5rem 0rem;
+          padding: 0.5rem 1rem;
+          max-width: 70vw;
         }
     
         @include small {

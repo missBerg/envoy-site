@@ -2,7 +2,13 @@
     <div class="header-container">
       <div class="header-logo">
         <a href="/">
-          <img src="/assets/envoy-horizontal-white.png" alt="">
+          {% if page.layout == 'project' %}
+            <img src="/assets/envoy-horizontal-color.png" alt="">
+          {% endif %}
+
+          {% if page.layout == 'default' %}
+            <img src="/assets/envoy-horizontal-white.png" alt="">
+          {% endif %}
         </a>
       </div>
       <nav class="main-nav" id="menu">

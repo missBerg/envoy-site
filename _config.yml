@@ -72,3 +72,5 @@ exclude:
   - envoy-source/
   - build_docs.sh
   - README.md
+  - Dockerfile
+  - docker-compose.yml
