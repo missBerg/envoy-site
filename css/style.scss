@@ -84,7 +84,19 @@ body {
   display: flex;
   justify-content: center;
   padding: 2rem 0rem;
-  color: variables.$section-headings-color
+  color: variables.$section-headings-color;
+
+  @include large {
+    font-size: 4rem;
+  }
+
+  @include medium {
+    font-size: 3.5rem;
+  }
+
+  @include small {
+    font-size: 3rem;
+  }
 }
 
 a {
@@ -179,6 +191,7 @@ a {
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
+  justify-content: center;
 
   .project-card {
     border: 1px solid #ddd;
@@ -355,7 +368,7 @@ a {
   }
 
   @include medium {
-    padding: 2rem 4rem;
+    padding: 2rem 1rem;
     clip-path: polygon(0 0, 100% 0, 100% 87%, 0 100%);
   }
 
@@ -400,7 +413,7 @@ a {
         }
     
         @include small {
-          padding: 0.5rem 0rem;
+          padding: 4rem 0rem 0rem 0rem;
       }
     }
       
@@ -422,7 +435,7 @@ a {
       }
     
       @include small {
-        padding: 0.5rem 1rem; // Hide the logo on smaller screens
+        display: none;
       }
     }
   }
@@ -430,7 +443,7 @@ a {
 
 .project-name {
   margin-top: 0;
-  margin-bottom: 0.3rem;
+  margin-bottom: 2rem;
   font-weight: 700;
 
   @include large {
@@ -444,7 +457,7 @@ a {
   }
 
   @include small {
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 0.9;
   }
 }
