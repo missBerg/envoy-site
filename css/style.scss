@@ -106,6 +106,10 @@ a {
     &:hover {
       text-decoration: underline;
     }
+  
+    .link-icon{
+      margin-right: 0.5rem;
+    }
 }
 
 .pink-font {
@@ -443,7 +447,6 @@ a {
 
 .project-name {
   margin-top: 0;
-  margin-bottom: 2rem;
   font-weight: 700;
 
   @include large {
