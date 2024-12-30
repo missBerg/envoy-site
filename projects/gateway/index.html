@@ -5,7 +5,7 @@ banner: common/project-banner.html
 github: gateway
 ---
 
-<div class="project-name">
+<!-- <div class="project-name">
     <h1>{{ site.projects[1].name }}</h1>
 </div>
 <a href="{{ site.projects[1].github }}" target="_blank">
@@ -20,4 +20,22 @@ View on Gitub
 
 <span class="project-intro">
 {{ site.projects[1].content }}
-</span>
+</span> -->
+<h2>User Community</h2>
+
+<div class="adopters-grid">
+  {% for adopter in site.adopters %}
+    {% if adopter.envoy-gateway %}
+      <div class="adopter-card">
+        <div class="adopter-name">
+            <span>{{ adopter.name }}</span>
+        </div>
+        <div class="adopter-logo">
+            <a href="{{ adopter.url }}" target="_blank">
+                <img src="/logos/adopters/{{ adopter.logo }}" alt="{{ adopter.name }}">
+              </a>
+        </div>
+      </div>
+      {% endif %}
+  {% endfor %}
+</div>

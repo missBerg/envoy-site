@@ -108,7 +108,8 @@ a {
     }
   
     .link-icon{
-      margin-right: 0.5rem;
+      margin-right: 0.3rem;
+      max-height: 1.5rem;
     }
 }
 
@@ -200,7 +201,7 @@ a {
   .project-card {
     border: 1px solid #ddd;
     text-align: center;
-    width: 35rem;
+    width: 50rem;
     border-radius: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;

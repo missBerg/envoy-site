@@ -33,12 +33,11 @@ plugins:
 
 include:
   - _redirects
-  - envoy/docs/_downloads
-  - envoy/docs/_images
-  - envoy/docs/_include
-  - envoy/docs/_sources
-  - envoy/docs/_static
-
+  - _downloads
+  - _images
+  - _include
+  - _sources
+  - _static
 
 keep_files:
   - envoy/docs
