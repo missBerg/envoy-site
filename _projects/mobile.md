@@ -4,6 +4,8 @@ website: "https://envoymobile.io"
 link: /projects/mobile
 github: envoy/tree/main/mobile
 docs: "https://envoymobile.io/docs/envoy-mobile/latest/index.html"
+order: 4
+image: /assets/envoy-mobile.svg
 show_stars: false
 ---
 **Envoy Mobile** brings the power and consistency of Envoy Proxy to the iOS and Android platforms, providing a ubiquitous API and abstraction for mobile application networking. 
