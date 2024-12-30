@@ -1,5 +1,5 @@
 ---
-name: "Vmware"
+name: "VMWare"
 logo: "vmware.svg"
 url: "https://vmware.com"
 envoy-proxy: true
