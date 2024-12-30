@@ -113,6 +113,63 @@ a {
     }
 }
 
+.row {
+  // justify-content: flex-start;
+  // align-items: flex-start;
+  flex-direction: row;
+}
+
+.row-reverse {
+  // justify-content: flex-end;
+  // align-items: flex-end;
+  flex-direction: row-reverse;
+}
+
+
+.project-container {
+  display: flex;
+  padding: 4rem 0rem 7rem 0rem;
+  justify-content: space-between;
+  gap: 5rem;
+  // flex-wrap: wrap;
+
+  @include medium {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  @include small {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+.project-graphic {
+  height: auto;
+  display: flex;
+
+  .project-image {
+    max-width: 40vw;
+    height: auto;
+
+    img {
+      max-height: 40vh;
+    }
+  }
+}
+
+.project-info {
+  max-width: 70rem;
+  // padding: 0rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .pink-font {
   color:#f3c;
 }
@@ -128,6 +185,7 @@ a {
   border-width: 0px;
   border-radius: 2rem;
   transition: color 0.5s, background-color 0.5s, border-color 0.5s;
+  width: fit-content;
 
   &:hover {
     color: rgba(255, 255, 255, 0.8);
@@ -191,6 +249,25 @@ a {
   'opsz' 24
 }
 
+.project-links{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 1.5rem;
+  
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+
+    &:hover {
+      color: rgb(102, 12, 79); // Highlight color on hover
+      text-decoration: none;
+    }
+  }
+}
+
 .projects-grid{
   display: flex;
   flex-wrap: wrap;
@@ -208,23 +285,6 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-  }
-
-  .project-links{
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    
-    a {
-      padding: 1rem 1rem;
-      display: flex;
-      align-items: center;
-
-      &:hover {
-        color: rgb(102, 12, 79); // Highlight color on hover
-        text-decoration: none;
-      }
-    }
   }
 
   .project-content {
@@ -305,6 +365,7 @@ a {
     }
     margin: 0.5rem 0;
   }
+
   .hamburger {
     display: none;
     font-size: 2rem;
@@ -443,6 +504,7 @@ a {
     align-items: start; /* Align items vertically on the same line */
     padding: 1rem 4rem 3rem 4rem;
     margin: 0 auto;
+    justify-content: space-around;
 
     @include large {
         max-width: 84rem; // Constrain the width
@@ -480,10 +542,11 @@ a {
     }
       
     .header-logo {
-      padding: 1rem 0rem;
+      padding: 5rem 0rem;
         
       img {
         max-width: 20vw;
+        max-height: 40vh;
         height: auto;
         display: block;
       }
@@ -551,11 +614,18 @@ a {
   justify-content: space-between;
 }
 
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .main-content {
   word-wrap: break-word;
 
   @include large {
-    max-width: 84rem;
+    // max-width: 84rem;
     padding: 5rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem;
