@@ -78,24 +78,41 @@ body {
   }
 }
 
-.section-heading {
-  font-size: 3rem;
-  font-weight: 800;
+.section {
+  padding: 2rem 1rem 4rem 1rem;
+  width: 100vw;
   display: flex;
-  justify-content: center;
-  padding: 2rem 0rem;
-  color: variables.$section-headings-color;
+  flex-direction: column;
+  align-items: center;
 
-  @include large {
+  .section-heading {
     font-size: 3rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0rem;
+    color: variables.$section-headings-color;
+  
+    @include large {
+      font-size: 3rem;
+    }
+  
+    @include medium {
+      font-size: 2.5rem;
+    }
+  
+    @include small {
+      font-size: 2.5rem;
+    }
   }
 
-  @include medium {
-    font-size: 2.5rem;
+  .section-content {
+    max-width: 70vw;
+    text-align: left;
   }
 
-  @include small {
-    font-size: 2.5rem;
+  .section-content p {
+    max-width: 50rem;
   }
 }
 
@@ -306,6 +323,7 @@ a {
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
+  justify-content: center;
 }
 .adopter-card {
   border: 1px solid #ddd;
@@ -613,6 +631,10 @@ a {
   padding: 0rem 0rem 3rem 0rem;
 }
 
+.section-pink {
+  background-color: variables.$header-project-bg-color;
+}
+
 .wrapper{
   display: flex;
   flex-direction: column; /* Arrange children vertically */
@@ -632,18 +654,18 @@ a {
 
   @include large {
     // max-width: 84rem;
-    padding: 5rem 6rem;
+    // padding: 5rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem;
   }
 
   @include medium {
-    padding: 5rem 4rem;
+    // padding: 5rem 4rem;
     font-size: 1.1rem;
   }
 
   @include small {
-    padding: 4rem 1rem;
+    // padding: 4rem 1rem;
     font-size: 1rem;
   }
   
@@ -823,10 +845,11 @@ a {
   }
 }
 
+.dark-text {
+  color: variables.$dark-text;
+}
 .site-footer {
   padding: 1rem;
-  margin-top: 2rem;
-  border-top: solid 1px variables.$hr-border-color;
   background-color: #e3e3e3;
   display: flex;
   justify-content: center;

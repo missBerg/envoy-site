@@ -5,5 +5,6 @@ link: /projects/ai-gateway
 github: ai-gateway
 order: 3
 image: /assets/ai-gateway.svg
+show_stars: true
 ---
 **Envoy AI Gateway** helps you integrate GenAI services with your applications by enabling you to handle GenAI traffic with Envoy Gateway.

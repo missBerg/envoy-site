@@ -4,22 +4,28 @@ title: Envoy Proxy
 banner: common/project-banner.html
 github: envoy
 ---
+<div class="section flex-center">
 
-<h2>Proxy User Community</h2>
+  <div class="section-heading">
+    <span>Proxy User Community</span>
+  </div>
 
-<div class="adopters-grid">
-  {% for adopter in site.adopters %}
-    {% if adopter.envoy-proxy %}
-      <div class="adopter-card">
-        <div class="adopter-name">
-            <span>{{ adopter.name }}</span>
-        </div>
-        <div class="adopter-logo">
-            <a href="{{ adopter.url }}" target="_blank">
-                <img src="/logos/adopters/{{ adopter.logo }}" alt="{{ adopter.name }}">
-              </a>
-        </div>
-      </div>
-      {% endif %}
-  {% endfor %}
+  <div class="section-content">
+    <div class="adopters-grid">
+      {% for adopter in site.adopters %}
+        {% if adopter.envoy-proxy %}
+          <div class="adopter-card">
+            <div class="adopter-name">
+                <span>{{ adopter.name }}</span>
+            </div>
+            <div class="adopter-logo">
+                <a href="{{ adopter.url }}" target="_blank">
+                    <img src="/logos/adopters/{{ adopter.logo }}" alt="{{ adopter.name }}">
+                  </a>
+            </div>
+          </div>
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>
 </div>
