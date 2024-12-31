@@ -14,6 +14,7 @@ source ./scripts/functions/logging.sh
 source ./scripts/functions/build_proxy_docs_latest.sh
 source ./scripts/functions/ruby_setup.sh
 source ./scripts/functions/jekyll.sh
+source ./scripts/functions/get_proxy_docs_archive.sh
 
 #--------------------------------------
 
@@ -39,7 +40,13 @@ ruby_setup
 gem_install
 
 # Build Envoy Proxy Docs
-build_proxy_docs &
+    if [ "$BUILD_DOCS" = "true" ]; then
+        build_proxy_docs_latest &
+        get_proxy_docs_archive &
+    else
+        info "Skipping Envoy Proxy Docs build." "main"
+    fi
+
 
 # Start Jekyll Server
 jekyll_start

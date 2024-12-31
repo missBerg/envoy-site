@@ -45,6 +45,10 @@ RUN mkdir -p tools \
 # Create a directory for the Envoy repository, later used for volume to persist data
 RUN mkdir -p envoy && chown builder:builder envoy
 
+
+# Create a directory for the Envoy Docs Archive repository, later used for volume to persist data
+RUN mkdir -p envoy-archive && chown builder:builder envoy-archive
+
 # Create a metadata directory
 RUN mkdir -p metadata && chown builder:builder metadata
 

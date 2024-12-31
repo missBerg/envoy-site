@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - envoy_source:/home/builder/envoy
+      - envoy_archive:/home/builder/envoy-archive
       - builder_tools:/home/builder/tools
       - builder_metadata:/home/builder/metadata
       - .:/home/builder/app
@@ -19,4 +20,5 @@ services:
 volumes:
   builder_tools:
   envoy_source:
+  envoy_archive:
   builder_metadata:

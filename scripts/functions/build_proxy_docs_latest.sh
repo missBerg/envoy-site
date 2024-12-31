@@ -1,7 +1,6 @@
-build_proxy_docs () {
+build_proxy_docs_latest () {
 
-    if [ "$BUILD_DOCS" = "true" ]; then
-        log_function_start "${BLUE}" "build_proxy_docs"
+        log_function_start "${BLUE}" "build_proxy_docs_latest"
 
         cd ../envoy
 
@@ -12,15 +11,15 @@ build_proxy_docs () {
         # Clone Envoy repository if necessary
 
         if [ -d "${ENVOY_SOURCE_DIR}" ] && [ "$(ls -A ${ENVOY_SOURCE_DIR})" ]; then
-            info "Envoy repository already exists and is not empty." "build_proxy_docs"
-            info "Updating Envoy repository..." "build_proxy_docs"
+            info "Envoy repository already exists and is not empty." "build_proxy_docs_latest"
+            info "Updating Envoy repository..." "build_proxy_docs_latest"
             git fetch
             git pull
         elif [ -d "${ENVOY_SOURCE_DIR}" ]; then
-            warn "Envoy directory exists but is empty. Cloning repository..." "build_proxy_docs"
+            warn "Envoy directory exists but is empty. Cloning repository..." "build_proxy_docs_latest"
             git clone --depth=1 https://github.com/envoyproxy/envoy.git "${ENVOY_SOURCE_DIR}"
         else
-            info "Envoy directory does not exist. Cloning repository..." "build_proxy_docs"
+            info "Envoy directory does not exist. Cloning repository..." "build_proxy_docs_latest"
             git clone --depth=1 https://github.com/envoyproxy/envoy.git "${ENVOY_SOURCE_DIR}"
         fi
         # Mark the directory as safe for Git
@@ -36,25 +35,25 @@ build_proxy_docs () {
             LAST_COMMIT=$(cat "$METADATA_FILE")
             # Check if docs directory has changed between commits
             if git diff --quiet "$LAST_COMMIT" "$CURRENT_COMMIT" -- docs/; then
-                info "No changes in docs directory since last build." "build_proxy_docs"
+                info "No changes in docs directory since last build." "build_proxy_docs_latest"
                 DOCS_CHANGED=false
             else
-                info "Changes detected in docs directory since last build." "build_proxy_docs"
+                info "Changes detected in docs directory since last build." "build_proxy_docs_latest"
                 DOCS_CHANGED=true
             fi
         else
-            info "No previous commit ID found. Will build docs." "build_proxy_docs"
+            info "No previous commit ID found. Will build docs." "build_proxy_docs_latest"
             DOCS_CHANGED=true
         fi
 
         if [ "$DOCS_CHANGED" = true ]; then
             # Build the docs with Bazel
-            info "Building docs with Bazel" "build_proxy_docs"
+            info "Building docs with Bazel" "build_proxy_docs_latest"
             cd docs
 
             # Clear the target directory if it exists
             if [ -d "${DOCS_OUTPUT}" ]; then
-                info "Clearing existing generated docs directory" "build_proxy_docs"
+                info "Clearing existing generated docs directory" "build_proxy_docs_latest"
                 rm -rf "${DOCS_OUTPUT}"
             fi
             
@@ -66,19 +65,14 @@ build_proxy_docs () {
         fi
 
         # Copy docs into target location
-        info "Copying generated docs to Jekyll site directory" "build_proxy_docs"
+        info "Copying generated docs to Jekyll site directory" "build_proxy_docs_latest"
         cd /home/builder/app/
         mkdir -p "${ENVOY_DOCS_LOCATION}"
         cp -rf "${DOCS_OUTPUT}"/* "${ENVOY_DOCS_LOCATION}/"
 
-        # cp -rf /home/builder/envoy/docs/generated/docs/* /home/builder/app/_site/envoy/docs/
-
         # Capture the git commit ID
-        info "Capturing the git commit ID" "build_proxy_docs"
+        info "Capturing the git commit ID" "build_proxy_docs_latest"
         cd "${ENVOY_SOURCE_DIR}"
         GIT_COMMIT_ID=$(git rev-parse HEAD)
         echo "${GIT_COMMIT_ID}" > "${METADATA_FILE}"
-    else
-        echo "Skipping docs build."
-    fi
 }
