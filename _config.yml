@@ -40,6 +40,7 @@ include:
   - _static
 
 keep_files:
+  - docs/envoy/latest
   - envoy/docs
   - envoy/docs/_downloads
   - envoy/docs/_images

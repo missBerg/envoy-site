@@ -3,20 +3,7 @@ layout: default
 title: Envoy Docs
 ---
 
-<script>
-  function toggleReleases(element) {
-  const container = element.closest('.version-group');
-  const hiddenReleases = container.querySelectorAll('.hidden-release');
-  const button = element.querySelector('.toggle-releases');
-  const isHidden = hiddenReleases[0].style.display === 'none';
-  
-  hiddenReleases.forEach(release => {
-    release.style.display = isHidden ? 'block' : 'none';
-  });
-  
-  button.classList.toggle('open');
-  }
-  </script>
+<script src="{{ '/assets/scripts/toggle-releases.js' | relative_url }}"></script>
 
 <div class="section section flex-center">
   <div class="section-heading">
