@@ -5,12 +5,71 @@ banner: common/project-banner.html
 github: envoy
 project: envoy-proxy
 ---
+<div class="section flex-center">
+  <div class="section-heading">
+    <span>What is Envoy Proxy?</span>
+  </div>
+  <div class="section-content">
+    <p>
+      Envoy is a high-performance C++ proxy designed for the cloud-native era with no-restart dynamic reload of configurations. It is highly extensible and can be used to build a wide variety of network architectures.
+    </p>
+    <p>
+      It is used as the core proxy component in API Gateways, Service Meshes, Cloud Load Balancers, and Edge Gateways.
+    </p>
+    <p>
+      Whether you know it or not, you are likely to have used Envoy Proxy if you have used a modern application.
+    </p>
+  </div>
+</div>
 
-
+<div class="section flex-center section-pink">
+  <div class="section-heading">
+    <span>Capabilities</span>
+  </div>
+  <div class="section-content dark-text">
+      <h3>Out of process architecture</h3>
+      <p>
+        Envoy is a self contained, high performance server with a small memory footprint. It runs alongside any application language or framework.
+      </p>
+      <h3 class="pink-font">HTTP/2 and gRPC support</h3>
+      <p>
+        Envoy has first class support for HTTP/2 and gRPC for both incoming and outgoing connections. It is a transparent HTTP/1.1 to HTTP/2 proxy.
+      </p>
+      <h3 class="pink-font">Advanced load balancing</h3>
+      <p>
+        Envoy supports advanced load balancing features including automatic retries, circuit breaking, global rate limiting, request shadowing, zone local load balancing, etc.
+      </p>
+      <h3 class="pink-font">APIs for configuration management</h3>
+      <p>
+        Envoy provides robust APIs for dynamically managing its configuration.
+      </p>
+      <h3 class="pink-font">Observability</h3>
+      <p>
+        Deep observability of L7 traffic, native support for distributed tracing, and wire-level observability of MongoDB, DynamoDB, and more.
+      </p>
+  </div>
+</div>
 
 <div class="section flex-center">
   <div class="section-heading">
-    <span>Proxy User Community</span>
+    <span>Why Envoy Proxy?</span>
+  </div>
+  <div class="section-content">
+    <p>
+      As on the ground microservice practitioners quickly realize, the majority of operational problems that arise when moving to a distributed architecture are ultimately grounded in two areas: networking and observability. It is simply an orders of magnitude larger problem to network and debug a set of intertwined distributed services versus a single monolithic application.
+    </p>
+    <p>
+      Originally built at <span class="pink-font"><strong>Lyft</strong></span>, Envoy is a high performance C++ distributed proxy designed for single services and applications, as well as a communication bus and “universal data plane” designed for large microservice “service mesh” architectures.
+    </p>
+    <p>
+      Built on the learnings of solutions such as NGINX, HAProxy, hardware load balancers, and cloud load balancers, Envoy runs alongside every application and abstracts the network by providing common features in a platform-agnostic manner. When all service traffic in an infrastructure flows via an Envoy mesh, it becomes easy to visualize problem areas via consistent observability, tune overall performance, and add substrate features in a single place.
+    </p>
+  </div>
+</div>
+
+<div class="section flex-center">
+  <div class="section-heading">
+    <span>Used By</span>
   </div>
   {% include common/adopters-grid.html %}
 </div>
