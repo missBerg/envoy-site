@@ -887,3 +887,36 @@ a {
 .site-footer-credits {
   color: variables.$blockquote-text-color;
 }
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.capability-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+
+  .capability-icon {
+    font-size: 1.5rem;
+    color: #f3c;
+  }
+
+  p {
+    margin: 0;
+    color: #495057;
+  }
+}

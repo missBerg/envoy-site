@@ -27,26 +27,47 @@ project: envoy-proxy
     <span>Capabilities</span>
   </div>
   <div class="section-content dark-text">
-      <h3>Out of process architecture</h3>
-      <p>
-        Envoy is a self contained, high performance server with a small memory footprint. It runs alongside any application language or framework.
-      </p>
-      <h3 class="pink-font">HTTP/2 and gRPC support</h3>
-      <p>
-        Envoy has first class support for HTTP/2 and gRPC for both incoming and outgoing connections. It is a transparent HTTP/1.1 to HTTP/2 proxy.
-      </p>
-      <h3 class="pink-font">Advanced load balancing</h3>
-      <p>
-        Envoy supports advanced load balancing features including automatic retries, circuit breaking, global rate limiting, request shadowing, zone local load balancing, etc.
-      </p>
-      <h3 class="pink-font">APIs for configuration management</h3>
-      <p>
-        Envoy provides robust APIs for dynamically managing its configuration.
-      </p>
-      <h3 class="pink-font">Observability</h3>
-      <p>
-        Deep observability of L7 traffic, native support for distributed tracing, and wire-level observability of MongoDB, DynamoDB, and more.
-      </p>
+    <div class="capabilities-grid">
+      <div class="capability-card">
+        <h3>
+          <span class="capability-icon material-symbols-outlined">architecture</span>
+          Out of process architecture
+        </h3>
+        <p>Envoy is a self contained, high performance server with a small memory footprint. It runs alongside any application language or framework.</p>
+      </div>
+
+      <div class="capability-card">
+        <h3>
+          <span class="capability-icon material-symbols-outlined">http</span>
+          HTTP/2 and gRPC support
+        </h3>
+        <p>Envoy has first class support for HTTP/2 and gRPC for both incoming and outgoing connections. It is a transparent HTTP/1.1 to HTTP/2 proxy.</p>
+      </div>
+
+      <div class="capability-card">
+        <h3>
+          <span class="capability-icon material-symbols-outlined">alt_route</span>
+          Advanced load balancing
+        </h3>
+        <p>Envoy supports advanced load balancing features including automatic retries, circuit breaking, global rate limiting, request shadowing, zone local load balancing, etc.</p>
+      </div>
+
+      <div class="capability-card">
+        <h3>
+          <span class="capability-icon material-symbols-outlined">tune</span>
+          APIs for configuration
+        </h3>
+        <p>Envoy provides robust APIs for dynamically managing its configuration.</p>
+      </div>
+
+      <div class="capability-card">
+        <h3>
+          <span class="capability-icon material-symbols-outlined">monitoring</span>
+          Observability
+        </h3>
+        <p>Deep observability of L7 traffic, native support for distributed tracing, and wire-level observability of MongoDB, DynamoDB, and more.</p>
+      </div>
+    </div>
   </div>
 </div>
 
