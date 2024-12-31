@@ -2,5 +2,6 @@
 name: "VSCO"
 logo: "vsco.svg"
 url: "https://vsco.com"
-envoy-proxy: true
+projects:
+    - envoy-proxy
 ---

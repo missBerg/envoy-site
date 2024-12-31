@@ -1,0 +1,19 @@
+{% assign adopters = site.adopters %}
+<div class="section-content">
+    <div class="adopters-grid">
+      {% for adopter in site.adopters %}
+        {% if adopter.projects contains page.project %}
+          <div class="adopter-card">
+            <div class="adopter-name">
+                <span>{{ adopter.name }}</span>
+            </div>
+            <div class="adopter-logo">
+                <a href="{{ adopter.url }}" target="_blank">
+                    <img src="/logos/adopters/{{ adopter.logo }}" alt="{{ adopter.name }}">
+                  </a>
+            </div>
+          </div>
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>

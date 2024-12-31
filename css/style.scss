@@ -340,13 +340,13 @@ a {
 .adopter-card {
   border: 1px solid #ddd;
   text-align: center;
-  width: 15rem;
+  width: 10rem;
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .adopter-logo {
   padding: 2rem 2rem;
-    height: 12rem;
+    height: 8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -359,7 +359,7 @@ a {
 .adopter-name {
   border-bottom: 1px solid #ccc;
   color: variables.$body-text-color;
-  font-size: 1rem;
+  font-size: 0.8rem;
   padding: 0.5rem 0rem;
 }
 

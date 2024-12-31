@@ -3,23 +3,12 @@ layout: project
 title: Envoy Gateway
 banner: common/project-banner.html
 github: gateway
+project: envoy-gateway
 ---
 
-<h2>User Community</h2>
-
-<div class="adopters-grid">
-  {% for adopter in site.adopters %}
-    {% if adopter.envoy-gateway %}
-      <div class="adopter-card">
-        <div class="adopter-name">
-            <span>{{ adopter.name }}</span>
-        </div>
-        <div class="adopter-logo">
-            <a href="{{ adopter.url }}" target="_blank">
-                <img src="/logos/adopters/{{ adopter.logo }}" alt="{{ adopter.name }}">
-              </a>
-        </div>
-      </div>
-      {% endif %}
-  {% endfor %}
+<div class="section flex-center">
+  <div class="section-heading">
+    <span>Gateway User Community</span>
+  </div>
+  {% include common/adopters-grid.html %}
 </div>
