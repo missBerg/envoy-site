@@ -4,7 +4,7 @@ jekyll_start (){
     # bundle exec jekyll build --trace
     info "Starting Jekyll Server..." "jekyll_start"
     
-    bundle exec jekyll serve --host 0.0.0.0 --port 4000 2>&1 | while IFS= read -r line; do
+    bundle exec jekyll serve --host 0.0.0.0 --port 4000 -s /home/builder/app -d /home/builder/output 2>&1 | while IFS= read -r line; do
         info "$line" "jekyll_start - jekyll serve"
     done
 }

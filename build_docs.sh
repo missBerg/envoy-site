@@ -26,12 +26,14 @@ source ./scripts/functions/get_proxy_docs_archive.sh
 # Output Environment Information
 log_function_start "${BLUE}" "main"
 
+# rsync -av --no-perms --no-owner --no-group --delete --exclude='docs' --exclude='_site' --exclude='.git' /home/builder/envoy-site/ /home/builder/app/
+
 info "Change directory to /home/builder/app" "main"
 cd /home/builder/app
 
 export PATH="$HOME/tools:$PATH"
 echo $PATH
-ls -lrt
+ls -lart
 
 # Setup Ruby
 ruby_setup
@@ -40,13 +42,15 @@ ruby_setup
 gem_install
 
 # Build Envoy Proxy Docs
-    if [ "$BUILD_DOCS" = "true" ]; then
-        build_proxy_docs_latest &
-        get_proxy_docs_archive &
-    else
-        info "Skipping Envoy Proxy Docs build." "main"
-    fi
+if [ "$BUILD_DOCS" = "true" ]; then
+    build_proxy_docs_latest &
+    get_proxy_docs_archive &
+else
+    info "Skipping Envoy Proxy Docs build." "main"
+fi
 
+# Sync site content from directory to jekyll source directory
+# sync_site &
 
 # Start Jekyll Server
 jekyll_start

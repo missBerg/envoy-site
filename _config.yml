@@ -26,10 +26,12 @@ description: >-
 # github_username:  envoyproxy
 baseurl: ""
 
+# incremental: true
+
 # Build settings
 # theme: minima
-plugins:
-  - jekyll-feed
+# plugins:
+#   - jekyll-feed
 
 include:
   - _redirects
@@ -88,3 +90,9 @@ exclude:
   - README.md
   - Dockerfile
   - docker-compose.yml
+  - envoy/docs
+  - .DS_Store
+  - .git
+  - .gitignore
+  - .dockerignore
+  - scripts/
