@@ -106,6 +106,7 @@ body {
     justify-content: center;
     padding: 2rem 0rem;
     color: variables.$section-headings-color;
+    text-align: center;
   
     @include large {
       font-size: 3rem;
@@ -645,8 +646,14 @@ a {
   padding: 0rem 0rem 3rem 0rem;
 }
 
+.section-purple {
+  background-image: linear-gradient(0deg, #fff, variables.$light-purple, #fff);
+  background-color: variables.$light-purple;
+}
+
 .section-pink {
-  background-color: variables.$header-project-bg-color;
+  background-image: linear-gradient(0deg, #fff, variables.$header-pink);
+  background-color: variables.$header-pink;
 }
 
 .wrapper{
