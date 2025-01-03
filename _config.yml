@@ -77,6 +77,8 @@ collections:
     sort_by: order
   training:
     output: false
+  community:
+    output: false
 
 sass:
   sass_dir: _sass

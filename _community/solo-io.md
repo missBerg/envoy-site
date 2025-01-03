@@ -1,0 +1,7 @@
+---
+name: "Solo.io"
+logo: "logos/solo.svg"
+learn_more: "http://www.solo.io"
+type: commercial
+---
+Solo.io develops tools to help the enterprise adopt innovative cloud technologies and maximize their benefits.

@@ -1,0 +1,7 @@
+---
+name: "Grey Matter"
+logo: "logos/grey-matter.svg"
+learn_more: "https://www.greymatter.io/"
+type: commercial
+---
+Grey Matter is a cloud-native, cloud agnostic intelligent service mesh pathway for enterprise transformation and cost control.
