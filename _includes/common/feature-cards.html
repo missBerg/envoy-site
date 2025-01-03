@@ -9,15 +9,15 @@
         <article class="information card">
             <div>
                 <img src="{{ member.logo }}" alt="{{ member.name }}"/>
-            </div>
-            <div>
                 {% if member.type %}
-                  <span class="tag {{ member.type }}">{{ member.type | upcase }}</span>
+                <span class="tag {{ member.type }}">{{ member.type | upcase }}</span>
                 {% endif %}
                 <h2 class="title">{{ member.name }}</h2>
                 <span class="info">
                     {{ member.content }}
                 </span>
+            </div>
+            <div>
                 {% if member.learn_more %}
                   <a class="button" href="{{ member.learn_more }}" target="_blank">
                     {% if member.cta %}

@@ -99,6 +99,10 @@ body {
   flex-direction: column;
   align-items: center;
 
+  .text {
+    padding: 0rem 0rem 2rem 0rem;
+  }
+
   .section-heading {
     font-size: 3rem;
     font-weight: 800;
@@ -122,7 +126,7 @@ body {
   }
 
   .section-content {
-    max-width: 70vw;
+    max-width: 80vw;
     text-align: left;
   }
 
@@ -169,6 +173,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2rem 0rem 4rem 0rem;
     gap: 3rem;
   }
 
@@ -176,6 +181,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1rem 0rem 3rem 0rem;
     gap: 3rem;
   }
 }
@@ -196,7 +202,6 @@ a {
 
 .project-info {
   max-width: 50rem;
-  // padding: 0rem 5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -376,6 +381,17 @@ a {
       }
     }
   }
+  @include medium {
+    .main-nav {
+      background-color: variables.$header-project-bg-color;
+    }
+    
+  }
+  @include small {
+    .main-nav {
+      background-color: variables.$header-project-bg-color;
+    }
+  }
 
 }
 
@@ -452,7 +468,7 @@ a {
     .main-nav {
       display: none; /* Hide the navigation links */
       width: 100%;
-      background-color: variables.$header-project-bg-color;
+      background-color: variables.$header-bg-color;
       z-index: -1;
       position: fixed;
       top: 0;
@@ -483,7 +499,7 @@ a {
     .main-nav {
       display: none; /* Hide the navigation links */
       width: 100%;
-      background-color: variables.$header-project-bg-color;
+      background-color: variables.$header-bg-color;
       z-index: -1;
       position: fixed;
       top: 0;

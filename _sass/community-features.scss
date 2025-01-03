@@ -7,37 +7,42 @@
         align-items: flex-start;
         justify-content: center;
         gap: 2.5rem;
-        width: 90%;
       }
       
       .card {
         border-radius: 16px;
         box-shadow: 0 30px 30px -25px rgba(65, 51, 183, 0.25);
-        max-width: 400px;
+        max-width: 300px;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
-        justify-content: space-around;
+        justify-content: space-between;
+        height: 40rem;
       }
       
       .card img {
-        height: 200px;
+        height: 17vh;
         object-fit: contain;
         padding: 1rem 2rem;
+        margin: auto;
+        align-self: center;
+        display: block;
       }
       
       .information {
         background-color: #fff;
         padding: 1.5rem;
       }
+
       .information .tag {
-        display: inline-block;
+        display: block;
         font-weight: 600;
         font-size: 0.875rem;
         padding: 0.5em 0.75em;
         line-height: 1;
         border-radius: 6px;
+        width: fit-content;
       }
       
       .information .cncf{
@@ -63,8 +68,8 @@
       
       .information .info {
         color: #a0a0a0;
-        min-height: 17rem;
         display: block;
+        font-size: 1rem
       }
       
       .information .button {
