@@ -82,7 +82,9 @@ for version, patches in sorted(grouped_releases.items(), key=lambda x: [int(part
 yaml_data = {"versions": []}
 for version, releases in sorted(grouped_releases.items(), key=lambda x: [int(part) for part in x[0].split(".")], reverse=True):
     yaml_data["versions"].append({
-        "version": version,
+        "version": "v" + version,
+        "has_stable": any(release in stable_versions for release in releases),
+        "is_development": False,
         "releases": [
             {
                 "release": release, 
@@ -93,6 +95,19 @@ for version, releases in sorted(grouped_releases.items(), key=lambda x: [int(par
             for release in sorted(releases, key=version_key, reverse=True)
         ]
     })
+
+yaml_data["versions"].append({
+    "version": "Development Version",
+    "has_stable": False,
+    "is_development": True,
+    "releases": [
+        {
+            "release": "latest", 
+            "stable": False,
+            "url": "https://github.com/envoyproxy/envoy/"
+        }
+    ]
+})
 
 # Save to a YAML file
 output_file = f"{args.project}_all_releases.yml"
