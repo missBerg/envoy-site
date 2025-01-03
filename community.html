@@ -28,8 +28,20 @@ title: Envoy Community
   </div>
 </div>
 
-{% include common/community-card.html title="CNCF Projects" type="cncf" id="cncf-projects" %}
+<!-- CNCF Projects -->
+{% assign cncf = site.community | where: "type", "cncf" %}
+{% include common/feature-cards.html title="CNCF Projects" group=cncf type="cncf" id="cncf-projects" %}
 
-{% include common/community-card.html title="Open Source Projects" type="oss" id="open-source-projects" %}
+<!-- Open Source Projects -->
+{% assign oss = site.community | where: "type", "oss" %}
+{% include common/feature-cards.html title="Open Source Projects" group=oss type="oss" id="open-source-projects" %}
 
-{% include common/community-card.html title="Commercial Offerings" type="commercial" id="commercial-offerings" %}
+<!-- Commercial Products & Services -->
+{% assign commercial = site.community | where: "type", "commercial" %}
+{% include common/feature-cards.html title="Commercial Offerings" group=commercial type="commercial" id="commercial-offerings" %}
+
+<style>
+  body {
+   background-color: #eaeef6;
+  }
+</style>

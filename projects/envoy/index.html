@@ -88,6 +88,9 @@ project: envoy-proxy
   </div>
 </div>
 
+{% assign training = site.training | where: "project", "proxy" %}
+{% include common/feature-cards.html title="Envoy Proxy Training" group=training id="training" %}
+
 <div class="section flex-center">
   <div class="section-heading">
     <span>Used By</span>

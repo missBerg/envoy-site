@@ -1,0 +1,93 @@
+
+.community-features {
+    
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.5rem;
+        width: 90%;
+        max-width: 1000px;
+        margin: 10vh auto;
+      }
+      
+      .card {
+        border-radius: 16px;
+        box-shadow: 0 30px 30px -25px rgba(65, 51, 183, 0.25);
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        justify-content: space-around;
+      }
+      
+      .card img {
+        height: 200px;
+        object-fit: contain;
+        padding: 1rem 2rem;
+      }
+      
+      .information {
+        background-color: #fff;
+        padding: 1.5rem;
+      }
+      .information .tag {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 0.875rem;
+        padding: 0.5em 0.75em;
+        line-height: 1;
+        border-radius: 6px;
+      }
+      
+      .information .cncf{
+        background-color: #f1eeff;
+        color: #6558d3;
+      }
+      
+      .information .oss{
+        background-color: #ffd7f2;
+        color: #DC3AA7;
+      }
+      
+      .information .commercial{
+        background-color: #bdeeee;
+        color: #1aa0a0;
+      }
+      
+      .information .title {
+        font-size: 1.5rem;
+        line-height: 1.25;
+        margin-top: 0.5rem;
+      }
+      
+      .information .info {
+        color: #a0a0a0;
+        min-height: 17rem;
+        display: block;
+      }
+      
+      .information .button {
+        font: inherit;
+        line-height: 1;
+        background-color:#fff;
+        border: 2px solid #6558d3;
+        color: #6558d3;
+        padding: 0.5em 1em;
+        border-radius: 6px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+      .information .button:hover, .information .button:focus {
+        background-color: #6558d3;
+        color:#fff;
+        text-decoration: none;
+      }
+
+}

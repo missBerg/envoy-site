@@ -1,4 +1,4 @@
-<div class="section section flex-center">
+<div class="section section flex-center release-grid">
     <div class="section-heading">
         <span>{{ include.title }}</span>
     </div>
@@ -13,9 +13,9 @@
               <div class="latest-release">
                 <span class="heading">
                   <strong>{{ version_group.version }}</strong> 
-                  <span class="release-number">{{ release.release }}</span>
+                  <span class="pill release-number">{{ release.release }}</span>
                   {% if release.stable %}
-                    <span class="pill">Stable</span>
+                    <span class="pill stable">Stable</span>
                   {% endif %}
                 </span> 
                 <div class="release-item">
@@ -81,3 +81,5 @@
     </div>
   </div>
   </div>
+
+ 
