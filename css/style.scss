@@ -862,9 +862,10 @@ a {
 }
 .site-footer {
   padding: 1rem;
-  background-color: #e3e3e3;
+  background-color: variables.$footer-bg-color;
   display: flex;
   justify-content: center;
+  color: #ddd;
 
   @include large {
     font-size: 1rem;

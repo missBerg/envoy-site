@@ -32,7 +32,7 @@ info "Change directory to /home/builder/app" "main"
 cd /home/builder/app
 
 export PATH="$HOME/tools:$PATH"
-echo $PATH
+echo "Path: $PATH"
 ls -lart
 
 # Setup Ruby

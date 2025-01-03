@@ -28,44 +28,8 @@ baseurl: ""
 
 # incremental: true
 
-# Build settings
-# theme: minima
-# plugins:
-#   - jekyll-feed
-
-include:
-  - _redirects
-  - _downloads
-  - _images
-  - _include
-  - _sources
-  - _static
-
-keep_files:
-  - docs/envoy/latest
-  - envoy/docs
-  - envoy/docs/_downloads
-  - envoy/docs/_images
-  - envoy/docs/_include
-  - envoy/docs/_sources
-  - envoy/docs/_static
-
-
-collections:
-  adopters:
-    output: true
-    permalink: /adopters/:name/
-  projects:
-    output: true
-    permalink: /projects/data/:name/
-    sort_by: order
-  training:
-    output: true
-    permalink: /training/:name/
-
-sass:
-  sass_dir: _sass
-
+limit_posts: 0
+verbose: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -76,10 +40,11 @@ sass:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - .*
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
-  - Gemfile
+  - Gemfile*
   - Gemfile.lock
   - node_modules/
   - vendor/bundle/
@@ -91,8 +56,27 @@ exclude:
   - Dockerfile
   - docker-compose.yml
   - envoy/docs
+  - docs/envoy
   - .DS_Store
   - .git
   - .gitignore
   - .dockerignore
   - scripts/
+  - build/
+
+
+include:
+  - _redirects
+
+
+collections:
+  adopters:
+    output: false
+  projects:
+    output: false
+    sort_by: order
+  training:
+    output: false
+
+sass:
+  sass_dir: _sass

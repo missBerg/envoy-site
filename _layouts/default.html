@@ -18,6 +18,12 @@
 
     {% if page.banner %}
       {% include {{ page.banner}} %}
+    {% else %}
+      <style>
+        .wrapper {
+          padding-top: 3rem;
+        }
+      </style>
     {% endif %}
 
     <div class="wrapper">

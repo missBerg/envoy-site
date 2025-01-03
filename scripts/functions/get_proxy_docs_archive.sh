@@ -17,30 +17,21 @@ get_proxy_docs_archive() {
     CURRENT_COMMIT=$(git -C "${ENVOY_SOURCE_DIR}" rev-parse HEAD)
     DOCS_CHANGED=$(check_docs_changed "${ENVOY_SOURCE_DIR}" "${METADATA_FILE}" "${CURRENT_COMMIT}" "docs/envoy/")
 
-    if [ "$DOCS_CHANGED" = true ]; then
-        # Copy docs into target location
-        info "There have been changes to the archive since last deployment" "get_proxy_docs_archive"
-        # cd /home/builder/app/
-        # mkdir -p "${ENVOY_DOCS_LOCATION}"
-        # rsync -av --delete "${DOCS_OUTPUT}/" "${ENVOY_DOCS_LOCATION}/"
-    fi
-
-    # # Create a symlink to the latest docs /home/builder/envoy/docs/generated/docs
-    # info "Creating a symlink to the latest docs" "get_proxy_docs_archive"
-    # if [ -L "${ENVOY_DOCS_LOCATION}/latest" ]; then
-    #     rm "${ENVOY_DOCS_LOCATION}/latest"
-    # fi
-    # ln -s "/home/builder/envoy/docs/generated/docs" "${DOCS_OUTPUT}/latest"
-
-    # info "Syncing archive docs to Jekyll site directory" "get_proxy_docs_archive"
-    rsync -ah --info=progress2 --delete \
-     --exclude="latest" \
-    "${DOCS_OUTPUT}/" "${ENVOY_DOCS_LOCATION}/"
-
-    # create symlink from ${ENVOY_DOCS_LOCATION}/ to ${DOCS_OUTPUT}/
-    # ln -s "${DOCS_OUTPUT}/" "${ENVOY_DOCS_LOCATION}/"
+    info "Docs changed: ${DOCS_CHANGED}" "get_proxy_docs_archive"
 
     # Capture the git commit ID
     info "Capturing the git commit ID" "get_proxy_docs_archive"
     echo "${CURRENT_COMMIT}" > "${METADATA_FILE}"
+
+    for dir in $ENVOY_SOURCE_DIR/docs/envoy/*/; do
+        symlink_path=$ENVOY_DOCS_LOCATION/"$(basename "$dir")"
+
+        if [ ! -e "$symlink_path" ]; then
+            ln -s "$dir" "$symlink_path"
+            info "Creating symlink: ln -s $dir $ENVOY_DOCS_LOCATION/$(basename $dir)" "get_proxy_docs_archive" 
+        else
+            info "Symlink or file already exists: $symlink_path" "get_proxy_docs_archive" 
+        fi
+    done
+
 }

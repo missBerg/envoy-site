@@ -3,18 +3,76 @@ layout: default
 title: Envoy Community
 ---
 <div class="section">
-    <article class="information">
-        <span class="tag">CNCF</span>
-        <h2 class="title">Envoy Community</h2>
-        <p class="info">Elemenatary tracks all the events for the day as you scheduled and you will never have to worry.</p>
-        <button class="button">
-            <span>Learn more</span>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="none">
-                <path d="M0 0h24v24H0V0z" fill="none" />
-                <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" fill="currentColor" />
-            </svg>
-        </button>
-    </article>
+    <div class="section-content cards">
+        <article class="information card">
+            <div>
+                <img src="https://landscape.cncf.io/logos/11e886c3866c61ad5b90421f878ce2ea25c98c3951084d935c5f079074330daf.svg" alt="Contour logo"/>
+            </div>
+            <div>
+                <span class="tag cncf">CNCF</span>
+                <h2 class="title">Contour</h2>
+                <p class="info">Contour is an Ingress controller for Kubernetes that works by deploying the Envoy proxy as a reverse proxy and load balancer. Unlike other Ingress controllers, Contour supports dynamic configuration updates out of the box while maintaining a lightweight profile.</p>
+                <button class="button">
+                    <span>Learn more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="none">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </article>
+        <article class="information card">
+            <div>
+                <img src="https://landscape.cncf.io/logos/11e886c3866c61ad5b90421f878ce2ea25c98c3951084d935c5f079074330daf.svg" alt="Contour logo"/>
+            </div>
+            <div>
+                <span class="tag cncf">CNCF</span>
+                <h2 class="title">Contour</h2>
+                <p class="info">Contour is an Ingress controller for Kubernetes that works by deploying the Envoy proxy as a reverse proxy and load balancer. Unlike other Ingress controllers, Contour supports dynamic configuration updates out of the box while maintaining a lightweight profile.</p>
+                <button class="button">
+                    <span>Learn more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="none">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </article>
+        <article class="information card">
+            <div>
+                <img src="https://landscape.cncf.io/logos/11e886c3866c61ad5b90421f878ce2ea25c98c3951084d935c5f079074330daf.svg" alt="Contour logo"/>
+            </div>
+            <div>
+                <span class="tag cncf">CNCF</span> <span class="tag cncf">Support</span>
+                <h2 class="title">Contour</h2>
+                <p class="info">Contour is an Ingress controller for Kubernetes that works by deploying the Envoy proxy as a reverse proxy and load balancer. Unlike other Ingress controllers, Contour supports dynamic configuration updates out of the box while maintaining a lightweight profile.</p>
+                <button class="button">
+                    <span>Learn more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="none">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </article>
+        <article class="information card">
+            <div>
+                <img src="https://landscape.cncf.io/logos/11e886c3866c61ad5b90421f878ce2ea25c98c3951084d935c5f079074330daf.svg" alt="Contour logo"/>
+            </div>
+            <div>
+                <span class="tag cncf">CNCF</span>
+                <h2 class="title">Contour</h2>
+                <p class="info">Contour is an Ingress controller for Kubernetes that works by deploying the Envoy proxy as a reverse proxy and load balancer. Unlike other Ingress controllers, Contour supports dynamic configuration updates out of the box while maintaining a lightweight profile.</p>
+                <button class="button">
+                    <span>Learn more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="none">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </article>
+    </div>
 </div>
 
 <style>
@@ -44,10 +102,7 @@ title: Envoy Community
 }
 
 body {
-  font-family: "Spline Sans", sans-serif;
-  line-height: 1.5;
-  min-height: 100vh;
-  background-color: var(--c-ash);
+    background-color: var(--c-ash);
 }
 
 .cards {
@@ -65,7 +120,18 @@ body {
 .card {
   border-radius: 16px;
   box-shadow: 0 30px 30px -25px rgba(65, 51, 183, 0.25);
-  max-width: 300px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: space-around;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 }
 
 .information {
@@ -74,21 +140,22 @@ body {
 }
 .information .tag {
   display: inline-block;
-  background-color: var(--c-titan-white);
-  color: var(--c-indigo);
   font-weight: 600;
   font-size: 0.875rem;
   padding: 0.5em 0.75em;
   line-height: 1;
   border-radius: 6px;
 }
-.information .tag + * {
-  margin-top: 1rem;
+
+.information .cncf{
+  background-color: var(--c-titan-white);
+  color: var(--c-indigo);
 }
+
 .information .title {
   font-size: 1.5rem;
-  color: var(--c-void);
   line-height: 1.25;
+  margin-top: 0.5rem;
 }
 .information .title + * {
   margin-top: 1rem;
@@ -96,9 +163,7 @@ body {
 .information .info {
   color: var(--c-charcoal);
 }
-.information .info + * {
-  margin-top: 1.25rem;
-}
+
 .information .button {
   font: inherit;
   line-height: 1;
@@ -139,95 +204,4 @@ body {
   font-weight: 600;
   font-size: 1.25rem;
 }
-
-.plan {
-  padding: 10px;
-  background-color: var(--c-white);
-  color: var(--c-del-rio);
-}
-.plan strong {
-  font-weight: 600;
-  color: var(--c-coffee);
-}
-.plan .inner {
-  padding: 20px;
-  padding-top: 40px;
-  background-color: var(--c-fair-pink);
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-}
-.plan .pricing {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: var(--c-apricot);
-  border-radius: 99em 0 0 99em;
-  display: flex;
-  align-items: center;
-  padding: 0.625em 0.75em;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--c-coffee);
-}
-.plan .pricing small {
-  color: var(--c-del-rio);
-  font-size: 0.75em;
-  margin-left: 0.25em;
-}
-.plan .title {
-  font-weight: 600;
-  font-size: 1.25rem;
-  color: var(--c-coffee);
-}
-.plan .title + * {
-  margin-top: 0.75rem;
-}
-.plan .info + * {
-  margin-top: 1rem;
-}
-.plan .features {
-  display: flex;
-  flex-direction: column;
-}
-.plan .features li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.plan .features li + * {
-  margin-top: 0.75rem;
-}
-.plan .features .icon {
-  background-color: var(--c-java);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--c-white);
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-}
-.plan .features .icon svg {
-  width: 14px;
-  height: 14px;
-}
-.plan .features + * {
-  margin-top: 1.25rem;
-}
-.plan button {
-  font: inherit;
-  background-color: var(--c-indigo);
-  border-radius: 6px;
-  color: var(--c-white);
-  font-weight: 500;
-  font-size: 1.125rem;
-  width: 100%;
-  border: 0;
-  padding: 1em;
-}
-.plan button:hover, .plan button:focus {
-  background-color: var(--c-governor);
-}
-
 </style>
