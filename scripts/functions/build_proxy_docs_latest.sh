@@ -1,8 +1,11 @@
+source ./scripts/functions/git_docs.sh
+source ./scripts/functions/logging.sh
+
 build_proxy_docs_latest () {
 
         log_function_start "${BLUE}" "build_proxy_docs_latest"
 
-        cd ../envoy
+        cd /home/builder/envoy
 
         ENVOY_SOURCE_DIR="/home/builder/envoy"
         DOCS_OUTPUT="/home/builder/envoy/docs/generated/docs"

@@ -9,6 +9,7 @@ from datetime import datetime
 parser = argparse.ArgumentParser(description='Generate releases YAML file for a GitHub project')
 parser.add_argument('project', help='GitHub project name (e.g., envoy)')
 parser.add_argument('--org', default='envoyproxy', help='GitHub organization name (default: envoyproxy)')
+parser.add_argument('--output', default='.', help='Output directory for the YAML file (default: current directory)')
 args = parser.parse_args()
 
 # GitHub API endpoint and headers
@@ -110,7 +111,7 @@ yaml_data["versions"].append({
 })
 
 # Save to a YAML file
-output_file = f"{args.project}_all_releases.yml"
+output_file = f"{args.output}/{args.project}_all_releases.yml"
 with open(output_file, "w") as file:
     yaml.dump(yaml_data, file, sort_keys=False)
 

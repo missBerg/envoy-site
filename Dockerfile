@@ -1,5 +1,11 @@
+# # Stage 1: Prepare Envoy repository
+# FROM ubuntu:24.04 AS envoy_builder
+
+# WORKDIR /envoy-source
+# COPY /../envoy /home/builder/app/envoy-source
+
 # Use a base image with Ubuntu
-FROM --platform=linux/amd64 ubuntu:24.04
+FROM ubuntu:24.04
 
 # Set environment variables
 ENV BAZEL_VERSION=6.5.0
@@ -51,6 +57,9 @@ RUN mkdir -p $BUILDER_HOME/tools && chown builder:builder $BUILDER_HOME/tools
 # Set bundle config to use a local cache
 RUN bundle config set cache_path /home/builder/tools/.bundle/cache
 
+# Switch to the project directory
+WORKDIR /home/builder/envoy-site/
+
 # Change user to Builder
 USER builder
 
@@ -58,3 +67,9 @@ USER builder
 RUN curl -L -o $BUILDER_HOME/tools/bazelisk https://github.com/bazelbuild/bazelisk/releases/download/v1.17.0/bazelisk-linux-amd64 \
     && chmod +x $BUILDER_HOME/tools/bazelisk \
     && ln -s $BUILDER_HOME/tools/bazelisk $BUILDER_HOME/tools/bazel
+
+# Make the build script executable
+# RUN chmod +x build_docs.sh
+
+# Run the build script
+CMD ["/home/builder/envoy-site/build_docs.sh"]

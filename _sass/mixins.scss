@@ -1,0 +1,19 @@
+@use "variables";
+
+@mixin large {
+  @media screen and (min-width: #{variables.$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media screen and (min-width: #{variables.$medium-breakpoint}) and (max-width: #{variables.$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (max-width: #{variables.$medium-breakpoint}) {
+    @content;
+  }
+}

@@ -1,9 +1,8 @@
 source ./scripts/functions/git_docs.sh
+source ./scripts/functions/logging.sh
 
 get_proxy_docs_archive() {
     log_function_start "${BLUE}" "get_proxy_docs_archive"
-
-    # cd ../envoy
 
     local ENVOY_SOURCE_DIR="/home/builder/envoy-archive"
     local DOCS_OUTPUT="/home/builder/envoy-archive/docs/envoy"
@@ -32,6 +31,7 @@ get_proxy_docs_archive() {
         else
             info "Symlink or file already exists: $symlink_path" "get_proxy_docs_archive" 
         fi
+        
     done
 
 }
