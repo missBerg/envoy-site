@@ -4,30 +4,15 @@
 
 @use "sass:color";
 @use "../_sass/normalize";
-@use "../_sass/release_grid";
+@use "../_sass/_release_grid";
 @use "../_sass/rouge-github";
 @use "../_sass/community-features";
 @use "../_sass/variables";
+@use "../_sass/mixins";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700,800');
 
-@mixin large {
-  @media screen and (min-width: #{variables.$large-breakpoint}) {
-    @content;
-  }
-}
-
-@mixin medium {
-  @media screen and (min-width: #{variables.$medium-breakpoint}) and (max-width: #{variables.$large-breakpoint}) {
-    @content;
-  }
-}
-
-@mixin small {
-  @media screen and (max-width: #{variables.$medium-breakpoint}) {
-    @content;
-  }
-}
+// testing
 
 .pill {
   display: inline-block;

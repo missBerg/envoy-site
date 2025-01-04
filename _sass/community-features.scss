@@ -1,3 +1,4 @@
+@use "variables";
 
 .community-features {
     
@@ -18,7 +19,11 @@
         align-items: center;
         gap: 1.5rem;
         justify-content: space-between;
-        height: 40rem;
+        height: 45rem;
+
+        // @include small {
+        //   font-size: 2.5rem;
+        // }
       }
       
       .card img {
@@ -31,7 +36,7 @@
       }
       
       .information {
-        background-color: #fff;
+        background-color: variables.$light-purple;
         padding: 1.5rem;
       }
 

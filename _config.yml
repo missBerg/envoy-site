@@ -67,6 +67,8 @@ exclude:
 
 include:
   - _redirects
+  - _mixin.scss
+  - _release_grid.scss
 
 
 collections:
