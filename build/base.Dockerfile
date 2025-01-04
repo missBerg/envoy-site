@@ -1,5 +1,5 @@
 # Use a base image with Ubuntu
-FROM --platform=linux/amd64 ubuntu:24.04
+FROM ubuntu:24.04
 
 # Set environment variables
 ENV BAZEL_VERSION=6.5.0

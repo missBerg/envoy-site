@@ -16,6 +16,8 @@ jobs:
           file: ./build/base.Dockerfile
           tags: envoy-site-base:latest
           outputs: type=docker,dest=/tmp/envoy-site-base.tar
+          platform: linux/amd64
+          context: ..
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -41,15 +43,20 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Check images
+        run: |
+          docker image ls -a
+
       - name: Build and export
         uses: docker/build-push-action@v6
         with:
           file: ./build/build-github.Dockerfile
           tags: envoy-site-build:latest
+          platform: linux/amd64
+          context: ..
           outputs: type=docker,dest=/tmp/envoy-site-build.tar
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: envoy-site-build
-          path: /tmp/envoy-site-build.tar
+      
+      - name: Load image
+        run: |
+          docker load --input /tmp/envoy-site-build.tar
+          docker image ls -a

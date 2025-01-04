@@ -8,3 +8,4 @@ Gemfile.lock
 .bundle/
 /envoy
 /docs/envoy
+/build/docker
