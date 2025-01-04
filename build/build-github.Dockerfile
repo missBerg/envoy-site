@@ -1,4 +1,4 @@
-FROM envoy-site-base:latest
+FROM --platform=linux/amd64 envoy-site-base:latest
 
 COPY --chown=builder:builder . /home/builder/app
 
