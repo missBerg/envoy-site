@@ -16,7 +16,7 @@ jobs:
           file: ./build/base.Dockerfile
           tags: envoy-site-base:latest
           outputs: type=docker,dest=/tmp/envoy-site-base.tar
-          platform: linux/amd64
+          platforms: linux/amd64
           context: ..
 
       - name: Upload artifact
@@ -52,7 +52,7 @@ jobs:
         with:
           file: ./build/build-github.Dockerfile
           tags: envoy-site-build:latest
-          platform: linux/amd64
+          platforms: linux/amd64
           context: ..
           outputs: type=docker,dest=/tmp/envoy-site-build.tar
       
