@@ -13,7 +13,7 @@ jobs:
       - name: Build and export
         uses: docker/build-push-action@v6
         with:
-          file: ./build/build.Dockerfile
+          file: ./build/base.Dockerfile
           tags: envoy-site-base:latest
           outputs: type=docker,dest=/tmp/envoy-site-base.tar
 
@@ -37,3 +37,4 @@ jobs:
         run: |
           docker load --input /tmp/envoy-site-base.tar
           docker image ls -a
+  
