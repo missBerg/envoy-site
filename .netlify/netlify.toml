@@ -12,6 +12,8 @@ commandOrigin = "ui"
 command = "bundle exec jekyll build"
 
 [build.environment]
+  YARN_VERSION = "1.22.10"
+  NODE_OPTIONS="--max-old-space-size=8192"
 
 [build.processing]
 
