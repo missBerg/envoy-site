@@ -5,9 +5,11 @@ git config --global --add safe.directory /envoy
 
 ls -lart
 
-curl -o $BAZELISK_HOME https://github.com/bazelbuild/bazelisk/releases/download/v1.17.0/bazelisk-linux-amd64
-chmod +x $BAZELISK_HOME \
-ln -s .$BAZELISK_HOME /opt/build/cache/bazel
+curl https://github.com/bazelbuild/bazelisk/releases/download/v1.17.0/bazelisk-linux-amd64
+
+# chmod +x $BAZELISK_HOME
+
+# ln -s .$BAZELISK_HOME /opt/build/cache/bazel
 
 # echo $PWD
 
