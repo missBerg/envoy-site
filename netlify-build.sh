@@ -1,6 +1,6 @@
 bundle exec jekyll build
 
-git clone --depth=1 https://github.com/envoyproxy/envoy.git "envoy"
+git clone --depth=1 https://github.com/envoyproxy/envoy.git "envoy-source"
 git config --global --add safe.directory /envoy 
 
 ls -lart

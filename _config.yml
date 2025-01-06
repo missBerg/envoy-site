@@ -41,6 +41,7 @@ verbose: true
 #
 exclude:
   - .*
+  - *.sh
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
@@ -56,6 +57,7 @@ exclude:
   - Dockerfile
   - docker-compose.yml
   - envoy/docs
+  - envoy/
   - docs/envoy
   - .DS_Store
   - .git
