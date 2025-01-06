@@ -5,7 +5,7 @@ git config --global --add safe.directory /envoy
 
 ls -lart
 
-cd envoy/docs
+cd envoy-source/docs
 bazel run --//tools/tarball:target=//docs:html //tools/tarball:unpack "$PWD"/generated/docs/
 
 ls -lart
