@@ -41,7 +41,6 @@ verbose: true
 #
 exclude:
   - .*
-  - *.sh
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
@@ -65,6 +64,7 @@ exclude:
   - .dockerignore
   - scripts/
   - build/
+  - envoy-source/
 
 
 include:
