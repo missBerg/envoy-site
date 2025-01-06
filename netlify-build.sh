@@ -5,18 +5,10 @@ git config --global --add safe.directory /envoy
 
 ls -lart
 
-curl https://github.com/bazelbuild/bazelisk/releases/download/v1.17.0/bazelisk-linux-amd64
+cd envoy/docs
+bazel run --//tools/tarball:target=//docs:html //tools/tarball:unpack generated
 
-# chmod +x $BAZELISK_HOME
-
-# ln -s .$BAZELISK_HOME /opt/build/cache/bazel
-
-# echo $PWD
-
-# export PATH="$PWD/tools:$PATH"
-
-# cd envoy/docs
-# bazel run --//tools/tarball:target=//docs:html //tools/tarball:unpack /opt/build/cache/generated/docs
+ls -lart
 
 # cd ..
 
