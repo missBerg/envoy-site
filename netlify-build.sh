@@ -23,7 +23,7 @@ function build_docs {
     )
 
 
-    DOCS_OUTPUT_DIR=generated/docs
+    DOCS_OUTPUT_DIR=../_site/docs/envoy/latest
     rm -rf "${DOCS_OUTPUT_DIR}"
     mkdir -p "${DOCS_OUTPUT_DIR}"
     # SPHINX_ARGS="-j 12 -v warn"
