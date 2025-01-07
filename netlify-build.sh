@@ -86,7 +86,7 @@ latest_docs () {
         echo "No changes in the docs directory."
     fi
 
-    cp -rf generated/docs/ _site/docs/envoy/
+    cp -rf generated/docs/ ../_site/docs/envoy/
 
     cd ..
 
@@ -125,7 +125,7 @@ docs_archive () {
 
         DOCS_OUTPUT_DIR=../_site/docs/envoy/
 
-        cp -rf $dir $DOCS_OUTPUT_DIR/"$(basename "$dir")"
+        cp -rf "$dir"/ $DOCS_OUTPUT_DIR/"$(basename "$dir")"
         
     done
 
