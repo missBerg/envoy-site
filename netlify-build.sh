@@ -86,11 +86,11 @@ latest_docs () {
         echo "No changes in the docs directory."
     fi
 
+    cp -rf generated/docs/ _site/docs/envoy/
+
     cd ..
 
     # Copy the generated docs to the _site directory
-
-    cp -rf generated/docs/ _site/docs/envoy/
     
 }
 
@@ -103,16 +103,6 @@ docs_archive () {
         echo "Cloning archive repository..."
         git clone --depth=1 "$REPO_URL" "$CLONE_DIR"
         git config --global --add safe.directory "$(realpath "$CLONE_DIR")"
-    else
-        echo "Repository already cloned. Pulling archive changes..."
-        
-        cd "$CLONE_DIR"
-
-        # Check for changes in the docs directory
-        git fetch origin
-        DOCS_UPDATED=$(git diff --name-only origin/main | grep '^docs/envoy')
-
-        cd ..
     fi
 
     cd "$CLONE_DIR"
