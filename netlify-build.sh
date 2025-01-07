@@ -64,21 +64,68 @@ latest_docs () {
         # Check for changes in the docs directory
         git fetch origin
         DOCS_UPDATED=$(git diff --name-only origin/main | grep '^docs/')
-        
-        if [[ -n "$DOCS_UPDATED" ]]; then
-            echo "The following changes were detected in the Envoy docs directory:"
-            echo "$DOCS_UPDATED"
+    fi
 
-            echo "Building docs..."
-            build_docs
-        else
-            echo "No changes in the docs directory."
-        fi
+    cd "$(realpath "$CLONE_DIR")"
+    git pull origin main
+
+    if [[ -n "$DOCS_UPDATED" ]]; then
+        echo "The following changes were detected in the Envoy docs directory:"
+        echo "$DOCS_UPDATED"
+
+        echo "Building docs..."
+        build_docs
+    else
+        echo "No changes in the docs directory."
+    fi
+
+    cd ..
+}
+
+docs_archive () {
+    REPO_URL="https://github.com/envoyproxy/archive.git"
+    CLONE_DIR="envoy-archive"
+
+    # Clone the repository if it doesn't already exist
+    if [[ ! -d "$CLONE_DIR/.git" ]]; then
+        echo "Cloning archive repository..."
+        git clone --depth=1 "$REPO_URL" "$CLONE_DIR"
+        git config --global --add safe.directory "$(realpath "$CLONE_DIR")"
+    else
+        echo "Repository already cloned. Pulling archive changes..."
+        cd "$(realpath "$CLONE_DIR")"
+
+        # Check for changes in the docs directory
+        git fetch origin
+        DOCS_UPDATED=$(git diff --name-only origin/main | grep '^docs/envoy')
 
         # Pull the latest changes
-        git pull origin main
-        cd ..
     fi
+
+    cd "$(realpath "$CLONE_DIR")"
+    git pull origin main
+
+    if [[ -n "$DOCS_UPDATED" ]]; then
+        git pull origin main
+        echo "The following changes were detected in the Envoy docs directory:"
+        echo "$DOCS_UPDATED"
+
+        echo "Copying docs to _site..."
+
+        for dir in $CLONE_DIR/docs/envoy/*/; do
+
+            DOCS_OUTPUT_DIR=../_site/docs/envoy/
+            DOCS_OUTPUT_DIR="$(realpath "$DOCS_OUTPUT_DIR")"
+
+            cp -rf $dir $DOCS_OUTPUT_DIR/$dir
+            
+        done
+
+    else
+        echo "No new changes in the archive docs directory."
+    fi
+
+    cd ..
 }
 
 bundle exec jekyll build
