@@ -6,7 +6,7 @@ git config --global --add safe.directory /envoy
 ls -lart
 
 cd envoy-source/docs
-bazel build --jobs=1 //docs:html_release
+bazel build //docs:html_release
 
 ls -lart
 
