@@ -5,8 +5,11 @@ git config --global --add safe.directory /envoy
 
 ls -lart
 
-cd envoy-source/docs
-bazel build -j 12 --local_ram_resources=HOST_RAM*.8 //docs:html_release
+# cd envoy-source/docs
+# bazel build -j 12 --local_ram_resources=HOST_RAM*.8 //docs:html_release
+
+cd envoy-source
+./ci/do_ci.sh docs
 
 ls -lart
 
