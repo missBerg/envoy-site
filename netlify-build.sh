@@ -79,7 +79,7 @@ latest_docs () {
 
         echo "Building docs..."
         build_docs
-    elif [[ ! -d "generated/docs" || -z "$(ls -A generated/docs)" ]]; then
+    elif [[ ! -d "generated/docs" || ! "$(ls -A generated/docs 2>/dev/null)" ]]; then
         echo "Docs directory does not exist or is empty. Building docs..."
         build_docs
     else
