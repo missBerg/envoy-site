@@ -73,14 +73,17 @@ latest_docs () {
     cd "$CLONE_DIR"
     git pull origin main
 
-    if [[ -n "$DOCS_UPDATED" ]]; then
+    ls -lrt docs/
+
+    
+    if [[ ! -d "generated/docs/" || ! "$(ls -A generated/docs/ 2>/dev/null)" ]]; then
+        echo "Docs directory does not exist or is empty. Building docs..."
+        build_docs
+    elif [[ -n "$DOCS_UPDATED" ]]; then
         echo "The following changes were detected in the Envoy docs directory:"
         echo "$DOCS_UPDATED"
 
         echo "Building docs..."
-        build_docs
-    elif [[ ! -d "generated/docs" || ! "$(ls -A generated/docs 2>/dev/null)" ]]; then
-        echo "Docs directory does not exist or is empty. Building docs..."
         build_docs
     else
         echo "No changes in the docs directory."
