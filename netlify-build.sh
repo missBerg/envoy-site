@@ -22,7 +22,7 @@ build_docs () {
     "--output_base=${BUILD_DIR}/bazel_root/base"
     )
 
-    DOCS_OUTPUT_DIR=../_site/docs/envoy/latest
+    DOCS_OUTPUT_DIR="generated/docs"
     rm -rf "${DOCS_OUTPUT_DIR}"
     mkdir -p "${DOCS_OUTPUT_DIR}"
     export SPHINX_RUNNER_ARGS="-j 12"
@@ -70,7 +70,7 @@ latest_docs () {
         cd ..
     fi
 
-    cd "$(realpath "$CLONE_DIR")"
+    cd "$CLONE_DIR"
     git pull origin main
 
     if [[ -n "$DOCS_UPDATED" ]]; then
@@ -84,6 +84,11 @@ latest_docs () {
     fi
 
     cd ..
+
+    # Copy the generated docs to the _site directory
+
+    cp -rf generated/docs _site/docs/envoy/
+    
 }
 
 docs_archive () {
@@ -97,7 +102,8 @@ docs_archive () {
         git config --global --add safe.directory "$(realpath "$CLONE_DIR")"
     else
         echo "Repository already cloned. Pulling archive changes..."
-        cd "$(realpath "$CLONE_DIR")"
+        
+        cd "$CLONE_DIR"
 
         # Check for changes in the docs directory
         git fetch origin
@@ -106,7 +112,7 @@ docs_archive () {
         cd ..
     fi
 
-    cd "$(realpath "$CLONE_DIR")"
+    cd "$CLONE_DIR"
     git pull origin main
 
     if [[ -n "$DOCS_UPDATED" ]]; then
@@ -114,22 +120,24 @@ docs_archive () {
         echo "The following changes were detected in the Envoy docs directory:"
         echo "$DOCS_UPDATED"
 
-        echo "Copying docs to _site..."
-
-        for dir in $CLONE_DIR/docs/envoy/*/; do
-
-            DOCS_OUTPUT_DIR=../_site/docs/envoy/
-            DOCS_OUTPUT_DIR="$(realpath "$DOCS_OUTPUT_DIR")"
-
-            cp -rf $dir $DOCS_OUTPUT_DIR/$dir
-            
-        done
-
     else
         echo "No new changes in the archive docs directory."
     fi
 
+    echo "Copying docs to _site..."
+
+    ls -lrt docs/envoy/
+
+    for dir in $CLONE_DIR/docs/envoy/*/; do
+
+        DOCS_OUTPUT_DIR=../_site/docs/envoy/
+
+        cp -rf $dir $DOCS_OUTPUT_DIR/"$(basename "$dir")"
+        
+    done
+
     cd ..
+    
 }
 
 bundle exec jekyll build
