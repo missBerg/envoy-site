@@ -1,5 +1,10 @@
 function build_docs {
 
+    if [[ -z "${BUILD_DIR}" ]]; then
+        echo "BUILD_DIR not set - defaulting to ~/.cache/envoy-bazel" >&2
+        BUILD_DIR="${HOME}/.cache/envoy-bazel"
+    fi
+
     BAZEL_STARTUP_OPTIONS=(
     "--output_user_root=${BUILD_DIR}/bazel_root"
     "--output_base=${BUILD_DIR}/bazel_root/base"
