@@ -1,4 +1,16 @@
+inject_ci_bazelrc () {
+    {
+        PROC_COUNT="$(nproc)"
+        PROCS=$((PROC_COUNT - 1))
+        SPHINX_ARGS="-j 12 -v warn"
+        echo "build:ci --action_env=SPHINX_RUNNER_ARGS=\"${SPHINX_ARGS}\""
+        # echo "build:ci --local_ram_resources=20480"
+    } > repo.bazelrc
+}
+
 function build_docs {
+    echo "generating docs..."
+    # Build docs.
 
     if [[ -z "${BUILD_DIR}" ]]; then
         echo "BUILD_DIR not set - defaulting to ~/.cache/envoy-bazel" >&2
@@ -8,17 +20,14 @@ function build_docs {
     BAZEL_STARTUP_OPTIONS=(
     "--output_user_root=${BUILD_DIR}/bazel_root"
     "--output_base=${BUILD_DIR}/bazel_root/base"
-    "--host_jvm_args=-Xmx2g --host_jvm_args=-Xms1g"
     )
 
-    echo "generating docs..."
-    # Build docs.
 
     DOCS_OUTPUT_DIR=generated/docs
     rm -rf "${DOCS_OUTPUT_DIR}"
     mkdir -p "${DOCS_OUTPUT_DIR}"
     # SPHINX_ARGS="-j 12 -v warn"
-    # export SPHINX_RUNNER_ARGS="-j 12"
+    export SPHINX_RUNNER_ARGS="-j 12"
     # BAZEL_BUILD_OPTIONS+=("--action_env=SPHINX_RUNNER_ARGS=\"${SPHINX_RUNNER_ARGS}\" --host_jvm_args=-Xmx2g --host_jvm_args=-Xms1g")
 
     # if [[ -n "${DOCS_BUILD_RST}" ]]; then
@@ -29,6 +38,9 @@ function build_docs {
     DOCS_OUTPUT_DIR="$(realpath "$DOCS_OUTPUT_DIR")"
 
     PROC_COUNT="$(nproc)"=$((PROC_COUNT - 1))
+
+    BAZEL_BUILD_OPTIONS+=(--config=ci)
+    inject_ci_bazelrc
     
     bazel "${BAZEL_STARTUP_OPTIONS[@]}" run \
             "${BAZEL_BUILD_OPTIONS[@]}" \
