@@ -16,8 +16,9 @@ function build_docs {
     DOCS_OUTPUT_DIR=generated/docs
     rm -rf "${DOCS_OUTPUT_DIR}"
     mkdir -p "${DOCS_OUTPUT_DIR}"
+    # SPHINX_ARGS="-j 12 -v warn"
     export SPHINX_RUNNER_ARGS="-v warn"
-    BAZEL_BUILD_OPTIONS+=("--action_env=SPHINX_RUNNER_ARGS")
+    BAZEL_BUILD_OPTIONS+=("--action_env=SPHINX_RUNNER_ARGS=\"${SPHINX_RUNNER_ARGS}\" --host_jvm_args=-Xmx2g --host_jvm_args=-Xms1g")
 
     # if [[ -n "${DOCS_BUILD_RST}" ]]; then
     #     bazel "${BAZEL_STARTUP_OPTIONS[@]}" build "${BAZEL_BUILD_OPTIONS[@]}" //docs:rst
@@ -25,12 +26,21 @@ function build_docs {
     # fi
 
     DOCS_OUTPUT_DIR="$(realpath "$DOCS_OUTPUT_DIR")"
+
+    PROC_COUNT="$(nproc)"=$((PROC_COUNT - 1))
     
     bazel "${BAZEL_STARTUP_OPTIONS[@]}" run \
             "${BAZEL_BUILD_OPTIONS[@]}" \
             --//tools/tarball:target=//docs:html \
             //tools/tarball:unpack \
             "$DOCS_OUTPUT_DIR"
+
+    if [ $? -ne 0 ]; then
+        echo "Build failed. Displaying JVM logs:"
+        cat /opt/buildhome/.cache/envoy-bazel/bazel_root/base/server/jvm.out
+        exit 1
+    fi
+
 
 }
 
