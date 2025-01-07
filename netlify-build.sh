@@ -4,11 +4,11 @@ inject_ci_bazelrc () {
         PROCS=$((PROC_COUNT - 1))
         SPHINX_ARGS="-j 12 -v warn"
         echo "build:ci --action_env=SPHINX_RUNNER_ARGS=\"${SPHINX_ARGS}\""
-        # echo "build:ci --local_ram_resources=20480"
     } > repo.bazelrc
 }
 
-function build_docs {
+build_docs () {
+    ls -lart
     echo "generating docs..."
     # Build docs.
 
@@ -22,24 +22,16 @@ function build_docs {
     "--output_base=${BUILD_DIR}/bazel_root/base"
     )
 
-
     DOCS_OUTPUT_DIR=../_site/docs/envoy/latest
     rm -rf "${DOCS_OUTPUT_DIR}"
     mkdir -p "${DOCS_OUTPUT_DIR}"
-    # SPHINX_ARGS="-j 12 -v warn"
     export SPHINX_RUNNER_ARGS="-j 12"
-    # BAZEL_BUILD_OPTIONS+=("--action_env=SPHINX_RUNNER_ARGS=\"${SPHINX_RUNNER_ARGS}\" --host_jvm_args=-Xmx2g --host_jvm_args=-Xms1g")
-
-    # if [[ -n "${DOCS_BUILD_RST}" ]]; then
-    #     bazel "${BAZEL_STARTUP_OPTIONS[@]}" build "${BAZEL_BUILD_OPTIONS[@]}" //docs:rst
-    #     cp bazel-bin/docs/rst.tar.gz "$DOCS_OUTPUT_DIR"/envoy-docs-rst.tar.gz
-    # fi
-
     DOCS_OUTPUT_DIR="$(realpath "$DOCS_OUTPUT_DIR")"
 
     PROC_COUNT="$(nproc)"=$((PROC_COUNT - 1))
 
     BAZEL_BUILD_OPTIONS+=(--config=ci)
+
     inject_ci_bazelrc
     
     bazel "${BAZEL_STARTUP_OPTIONS[@]}" run \
@@ -54,26 +46,47 @@ function build_docs {
         exit 1
     fi
 
+}
 
+latest_docs () {
+    REPO_URL="https://github.com/envoyproxy/envoy.git"
+    CLONE_DIR="envoy-source"
+
+    # Clone the repository if it doesn't already exist
+    if [[ ! -d "$CLONE_DIR/.git" ]]; then
+        echo "Cloning repository..."
+        git clone --depth=1 "$REPO_URL" "$CLONE_DIR"
+        git config --global --add safe.directory "$(realpath "$CLONE_DIR")"
+    else
+        echo "Repository already cloned. Pulling latest changes..."
+        cd "$CLONE_DIR"
+
+        # Check for changes in the docs directory
+        git fetch origin
+        DOCS_UPDATED=$(git diff --name-only origin/main | grep '^docs/')
+        
+        if [[ -n "$DOCS_UPDATED" ]]; then
+            echo "The following changes were detected in the Envoy docs directory:"
+            echo "$DOCS_UPDATED"
+
+            echo "Building docs..."
+            build_docs
+        else
+            echo "No changes in the docs directory."
+        fi
+
+        # Pull the latest changes
+        git pull origin main
+        cd ..
+    fi
 }
 
 bundle exec jekyll build
 
-git clone --depth=1 https://github.com/envoyproxy/envoy.git "envoy-source"
-git config --global --add safe.directory /envoy 
+latest_docs
 
 ls -lart
 
-# cd envoy-source/docs
-# bazel build -j 12 --local_ram_resources=HOST_RAM*.8 //docs:html_release
-
-cd envoy-source
-
-ls -lart
-
-build_docs
-
-ls -lart
 
 # cd ..
 
