@@ -66,6 +66,8 @@ latest_docs () {
         # Check for changes in the docs directory
         git fetch origin
         DOCS_UPDATED=$(git diff --name-only origin/main | grep '^docs/')
+
+        cd ..
     fi
 
     cd "$(realpath "$CLONE_DIR")"
@@ -101,7 +103,7 @@ docs_archive () {
         git fetch origin
         DOCS_UPDATED=$(git diff --name-only origin/main | grep '^docs/envoy')
 
-        # Pull the latest changes
+        cd ..
     fi
 
     cd "$(realpath "$CLONE_DIR")"
@@ -133,6 +135,8 @@ docs_archive () {
 bundle exec jekyll build
 
 latest_docs
+
+docs_archive
 
 ls -lart
 
