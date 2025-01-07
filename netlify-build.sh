@@ -17,8 +17,8 @@ function build_docs {
     rm -rf "${DOCS_OUTPUT_DIR}"
     mkdir -p "${DOCS_OUTPUT_DIR}"
     # SPHINX_ARGS="-j 12 -v warn"
-    export SPHINX_RUNNER_ARGS="-v warn"
-    BAZEL_BUILD_OPTIONS+=("--action_env=SPHINX_RUNNER_ARGS=\"${SPHINX_RUNNER_ARGS}\" --host_jvm_args=-Xmx2g --host_jvm_args=-Xms1g")
+    # export SPHINX_RUNNER_ARGS="-j 12 "
+    BAZEL_BUILD_OPTIONS+=("--host_jvm_args=-Xmx2g --host_jvm_args=-Xms1g")
 
     # if [[ -n "${DOCS_BUILD_RST}" ]]; then
     #     bazel "${BAZEL_STARTUP_OPTIONS[@]}" build "${BAZEL_BUILD_OPTIONS[@]}" //docs:rst
