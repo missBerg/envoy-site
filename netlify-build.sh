@@ -79,6 +79,9 @@ latest_docs () {
 
         echo "Building docs..."
         build_docs
+    elif [[ ! -d "generated/docs" || -z "$(ls -A generated/docs)" ]]; then
+        echo "Docs directory does not exist or is empty. Building docs..."
+        build_docs
     else
         echo "No changes in the docs directory."
     fi
@@ -87,7 +90,7 @@ latest_docs () {
 
     # Copy the generated docs to the _site directory
 
-    cp -rf generated/docs _site/docs/envoy/
+    cp -rf generated/docs/ _site/docs/envoy/
     
 }
 
