@@ -46,6 +46,8 @@ build_docs () {
         exit 1
     fi
 
+    cd ..
+
 }
 
 latest_docs () {
