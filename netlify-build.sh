@@ -136,11 +136,13 @@ docs_archive () {
     
 }
 
+ls -lart
+
 bundle exec jekyll build
 
 latest_docs
 
-docs_archive
+# docs_archive
 
 ls -lart
 
