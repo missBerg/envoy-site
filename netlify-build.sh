@@ -73,10 +73,10 @@ latest_docs () {
     cd "$CLONE_DIR"
     git pull origin main
 
-    ls -lrt docs/
+    ls -lrt /generated/docs/
 
     
-    if [[ ! -d "generated/docs/" || ! "$(ls -A generated/docs/ 2>/dev/null)" ]]; then
+    if [[ ! -d "/generated/docs/" || ! "$(ls -A /generated/docs/ 2>/dev/null)" ]]; then
         echo "Docs directory does not exist or is empty. Building docs..."
         build_docs
     elif [[ -n "$DOCS_UPDATED" ]]; then
@@ -89,7 +89,7 @@ latest_docs () {
         echo "No changes in the docs directory."
     fi
 
-    cp -rf generated/docs/ ../_site/docs/envoy/
+    cp -rf /generated/docs/ ../_site/docs/envoy/
 
     cd ..
 
