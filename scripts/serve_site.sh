@@ -26,8 +26,6 @@ source ./scripts/functions/get_proxy_docs_archive.sh
 # Output Environment Information
 log_function_start "${BLUE}" "main"
 
-# rsync -av --no-perms --no-owner --no-group --delete --exclude='docs' --exclude='_site' --exclude='.git' /home/builder/envoy-site/ /home/builder/app/
-
 info "Change directory to /home/builder/app" "main"
 cd /home/builder/app
 

@@ -69,4 +69,4 @@ COPY --chown=builder:builder . /home/builder/app
 
 # Run the build script
 # CMD pwd && ls -lahrt && echo "Active User: $USER"
-CMD ["/home/builder/app/build_docs.sh"]
+CMD ["/home/builder/app/local/serve_site.sh"]

@@ -23,21 +23,32 @@ source ./scripts/functions/get_proxy_docs_archive.sh
 # Main Script
 #--------------------------------------
 
+# Output Environment Information
 log_function_start "${BLUE}" "main"
 
 info "Change directory to /home/builder/app" "main"
 cd /home/builder/app
 
 export PATH="$HOME/tools:$PATH"
-info "Path: $PATH" "main"
+echo "Path: $PATH"
+ls -lart
+
+# Setup Ruby
+ruby_setup
+
+# Install Ruby Gems
+gem_install
 
 # Build Envoy Proxy Docs
-build_proxy_docs_latest
+if [ "$BUILD_DOCS" = "true" ]; then
+    build_proxy_docs_latest &
+    get_proxy_docs_archive &
+else
+    info "Skipping Envoy Proxy Docs build." "main"
+fi
 
-get_proxy_docs_archive
 
-
-# Build Site
-jekyll_build
+# Start Jekyll Server
+jekyll_start
 
 #--------------------------------------

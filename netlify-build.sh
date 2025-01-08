@@ -9,7 +9,7 @@ inject_ci_bazelrc () {
 
 build_docs () {
     ls -lart
-    echo "generating docs..."
+    echo "Generating docs..."
     # Build docs.
 
     if [[ -z "${BUILD_DIR}" ]]; then
@@ -88,64 +88,24 @@ latest_docs () {
     fi
 
     mkdir -p ../_site/docs/envoy/
+    # Copy the generated docs to the _site directory to be published
+    echo "Copy docs to _site directory..."
     cp -rf generated/docs/ ../_site/docs/envoy/
 
     cd ..
-
-    # Copy the generated docs to the _site directory
     
 }
 
-docs_archive () {
-    REPO_URL="https://github.com/envoyproxy/archive.git"
-    CLONE_DIR="envoy-archive"
+#--------------------------------------
+# Main Build Script
+#--------------------------------------
 
-    # Clone the repository if it doesn't already exist
-    if [[ ! -d "$CLONE_DIR/.git" ]]; then
-        echo "Cloning archive repository..."
-        git clone --depth=1 "$REPO_URL" "$CLONE_DIR"
-        git config --global --add safe.directory "$(realpath "$CLONE_DIR")"
-    fi
-
-    cd "$CLONE_DIR"
-    git pull origin main
-
-    if [[ -n "$DOCS_UPDATED" ]]; then
-        git pull origin main
-        echo "The following changes were detected in the Envoy docs directory:"
-        echo "$DOCS_UPDATED"
-
-    else
-        echo "No new changes in the archive docs directory."
-    fi
-
-    echo "Copying docs to _site..."
-
-    ls -lrt docs/envoy/
-
-    for dir in $CLONE_DIR/docs/envoy/*/; do
-
-        DOCS_OUTPUT_DIR=../_site/docs/envoy/
-
-        cp -rf "$dir"/ $DOCS_OUTPUT_DIR/"$(basename "$dir")"
-        
-    done
-
-    cd ..
-    
-}
-
-ls -lart
+echo "Build jekyll site, output to _site directory..."
 
 bundle exec jekyll build
 
+echo "Build docs for Latest version from Envoy repository..."
+
 latest_docs
 
-# docs_archive
-
-ls -lart
-
-
-# cd ..
-
-# cp -rf /opt/build/cache/generated/docs/* /opt/build/repo/_site/docs/envoy
+echo "Build complete."
