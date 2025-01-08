@@ -32,7 +32,7 @@
                     </span>
                   </p>
                   <p class="release-link">
-                    <a href="/docs/envoy/{{ release.release }}/" target="_blank">
+                    <a href="/docs/envoy/{% if !version_group.is_development %}v{% endif %}{{ release.release }}/" target="_blank">
                       <span class="link-icon material-symbols-outlined">
                         docs
                       </span>
