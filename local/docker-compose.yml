@@ -1,25 +1,44 @@
-name: envoy-site-build
+name: envoy-site-serve
 services:
   envoy-site:
     user: builder
     build: 
       context: ..
-      dockerfile: build/build.Dockerfile
+      dockerfile: local/Dockerfile
     volumes:
       - envoy_source:/home/builder/envoy
       - envoy_archive:/home/builder/envoy-archive
       - builder_tools:/home/builder/tools
       - builder_metadata:/home/builder/metadata
-      - jekyll_output:/home/builder/generated
+      - jekyll_output:/home/builder/output
+    ports:
+      - "8089:4000"
+    environment:
+      - BUILD_DOCS=false
     platform: linux/amd64
     deploy:
       resources:
         limits:
           cpus: '2.0'
-          memory: '6G'
+          memory: '4G'
         reservations:
           cpus: '1.0'
           memory: '2G'
+    develop:  
+      watch:
+        - action: sync
+          path: ..
+          target: /home/builder/app
+          ignore:
+            - build/
+            - .git
+            - .DS_Store
+            - Gemfile
+            - Gemfile.lock
+            - README.md
+            - docs/
+            - envoy/docs/
+            - _site/
 
 volumes:
   builder_tools:
