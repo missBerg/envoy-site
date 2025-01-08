@@ -87,6 +87,7 @@ latest_docs () {
         echo "No changes in the docs directory."
     fi
 
+    mkdir -p ../_site/docs/envoy/
     cp -rf generated/docs/ ../_site/docs/envoy/
 
     cd ..
