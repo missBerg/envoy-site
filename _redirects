@@ -1,1 +1,2 @@
-/docs/envoy/v*  https://envoy-archive-test.netlify.app/v:splat  200
+/docs/envoy/latest /docs/envoy/docs/   200
+/docs/envoy/*  https://envoy-archive-test.netlify.app/:splat  200
