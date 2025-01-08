@@ -46,8 +46,6 @@ build_docs () {
         exit 1
     fi
 
-    cd ..
-
 }
 
 latest_docs () {
@@ -89,7 +87,7 @@ latest_docs () {
         echo "No changes in the docs directory."
     fi
 
-    cp -rf /generated/docs/ ../_site/docs/envoy/
+    cp -rf generated/docs/ ../_site/docs/envoy/
 
     cd ..
 
