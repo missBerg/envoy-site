@@ -7,7 +7,7 @@ inject_ci_bazelrc () {
     } > repo.bazelrc
 }
 
-build_docs () {
+build_latest_docs () {
     ls -lart
     echo "Generating docs..."
     # Build docs.
@@ -48,7 +48,7 @@ build_docs () {
 
 }
 
-latest_docs () {
+add_latest_docs () {
     REPO_URL="https://github.com/envoyproxy/envoy.git"
     CLONE_DIR="envoy-source"
 
@@ -75,18 +75,19 @@ latest_docs () {
 
     
     if [[ ! -d "generated/docs/" || ! "$(ls -A generated/docs/ 2>/dev/null)" ]]; then
-        echo "Docs directory does not exist or is empty. Building docs..."
-        build_docs
+        echo "Docs directory does not exist or is empty. Building latest docs..."
+        build_latest_docs
     elif [[ -n "$DOCS_UPDATED" ]]; then
         echo "The following changes were detected in the Envoy docs directory:"
         echo "$DOCS_UPDATED"
 
-        echo "Building docs..."
-        build_docs
+        echo "Building latest docs..."
+        build_latest_docs
     else
         echo "No changes in the docs directory."
     fi
 
+    echo "Create docs directory in _site publish directory..."
     mkdir -p ../_site/docs/envoy/
     # Copy the generated docs to the _site directory to be published
     echo "Copy docs to _site directory..."
@@ -106,6 +107,6 @@ bundle exec jekyll build
 
 echo "Build docs for Latest version from Envoy repository..."
 
-latest_docs
+add_latest_docs
 
 echo "Build complete."
