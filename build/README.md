@@ -13,7 +13,9 @@ The `netlify-build.sh` script performs the following tasks:
 The netlify build & deploy process also depends on config in:
 - **requirements.txt** - this is the python dependencies
 - **package.json** - this defines the bazel dependency via npm
-- **_redirects** - set up redirect for archive docs, and latest docs
+- **_redirects** - set up proxy logic for archived docs, and latest docs
+
+The archived docs are simply deployed on a separate netlify site linked with the archive repository, and accessed via proxy from the Site.
 
 Config for Netlify Build & Deploy:
 

@@ -2,12 +2,14 @@
 
 This repository contains the source code and scripts for the Envoy Project site.
 
-This is a **Jekyll** project deployed on Netlify, with some additional helper scripts.
-To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-build.sh` script that checkouts the Envoy respostory and builds the latest docs using Baael.
+This is a **Jekyll** project deployed on **Netlify**, with some additional helper scripts.
+To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-build.sh` script that checkouts the Envoy respostory and builds the latest docs using Bazel.
 
 ## Running Locally
 
 ### Using Jekyll
+
+Use Jekyll on host machine for developing for the website, without docs.
 
 #### Prerequisites
 - Ruby 3.3.5
@@ -33,6 +35,8 @@ To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-
     ```
 
 ### Using Docker
+
+With Docker you can serve the site locally with docs, both latest and archive.
 
 #### Prerequisites
 
