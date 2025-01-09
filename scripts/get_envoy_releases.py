@@ -2,8 +2,15 @@ import requests
 import yaml
 import argparse
 import re
+import sys
 from collections import defaultdict
 from datetime import datetime
+
+def log_info(message):
+    print(f"\033[1;34m[INFO] [get_envoy_releases.py]\033[0m {message}")
+
+def log_error(message):
+    print(f"\033[1;31m[ERROR] [get_envoy_releases.py]\033[0m {message}", file=sys.stderr)
 
 # Add argument parsing
 parser = argparse.ArgumentParser(description='Generate releases YAML file for a GitHub project')
@@ -11,6 +18,8 @@ parser.add_argument('project', help='GitHub project name (e.g., envoy)')
 parser.add_argument('--org', default='envoyproxy', help='GitHub organization name (default: envoyproxy)')
 parser.add_argument('--output', default='.', help='Output directory for the YAML file (default: current directory)')
 args = parser.parse_args()
+
+log_info(f"Fetching releases for project {args.project} from organization {args.org}")
 
 # GitHub API endpoint and headers
 url = f"https://api.github.com/repos/{args.org}/{args.project}/releases"
@@ -21,11 +30,16 @@ page = 1
 # Fetch all releases
 while True:
     response = requests.get(f"{url}?per_page=100&page={page}", headers=headers)
+    if response.status_code != 200:
+        log_error(f"Failed to fetch releases: {response.status_code} {response.text}")
+        sys.exit(1)
     releases = response.json()
     if not releases:
         break
     all_releases.extend(releases)
     page += 1
+
+log_info(f"Fetched {len(all_releases)} releases")
 
 def parse_version(version_str):
     # Split version into parts and handle RC versions
@@ -55,6 +69,8 @@ release_tags = [
 ]
 release_tags = sorted(release_tags, key=version_key, reverse=True)
 
+log_info(f"Found {len(release_tags)} valid release tags")
+
 # Group releases by major.minor versions
 grouped_releases = defaultdict(list)
 for tag in release_tags:
@@ -78,6 +94,8 @@ for version, patches in sorted(grouped_releases.items(), key=lambda x: [int(part
     if stable_patches:
         latest_patch = max(stable_patches, key=version_key)
         stable_versions.add(latest_patch)
+
+log_info(f"Identified {len(stable_versions)} stable versions")
 
 # Create the YAML data structure
 yaml_data = {"versions": []}
@@ -115,4 +133,4 @@ output_file = f"{args.output}/{args.project}_versions.yml"
 with open(output_file, "w") as file:
     yaml.dump(yaml_data, file, sort_keys=False)
 
-print(f"YAML file generated: {output_file}")
+log_info(f"YAML file generated: {output_file}")
