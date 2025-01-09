@@ -2,6 +2,9 @@
 
 This repository contains the source code and scripts for the Envoy Project site.
 
+This is a **Jekyll** project deployed on Netlify, with some additional helper scripts.
+To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-build.sh` script that checkouts the Envoy respostory and builds the latest docs using Baael.
+
 ## Running Locally
 
 ### Using Jekyll
