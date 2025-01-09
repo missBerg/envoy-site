@@ -59,6 +59,7 @@ build_latest_docs () {
 add_latest_docs () {
     REPO_URL="https://github.com/envoyproxy/envoy.git"
     CLONE_DIR="envoy-source"
+    BUILD_DIR="/opt/build/repo/envoy-source/"
 
     if [[ ! -d "$CLONE_DIR/.git" ]]; then
         log_info "Envoy Proxy Repository not present. Cloning repository..."
