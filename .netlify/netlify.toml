@@ -7,7 +7,7 @@ headers = []
 
 [build]
 publish = "_site"
-command = "./build/netlify-build.sh"
+command = "./deploy/netlify-build.sh"
 
 [build.environment]
   YARN_VERSION = "1.22.10"
