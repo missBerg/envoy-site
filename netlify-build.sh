@@ -98,6 +98,10 @@ add_latest_docs () {
 }
 
 # Main Build Script
+log_info "Generating Envoy releases YAML file..."
+python3 scripts/get_envoy_releases.py envoy --output _data
+log_info "Envoy releases YAML file generated."
+
 log_info "Starting Jekyll site build, output to _site directory..."
 bundle exec jekyll build
 log_info "Jekyll site build completed."

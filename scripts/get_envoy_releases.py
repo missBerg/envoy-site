@@ -111,7 +111,7 @@ yaml_data["versions"].append({
 })
 
 # Save to a YAML file
-output_file = f"{args.output}/{args.project}_all_releases.yml"
+output_file = f"{args.output}/{args.project}_versions.yml"
 with open(output_file, "w") as file:
     yaml.dump(yaml_data, file, sort_keys=False)
 
