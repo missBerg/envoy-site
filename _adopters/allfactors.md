@@ -1,6 +1,6 @@
 ---
 name: "allfactors"
-logo: "../allfactors.svg"
+logo: "allfactors.svg"
 url: "https://allfactors.com/"
 projects:
     - envoy-gateway
