@@ -51,27 +51,22 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - build_docs.sh
   - README.md
   - Dockerfile
   - docker-compose.yml
-  - envoy/docs
-  - envoy/
   - docs/envoy
   - .DS_Store
   - .git
   - .gitignore
   - .dockerignore
+  - .netlify
   - scripts/
-  - build/
-  - envoy-source/
+  - deploy/
   - local/
 
 
 include:
   - _redirects
-  - _mixin.scss
-  - _release_grid.scss
 
 collections_dir: collections
 

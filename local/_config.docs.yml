@@ -9,6 +9,9 @@ defaults:
     values:
       render_with_liquid: false
 
+exclude:
+  - envoy-source/
+
 include:
   - _downloads
   - _images
