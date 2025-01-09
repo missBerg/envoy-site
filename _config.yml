@@ -65,6 +65,7 @@ exclude:
   - scripts/
   - build/
   - envoy-source/
+  - local/
 
 
 include:
