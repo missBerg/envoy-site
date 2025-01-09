@@ -6,10 +6,8 @@ headers = []
 [functions."*"]
 
 [build]
-publish = "/Users/erica/repos/envoy-site/_site"
-publishOrigin = "ui"
-commandOrigin = "ui"
-command = "bundle exec jekyll build"
+publish = "_site"
+command = "./build/netlify-build.sh"
 
 [build.environment]
   YARN_VERSION = "1.22.10"
@@ -28,10 +26,6 @@ command = "bundle exec jekyll build"
 [build.services]
 
 [[redirects]]
-from = "/envoy/docs-test/*"
-to = "https://heartfelt-elf-2a1e46.netlify.app/:splat"
-status = 200.0
-force = false
 
 [redirects.query]
 
