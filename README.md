@@ -7,26 +7,26 @@ To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-
 
 ## Overview
 
-- Directories
-    - _data/ - Data files used in the site
-    - _includes/ - Reusable HTML components included in pages
-    - _layouts/ - Jekyll Page layouts that are used by site pages
-    - _sass/ - Partials that are used from the style.scss in the css/ directory
-    - .netlify/ - Configurations for the Netlify deployment
-    - assets/ - Common assets like scripts and images for the site
-    - collections/ - Collections of data for the site used in pages
-    - css/ - The main style.scss file
-    - deploy/ - Deployment script for Netlify deployment
-    - local/ - Resources to run the site locally while developing
-    - logos/ - Logos for community and adopters of Envoy Project
-    - pages/ - The site pages
-    - scripts/ - Shared scripts for the site
-- Files
-    - _config.yml - the Jekyll configuration
-    - _redirects - Netlify redirects
-    - .ruby-version - The ruby version
-    - package.json - NPM package dependencies for Netlify deploy
-    - requirements.txt - Python dependencies for Netlify deploy
+- **Directories**
+    - **_data/** - Data files used in the site
+    - **_includes/** - Reusable HTML components included in pages
+    - **_layouts/** - Jekyll Page layouts that are used by site pages
+    - **_sass/** - Partials that are used from the style.scss in the css/ directory
+    - **.netlify/** - Configurations for the Netlify deployment
+    - **assets/** - Common assets like scripts and images for the site
+    - **collections/** - Collections of data for the site used in pages
+    - **css/** - The main style.scss file
+    - **deploy/** - Deployment script for Netlify deployment
+    - **local/** - Resources to run the site locally while developing
+    - **logos/** - Logos for community and adopters of Envoy Project
+    - **pages/** - The site pages
+    - **scripts/** - Shared scripts for the site
+- **Files**
+    - **_config.yml** - the Jekyll configuration
+    - **_redirects** - Netlify redirects
+    - **.ruby-version** - The ruby version
+    - **package.json** - NPM package dependencies for Netlify deploy
+    - **requirements.txt** - Python dependencies for Netlify deploy
 
 ## Running Locally
 
