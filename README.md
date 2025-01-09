@@ -3,7 +3,9 @@
 This repository contains the source code and scripts for the Envoy Project site.
 
 This is a **Jekyll** project deployed on **Netlify**, with some additional helper scripts.
-To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-build.sh` script that checkouts the Envoy respostory and builds the latest docs using Bazel.
+To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-build.sh` script that checkouts the Envoy respostory and builds the latest docs using Bazel, the docs are only regenenerated when a change has happened in the docs directory of Envoy.
+
+The archived docs are accessed via proxying requests to a separate **Netlify** deployment of the archived docs sites. This ensures we are not rebuilding and deploying archive for each site change.
 
 ## Overview
 
