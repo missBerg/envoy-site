@@ -1,6 +1,3 @@
-source ./scripts/functions/git_docs.sh
-source ./scripts/functions/logging.sh
-
 get_proxy_docs_archive() {
     log_function_start "${BLUE}" "get_proxy_docs_archive"
 

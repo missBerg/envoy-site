@@ -1,6 +1,3 @@
-source ./scripts/functions/git_docs.sh
-source ./scripts/functions/logging.sh
-
 build_proxy_docs_latest () {
 
         log_function_start "${BLUE}" "build_proxy_docs_latest"

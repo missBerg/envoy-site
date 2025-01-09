@@ -1,7 +1,3 @@
-
-source ./scripts/functions/git_docs.sh
-source ./scripts/functions/logging.sh
-
 jekyll_start (){
     log_function_start "${GREEN}" "jekyll_start"
 
