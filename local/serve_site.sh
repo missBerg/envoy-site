@@ -16,6 +16,7 @@ source ./scripts/functions/build_proxy_docs_latest.sh
 source ./scripts/functions/ruby_setup.sh
 source ./scripts/functions/jekyll.sh
 source ./scripts/functions/get_proxy_docs_archive.sh
+source ./scripts/functions/git_docs.sh
 
 #--------------------------------------
 
