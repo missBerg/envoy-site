@@ -88,3 +88,29 @@ With Docker you can serve the site locally with docs, both latest and archive.
 The site is automatically deployed on Netlify. The `build/netlify-build.sh` script is used to build the site and generate the necessary documentation.
 
 See README in `build/` directory for more information about the build process.
+
+
+## Add Adopter Logo
+
+Create a markdown file in the collection `collections/_adopters`
+Under projects, list all Envoy projects your company is adopting.
+
+**Projects:**
+- envoy-proxy
+- envoy-gateway
+- envoy-ai-gateway
+- envoy-mobile
+
+```
+---
+name: "Company"
+logo: "logo.svg"
+url: "https://mycompany.com"
+projects:
+    - envoy-proxy
+    - envoy-gateway
+---
+
+```
+
+Add logo to `logos` directory.
