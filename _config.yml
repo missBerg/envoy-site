@@ -73,6 +73,7 @@ include:
   - _mixin.scss
   - _release_grid.scss
 
+collections_dir: collections
 
 collections:
   adopters:
