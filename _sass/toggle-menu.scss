@@ -40,6 +40,11 @@
     #togglemenu {display: block; cursor: pointer;}
     
 }
+
+.project-page {
+  #togglemenu > span > span {background: #2b0b3e;}
+} 
+
 #togglemenu > span {display: inline-block; margin-left: 0.4rem; width: 1.5rem; height: 1rem; position: relative; vertical-align: middle; position: relative; bottom: 1px;}
 #togglemenu > span > span {display: block; position: absolute; width: 100%; height: 2px; background: #fff;}
 #togglemenu > span > span:nth-child(1) {top: 0; transform-origin: 50% 0%;}
