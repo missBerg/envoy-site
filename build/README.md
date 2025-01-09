@@ -15,6 +15,12 @@ The netlify build & deploy process also depends on config in:
 - **package.json** - this defines the bazel dependency via npm
 - **_redirects** - set up redirect for archive docs, and latest docs
 
+Config for Netlify Build & Deploy:
+
+**Base directory:** `/`
+**Build command:** `./build/netlify-build.sh`
+**Publish directory:** `_site`
+
 ## Script Details
 
 ### `netlify-build.sh`
