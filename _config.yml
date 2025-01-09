@@ -63,6 +63,7 @@ exclude:
   - scripts/
   - deploy/
   - local/
+  - envoy-source/
 
 
 include:
