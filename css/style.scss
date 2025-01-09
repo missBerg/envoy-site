@@ -9,6 +9,7 @@
 @use "../_sass/community-features";
 @use "../_sass/variables";
 @use "../_sass/mixins";
+@use "../_sass/adopters-grid";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700,800');
 
@@ -337,39 +338,6 @@ a {
     border-top: 1px solid #ccc;
   }
 
-}
-
-.adopters-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
-  justify-content: center;
-}
-.adopter-card {
-  border: 1px solid #ddd;
-  text-align: center;
-  width: 10rem;
-  border-radius: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.adopter-logo {
-  padding: 2rem 2rem;
-    height: 8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  img {
-    max-height: 5rem;
-  }
-}
-
-.adopter-name {
-  border-bottom: 1px solid #ccc;
-  color: variables.$body-text-color;
-  font-size: 0.8rem;
-  padding: 0.5rem 0rem;
 }
 
 .project-page .page-nav {
