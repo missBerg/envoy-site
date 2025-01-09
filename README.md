@@ -1,40 +1,60 @@
 # Envoy Site Repository
 
-Deploys on Netlify
+This repository contains the source code and scripts for the Envoy Project site.
 
----
-# Run on Local
+## Running Locally
 
-## Jekyll
+### Using Jekyll
 
-Install Jekyll: https://jekyllrb.com/docs/installation/ 
-This project uses Ruby version `3.3.5`
+#### Prerequisites
+- Ruby 3.3.5
+- Bundler
 
-### Build
-```
-bundle exec jekyll build
-```
+#### Steps
 
-### Serve
-```
-bundle exec jekyll serve
-```
+1. **Install Jekyll**: Follow the [Jekyll installation guide](https://jekyllrb.com/docs/installation/).
 
-## Docker
-Use docker compose to build and then run with watch.
-**Run from the `local` directory.**
+2. **Install Dependencies**:
+    ```sh
+    bundle install
+    ```
 
-### Build
-```
-docker compose build
-```
+3. **Build the Site**:
+    ```sh
+    bundle exec jekyll build
+    ```
 
-### Run
-```
-docker compose up --watch --remove-orphans
-```
+4. **Serve the Site**:
+    ```sh
+    bundle exec jekyll serve
+    ```
 
-### Stop
-```
-docker compose down
-```
+### Using Docker
+
+#### Prerequisites
+
+- Docker
+- Docker Compose
+
+#### Steps
+
+1. **Build the Docker Image**:
+    ```sh
+    docker compose build
+    ```
+
+2. **Run the Docker Container**:
+    ```sh
+    docker compose up --watch --remove-orphans
+    ```
+
+3. **Stop the Docker Container**:
+    ```sh
+    docker compose down
+    ```
+
+## Deployment
+
+The site is automatically deployed on Netlify. The `build/netlify-build.sh` script is used to build the site and generate the necessary documentation.
+
+See README in `build/` directory for more information about the build process.
