@@ -1,16 +1,28 @@
+log_info() {
+    echo -e "\033[1;34m[INFO]\033[0m $1"
+}
+
+log_warn() {
+    echo -e "\033[1;33m[WARN]\033[0m $1"
+}
+
+log_error() {
+    echo -e "\033[1;31m[ERROR]\033[0m $1"
+}
+
 inject_ci_bazelrc () {
     PROC_COUNT="$(nproc)"
     PROCS=$((PROC_COUNT - 1))
     SPHINX_ARGS="-j 12 -v warn"
     echo "build:ci --action_env=SPHINX_RUNNER_ARGS=\"${SPHINX_ARGS}\"" > repo.bazelrc
-    echo "Injected CI Bazel configuration."
+    log_info "Injected CI Bazel configuration."
 }
 
 build_latest_docs () {
-    echo "Starting to generate docs..."
+    log_info "Starting to generate docs..."
     
     if [[ -z "${BUILD_DIR}" ]]; then
-        echo "BUILD_DIR not set - defaulting to ~/.cache/envoy-bazel" >&2
+        log_warn "BUILD_DIR not set - defaulting to ~/.cache/envoy-bazel"
         BUILD_DIR="${HOME}/.cache/envoy-bazel"
     fi
 
@@ -28,7 +40,7 @@ build_latest_docs () {
     BAZEL_BUILD_OPTIONS+=(--config=ci)
     inject_ci_bazelrc
     
-    echo "Running Bazel to build docs..."
+    log_info "Running Bazel to build docs..."
     bazel "${BAZEL_STARTUP_OPTIONS[@]}" run \
         "${BAZEL_BUILD_OPTIONS[@]}" \
         --//tools/tarball:target=//docs:html \
@@ -36,12 +48,12 @@ build_latest_docs () {
         "$DOCS_OUTPUT_DIR"
 
     if [ $? -ne 0 ]; then
-        echo "Build failed. Displaying JVM logs:"
+        log_error "Build failed. Displaying JVM logs:"
         cat /opt/buildhome/.cache/envoy-bazel/bazel_root/base/server/jvm.out
         exit 1
     fi
 
-    echo "Docs generation completed successfully."
+    log_info "Docs generation completed successfully."
 }
 
 add_latest_docs () {
@@ -49,11 +61,11 @@ add_latest_docs () {
     CLONE_DIR="envoy-source"
 
     if [[ ! -d "$CLONE_DIR/.git" ]]; then
-        echo "Envoy Proxy Repository not present. Cloning repository..."
+        log_info "Envoy Proxy Repository not present. Cloning repository..."
         git clone --depth=1 "$REPO_URL" "$CLONE_DIR"
         git config --global --add safe.directory "$(realpath "$CLONE_DIR")"
     else
-        echo "Envoy Proxy Repository already cloned. Pulling latest changes..."
+        log_info "Envoy Proxy Repository already cloned. Pulling latest changes..."
         cd "$CLONE_DIR"
         git fetch origin
         DOCS_UPDATED=$(git diff --name-only origin/main | grep '^docs/')
@@ -63,35 +75,35 @@ add_latest_docs () {
     cd "$CLONE_DIR"
     git pull origin main
 
-    echo "Checking for changes in the docs directory..."
+    log_info "Checking for changes in the docs directory..."
     ls -lrt generated/docs/
 
     if [[ ! -d "generated/docs/" || ! "$(ls -A generated/docs/ 2>/dev/null)" ]]; then
-        echo "Docs directory does not exist or is empty. Building latest docs..."
+        log_info "Docs directory does not exist or is empty. Building latest docs..."
         build_latest_docs
     elif [[ -n "$DOCS_UPDATED" ]]; then
-        echo "The following changes were detected in the Envoy docs directory:"
+        log_info "The following changes were detected in the Envoy docs directory:"
         echo "$DOCS_UPDATED"
-        echo "Building latest docs..."
+        log_info "Building latest docs..."
         build_latest_docs
     else
-        echo "No changes in the docs directory."
+        log_info "No changes in the docs directory."
     fi
 
-    echo "Creating docs directory in _site publish directory..."
+    log_info "Creating docs directory in _site publish directory..."
     mkdir -p ../_site/docs/envoy/
-    echo "Copying docs to _site directory..."
+    log_info "Copying docs to _site directory..."
     cp -rf generated/docs/ ../_site/docs/envoy/
     cd ..
 }
 
 # Main Build Script
-echo "Starting Jekyll site build, output to _site directory..."
+log_info "Starting Jekyll site build, output to _site directory..."
 bundle exec jekyll build
-echo "Jekyll site build completed."
+log_info "Jekyll site build completed."
 
-echo "Building docs for Latest version from Envoy repository..."
+log_info "Building docs for Latest version from Envoy repository..."
 add_latest_docs
-echo "Docs build and copy completed."
+log_info "Docs build and copy completed."
 
-echo "Build process complete."
+log_info "Build process complete."
