@@ -1,7 +1,7 @@
 ---
 name: "Envoy AI Gateway"
 website: "https://envoyaigateway.io"
-link: /projects/ai-gateway
+link: /ai-gateway
 github: ai-gateway
 order: 3
 image: /assets/ai-gateway.svg

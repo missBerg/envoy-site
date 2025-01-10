@@ -1,6 +1,6 @@
 ---
 name: "Envoy Proxy"
-link: "/projects/envoy"
+link: "/envoy"
 docs: /envoy/docs/
 github: envoy
 image: /assets/envoy-proxy.svg

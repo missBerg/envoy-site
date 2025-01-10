@@ -1,7 +1,7 @@
 ---
 name: "Envoy Mobile"
 website: "https://envoymobile.io"
-link: /projects/mobile
+link: /mobile
 github: envoy/tree/main/mobile
 docs: "https://envoymobile.io/docs/envoy-mobile/latest/index.html"
 order: 4

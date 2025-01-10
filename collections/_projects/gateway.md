@@ -1,7 +1,7 @@
 ---
 name: "Envoy Gateway"
 website: "https://gateway.envoyproxy.io"
-link: /projects/gateway
+link: /gateway
 github: gateway
 docs: https://gateway.envoyproxy.io/docs/
 image: /assets/envoy-gateway.svg
