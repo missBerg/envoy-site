@@ -1,0 +1,113 @@
+@use "../variables";
+
+@mixin large {
+    @media screen and (min-width: #{variables.$large-breakpoint}) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media screen and (min-width: #{variables.$medium-breakpoint}) and (max-width: #{variables.$large-breakpoint}) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media screen and (max-width: #{variables.$medium-breakpoint}) {
+        @content;
+    }
+}
+
+.projects {
+
+  .row {
+
+    @include medium {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0rem 4rem 0rem;
+      gap: 3rem;
+    }
+  
+    @include small {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0rem 3rem 0rem;
+      gap: 3rem;
+    }
+
+  }
+
+  .row-reverse {
+
+    @include medium {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0rem 4rem 0rem;
+      gap: 3rem;
+    }
+  
+    @include small {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0rem 3rem 0rem;
+      gap: 3rem;
+    }
+
+  }
+}
+
+.project-container {
+    display: flex;
+    padding: 4rem 0rem 7rem 0rem;
+    justify-content: space-between;
+    gap: 5rem;
+  
+    @include medium {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0rem 4rem 0rem;
+      gap: 3rem;
+    }
+  
+    @include small {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0rem 3rem 0rem;
+      gap: 3rem;
+    }
+  }
+  
+  .project-graphic {
+    height: auto;
+    display: flex;
+  
+    .project-image {
+      max-width: 40vw;
+      height: auto;
+  
+      img {
+        max-height: 40vh;
+      }
+    }
+  }
+  
+  .project-info {
+    max-width: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  
+    .project-name h1{
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: variables.$section-headings-color;
+    }
+  }

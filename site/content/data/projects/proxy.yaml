@@ -1,0 +1,8 @@
+id: proxy
+name: "Envoy Proxy"
+link: "/envoy"
+docs: /envoy/docs/
+github: envoy
+image: /assets/envoy-proxy.svg
+order: 1
+show_stars: true

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import 'macros/hero.html' as hero %}
+
+{% block banner %}
+    {{ hero.hero(page.title, '', 'fun') }}
+{% endblock banner %}
+
+{% block intro %}
+{% endblock intro %}
+
+{% block content %}
+
+    {{ yaml_data.projects }}
+
+    <!-- {% for project in yaml_data.projects if project.id == 'gateway' %}
+        Project ID: {{ project.id }}
+    {% endfor %} -->
+
+    {{ page.content }}
+
+{% endblock content %}

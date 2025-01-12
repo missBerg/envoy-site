@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+  <head>
+    {% block head %}
+        <title>{% block title %}{{ SITENAME|striptags }}{% endblock title %}</title>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{ DESCRIPTION }}" />
+        <link rel="stylesheet" type="text/css" href="{{ STYLESHEET_URL }}" />
+    {% endblock head %}
+  </head>
+
+<body>
+    <header>
+        {% include 'components/navbar.html' %}
+        {% block banner %}
+        {% endblock banner %}
+    </header>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+pyyaml
+requests
+pelican[markdown]
+invoke
+livereload
+watchdog
+pelican-webassets
+pelican-jinja2content
+pelican-yaml-metadata

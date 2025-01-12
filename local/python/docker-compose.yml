@@ -1,0 +1,19 @@
+name: envoy-site-serve-pelican
+services:
+  envoy-site-pelican:
+    user: root
+    build: 
+      context: ../..
+      dockerfile: local/python/Dockerfile
+    environment:
+      - WATCHDOG_USE_POLLING=true
+    ports:
+      - "8090:8000"
+    develop:  
+      watch:
+        - action: sync
+          path: ../../site
+          target: /usr/src/site
+          ignore:
+            - .git
+            - .DS_Store
