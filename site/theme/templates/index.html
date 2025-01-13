@@ -1,7 +1,14 @@
 {% extends "base.html" %}
+{% import 'macros/projects.html' as feature_projects %}
+{% set projects = yaml_data['projects'] %}
+
 {% block content %}
-<h1>Welcome to My Site</h1>
-<p>This is the custom home page!</p>
-{{ ERICA }}
-{{ YAML_DATA}}
+
+    <h1>Envoy Project</h1>
+
+    {% block projects %}
+        {{ feature_projects.feature(projects) }}
+    {% endblock %}
+
+
 {% endblock %}

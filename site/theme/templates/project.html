@@ -9,7 +9,6 @@
     {{ hero.hero(project.name, project.github, project.description, github_url, project.docs) }}
 {% endblock banner %}
 
-
 {% block content %}
     <div class="intro">
         {% block intro %}
@@ -24,5 +23,4 @@
         </ul>
     </div>
     {{ feature_adopters.adopters(project, adopters) }}
-
 {% endblock %}
