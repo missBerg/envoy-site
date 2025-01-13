@@ -1,0 +1,9 @@
+name: "Cilium"
+logo: "logos/cilium.svg"
+learn_more: "https://github.com/cilium/cilium"
+source_code: "https://github.com/cilium/cilium"
+type: cncf
+projects:
+    - envoy-proxy
+description: |
+    Cilium is open source software for providing and transparently securing network connectivity and loadbalancing between application workloads such as application containers or processes.
