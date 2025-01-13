@@ -26,8 +26,8 @@ PLUGIN_PATHS = ['plugins']
 PLUGINS = [
     "pelican.plugins.webassets",
     "pelican.plugins.yaml_metadata",
-    "load_yaml",
     "pelican.plugins.jinja2content",
+    "load_yaml",
     ]
 JINJA2CONTENT_TEMPLATES = "../theme/templates"
 
@@ -37,6 +37,10 @@ RELATIVE_URLS = True
 ARTICLE_PATHS = []
 THEME = "theme"
 TIMEZONE = "Europe/London"
+
+TEMPLATE_PAGES = {
+    "community.html": "community/index.html",
+}
 
 for yaml_file in pathlib.Path("data").glob("*.yaml"):
     locals()[yaml_file.stem.upper()] = yaml.safe_load(yaml_file.read_text())

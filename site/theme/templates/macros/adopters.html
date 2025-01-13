@@ -1,0 +1,24 @@
+{% macro adopters(project, adopters) -%}
+<div class="section">
+    <div class="heading">
+        <h2>Used By</h2>
+    </div>
+    <div class="content">
+        <div class="adopters-grid">
+            {% for adopter in adopters %}
+                {% set company = adopters[adopter] %}
+                <div class="adopter-card">
+                  <div class="adopter-name">
+                      <span>{{ company.name }}</span>
+                  </div>
+                  <div class="adopter-logo">
+                      <a href="{{ company.url }}" target="_blank">
+                          <img src="/theme/logos/{{ company.logo }}" alt="{{ adopter.name }}">
+                        </a>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+    </div>
+</div>
+{%- endmacro %}

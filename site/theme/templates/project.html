@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 {% import 'macros/hero.html' as hero %}
+{% import 'macros/adopters.html' as feature_adopters %}
+{% set project = yaml_data['projects'][page.id] %}
+{% set adopters = yaml_data['adopters'] %}
+{% set github_url = 'https://github.io/envoyproxy/' + project.github %}
 
 {% block banner %}
-    {{ hero.hero(page.title, '', 'fun') }}
+    {{ hero.hero(project.name, project.github, project.description, github_url, project.docs) }}
 {% endblock banner %}
 
-{% block intro %}
-{% endblock intro %}
 
 {% block content %}
+    <div class="intro">
+        {% block intro %}
+        {% endblock intro %}
+    </div>
+    <div class="capabilities">
+        <h2>Capabilities</h2>
+        <ul>
+            {% for capability in project.capabilities %}
+                <li>{{ capability.name }} - {{ capability.description }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {{ feature_adopters.adopters(project, adopters) }}
 
-    {{ yaml_data.projects }}
-
-    <!-- {% for project in yaml_data.projects if project.id == 'gateway' %}
-        Project ID: {{ project.id }}
-    {% endfor %} -->
-
-    {{ page.content }}
-
-{% endblock content %}
+{% endblock %}
