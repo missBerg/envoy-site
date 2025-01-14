@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% import 'macros/projects.html' as feature_projects %}
+{% import 'macros/project.html' as project %}
 {% set projects = yaml_data['projects'] %}
 
 {% block banner %}
@@ -36,10 +36,10 @@
 {% block content %}
 
     {% block projects %}
-        {{ feature_projects.feature(projects['proxy']) }}
-        {{ feature_projects.feature(projects['gateway']) }}
-        {{ feature_projects.feature(projects['ai-gateway']) }}
-        {{ feature_projects.feature(projects['mobile']) }}
+        {{ project.feature(projects['proxy']) }}
+        {{ project.feature(projects['gateway']) }}
+        {{ project.feature(projects['ai-gateway']) }}
+        {{ project.feature(projects['mobile']) }}
     {% endblock %}
 
 
