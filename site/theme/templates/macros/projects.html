@@ -1,12 +1,10 @@
-{% macro feature(projects) -%}
-    {% for project in projects %}
+{% macro feature(project) -%}
         <div class="section">
             <div class="heading">
-                {{ projects[project].name }}
+                {{ project.name }}
             </div>
             <div class="content">
-                {{ projects[project].description }}
+                {{ project.description }}
             </div>
         </div>
-    {% endfor %}
 {%- endmacro %}

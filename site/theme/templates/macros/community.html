@@ -1,23 +1,23 @@
 {% macro training(courses) -%}
-    {% for course in courses %}
+    {% for key, course in courses %}
         <p>
-            {{ courses[course].name }}
+            {{ course.name }}
         </p>
     {% endfor %}
 {%- endmacro %}
 
 {% macro commercial(commercial) -%}
-    {% for solution in commercial %}
+    {% for key, solution in commercial %}
         <p>
-            {{ open_source[solution].name }}
+            {{ solution.name }}
         </p>
     {% endfor %}
 {%- endmacro %}
 
 {% macro open_source(open_source) -%}
-    {% for solution in open_source %}
+    {% for key, project in open_source %}
     <p>
-        {{ open_source[solution].name }}
+        {{ project.name }}
     </p>
     {% endfor %}
 {%- endmacro %}
