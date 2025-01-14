@@ -3,12 +3,14 @@ order: 4
 name: "Envoy Mobile"
 website: "https://envoymobile.io"
 link: /gateway
-github: gateway
+github: envoy
 docs: https://envoymobile.io/docs
 image: /theme/images/envoy-mobile.svg
-show_stars: true
+show_stars: false
 description: |
-  Envoy Mobile brings the power and consistency of Envoy Proxy to the iOS and Android platforms, providing a ubiquitous API and abstraction for mobile application networking.
+  <p> 
+    Envoy Mobile brings the power and consistency of Envoy Proxy to the iOS and Android platforms, providing a ubiquitous API and abstraction for mobile application networking.
+  </p>
 capabilities:
   - name: "gRPC-Web"
     description: "Envoy Gateway supports gRPC-Web, enabling gRPC to be used in modern web browsers."

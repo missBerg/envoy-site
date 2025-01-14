@@ -11,8 +11,8 @@
         {% assets filters="scss", output="css/style.min.css", "css/main.scss" %}
             <link rel="stylesheet" href="/{{ASSET_URL}}">
         {% endassets %}
-        <script src="theme/scripts/stars.js"></script>
-        <script src="theme/scripts/toggle-releases.js"></script>
+        <script src="/theme/scripts/stars.js"></script>
+        <script src="/theme/scripts/toggle-releases.js"></script>
     {% endblock head %}
   </head>
 <body class="{{ body_class | default('') }}">

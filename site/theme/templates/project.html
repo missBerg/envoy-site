@@ -16,13 +16,18 @@
         {% block intro %}
         {% endblock intro %}
     </div>
-    <div class="capabilities">
-        <h2>Capabilities</h2>
-        <ul>
-            {% for capability in project.capabilities %}
-                <li>{{ capability.name }} - {{ capability.description }}</li>
-            {% endfor %}
-        </ul>
+    <div class="section">
+        <div class="section-heading">
+            <span>Capabilities</span>
+        </div>
+        <div class="section-content">
+            <ul>
+                {% for capability in project.capabilities %}
+                    <li>{{ capability.name }} - {{ capability.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
+
     {{ feature_adopters.adopters(project, adopters) }}
 {% endblock %}

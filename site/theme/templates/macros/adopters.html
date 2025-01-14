@@ -1,9 +1,9 @@
 {% macro adopters(project, adopters) -%}
-<div class="section">
-    <div class="heading">
-        <h2>Used By</h2>
+<div class="section flex-center adopters">
+    <div class="section-heading">
+        <span>Used By</span>
     </div>
-    <div class="content">
+    <div class="section-content">
         <div class="adopters-grid">
             {% for adopter in adopters %}
                 {% set company = adopters[adopter] %}

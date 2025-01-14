@@ -4,7 +4,7 @@ name: "Envoy AI Gateway"
 website: "https://gateway.envoyproxy.io"
 link: /ai-gateway
 github: ai-gateway
-image: /theme/images/envoy-gateway.svg
+image: /theme/images/ai-gateway.svg
 show_stars: true
 description: |
   <p>
