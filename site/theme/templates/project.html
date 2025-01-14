@@ -5,7 +5,7 @@
 {% set project = yaml_data['projects'][page.id] %}
 {% set adopters = yaml_data['adopters'] %}
 {% set github_url = 'https://github.io/envoyproxy/' + project.github %}
-{% set body_class = "project" %}
+{% set body_class = "project-page" %}
 
 {% block banner %}
     {{ project_macros.render_project_header(project) }}
