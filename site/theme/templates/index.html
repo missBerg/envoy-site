@@ -2,9 +2,11 @@
 {% import 'macros/projects.html' as feature_projects %}
 {% set projects = yaml_data['projects'] %}
 
-{% block content %}
-
+{% block banner %}
     <h1>Envoy Project</h1>
+{% endblock banner %}
+
+{% block content %}
 
     {% block projects %}
         {{ feature_projects.feature(projects) }}

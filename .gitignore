@@ -9,3 +9,5 @@ Gemfile.lock
 /envoy
 /docs/envoy
 /build/docker
+/site/output
+/site/output
