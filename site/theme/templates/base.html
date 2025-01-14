@@ -12,7 +12,7 @@
         {% endassets %}
     {% endblock head %}
   </head>
-<body>
+<body class="{{ body_class | default('') }}">
     <header class="page-nav" role="banner">
         <div class="header-container">
             {% include 'components/navbar.html' %}

@@ -33,7 +33,11 @@ def version_key(version):
 # Function to fetch releases from GitHub
 def fetch_releases(org, project):
     url = f"https://api.github.com/repos/{org}/{project}/releases"
-    headers = {"Accept": "application/vnd.github+json"}
+    token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        log_error("GitHub token not found in environment variables.")
+        return []
+    headers = {"Accept": "application/vnd.github+json", "Authorization": f"token {token}"}
     all_releases = []
     page = 1
 
