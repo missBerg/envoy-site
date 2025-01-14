@@ -1,0 +1,96 @@
+{% macro render_releases(title, stable_releases, development_release, older_releases) %}
+<div class="section section flex-center release-grid">
+    <div class="section-heading">
+        <span>{{ title }}</span>
+    </div>
+
+    <div class="section-content dark-text">
+        <!-- Stable Releases Section -->
+        <div class="versions">
+            <h2>Stable Releases</h2>
+            {% for version_group in stable_releases %}
+            <div class="version-group">
+                <div class="release-list">
+                    {% for release in version_group.releases %}
+                    {% if loop.first %}
+                    <div class="latest-release">
+                        <span class="heading">
+                            <strong>{{ version_group.version }}</strong>
+                            <span class="pill release-number">{{ release.release }}</span>
+                            {% if release.stable %}
+                            <span class="pill stable">Stable</span>
+                            {% endif %}
+                        </span>
+                        <div class="release-item">
+                            <p class="release-link">
+                                <a href="{{ release.url }}" target="_blank">
+                                    <svg class="link-icon" width="24" height="20" viewBox="0 0 24 20" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.65731..."></path>
+                                    </svg>
+                                    {{ release.release }}
+                                </a>
+                                <span class="release-date">{{ release.published_at }}</span>
+                            </p>
+                        </div>
+                        {% if version_group.releases|length > 1 %}
+                        <div class="toggle-wrapper" onclick="toggleReleases(this)">
+                            <button class="toggle-releases" aria-label="Toggle previous releases"></button>
+                            <span class="toggle-text">Previous releases</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <div class="release-item hidden-release previous" style="display: none;">
+                        <span class="release-date">{{ release.published_at }}</span>
+                        <p class="release-link">
+                            <a href="{{ release.url }}">{{ release.release }}</a>
+                        </p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Development Version Section -->
+        <div class="versions">
+            <h2>Development Version</h2>
+            <div class="version-group">
+                {% for release in development_release.releases %}
+                <div class="latest-release">
+                    <span class="heading">
+                        <strong>{{ development_release.version }}</strong>
+                        <span class="pill release-number">{{ release.release }}</span>
+                    </span>
+                    <div class="release-item">
+                        <p class="release-link">
+                            <a href="{{ release.url }}" target="_blank">{{ release.release }}</a>
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Older Releases Section -->
+        <div class="versions">
+            <h2>Older Releases</h2>
+            {% for version_group in older_releases %}
+            <div class="version-group">
+                <div class="release-list">
+                    {% for release in version_group.releases %}
+                    <div class="release-item">
+                        <span class="release-date">{{ release.published_at }}</span>
+                        <p class="release-link">
+                            <a href="{{ release.url }}">{{ release.release }}</a>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endmacro %}

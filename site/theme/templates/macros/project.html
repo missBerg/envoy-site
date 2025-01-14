@@ -1,10 +1,78 @@
-{% macro feature(project) -%}
-        <div class="section">
-            <div class="heading">
-                {{ project.name }}
+{% macro feature(project, order_mod_2) %}
+<div class="project-container {% if order_mod_2 == 0 %}row-reverse{% else %}row{% endif %}">
+    <div class="project-graphic">
+        <div class="project-image-bg"></div>
+        <div class="project-image">
+            <img src="{{ project.image }}" alt="{{ project.name }}">
+        </div>
+    </div>
+    <div class="project-info">
+        <div>
+            <div class="project-name">
+                <h1>{{ project.name }}</h1>
             </div>
-            <div class="content">
-                {{ project.description }}
+            <div class="project-links">
+                <a href="https://github.com/envoyproxy/{{ project.github }}" target="_blank">
+                    <svg class="link-icon" width="24" height="20" viewBox="0 0 24 20" fill="none" variant="light">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.65731..."></path>
+                    </svg>
+                    {% if project.show_stars %}
+                    <svg class="link-icon" width="22" height="21" viewBox="0 0 22 21" fill="none" variant="light">
+                        <path d="M10.6104 0.821685L13.3479 6.75661C13.4935 7.07242 13.7928 7.28986 14.1382 7.33081L20.6286 8.10035L15.8301 12.5379C15.5747 12.774 15.4604 13.1258 15.5282 13.4669L16.802 19.8775L11.0988 16.6851C10.7953 16.5152 10.4254 16.5152 10.1219 16.6851L4.41875 19.8775L5.69251 13.4669C5.76029 13.1258 5.64598 12.774 5.39064 12.5379L0.592128 8.10035L7.08252 7.33081C7.42788 7.28986 7.72717 7.07242 7.87284 6.75661L10.6104 0.821685Z" stroke="currentColor"></path>
+                    </svg>
+                    <span id="github-stars-{{ project.github }}">Loading...</span>
+                    {% else %}
+                    View on GitHub
+                    {% endif %}
+                </a>
+                <a href="{{ project.docs }}" target="_blank">
+                    <span class="link-icon material-symbols-outlined">docs</span>
+                    <span>View Docs</span>
+                </a>
+            </div>
+            <div class="project-content">
+                {{ project.description | safe }}
             </div>
         </div>
+        <a href="{{ project.link }}" class="btn">
+            Learn More
+        </a>
+    </div>
+</div>
 {%- endmacro %}
+
+
+{% macro render_project_header(project) %}
+<div class="page-header" role="banner">
+    <div class="header-content">
+        <div class="header-text">
+            <h1 class="project-name">{{ project.name }}</h1>
+            <h2 class="project-tagline">
+                {% if project.show_stars %}
+                <div>
+                    <svg class="link-icon" width="24" height="20" viewBox="0 0 24 20" fill="none" variant="light">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.65731..."></path>
+                    </svg>
+                    <svg class="link-icon" width="22" height="21" viewBox="0 0 22 21" fill="none" variant="light">
+                        <path d="M10.6104 0.821685L13.3479 6.75661C13.4935 7.07242 13.7928 7.28986 14.1382 7.33081L20.6286 8.10035L15.8301 12.5379C15.5747 12.774 15.4604 13.1258 15.5282 13.4669L16.802 19.8775L11.0988 16.6851C10.7953 16.5152 10.4254 16.5152 10.1219 16.6851L4.41875 19.8775L5.69251 13.4669C5.76029 13.1258 5.64598 12.774 5.39064 12.5379L0.592128 8.10035L7.08252 7.33081C7.42788 7.28986 7.72717 7.07242 7.87284 6.75661L10.6104 0.821685Z" stroke="currentColor">
+                        </path>
+                    </svg>
+                    <span id="github-stars-{{ project.github }}">Loading...</span>
+                </div>
+                {% endif %}
+                {{ project.description|safe }}
+            </h2>
+            <a href="https://github.com/envoyproxy/{{ project.github }}" class="btn" target="_blank">
+                View on GitHub
+            </a>
+            <a href="{{ project.docs }}" class="btn" target="_blank">
+                Documentation
+            </a>
+        </div>
+
+        <div class="header-logo">
+            <img src="{{ project.image }}" alt="{{ project.name }}">
+        </div>
+    </div>
+</div>
+{% endmacro %}

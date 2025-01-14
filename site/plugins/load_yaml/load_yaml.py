@@ -42,14 +42,10 @@ def load_yaml(generator):
 
     # Store YAML_DATA in settings to make it accessible in content
     generator.settings['YAML_DATA'] = yaml_data
-    generator.settings['ERICA'] = "Erica"
 
 def add_settings_to_generator(generator, metadata):
     # Add specific settings to the global Jinja2 context
     generator.context['yaml_data'] = generator.settings.get('YAML_DATA', {})
-    generator.context['site_name'] = generator.settings.get('SITENAME', 'My Pelican Site')
-    metadata['ERICA'] = generator.settings.get('ERICA', 'Erica')
-
 
 def register():
     signals.initialized.connect(load_yaml)

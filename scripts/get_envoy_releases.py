@@ -12,7 +12,7 @@ def log_info(message):
 def log_error(message):
     print(f"\033[1;31m[ERROR] [get_envoy_releases.py]\033[0m {message}", file=sys.stderr)
 
-# Add argument parsing
+# Argument parsing
 parser = argparse.ArgumentParser(description='Generate releases YAML file for a GitHub project')
 parser.add_argument('project', help='GitHub project name (e.g., envoy)')
 parser.add_argument('--org', default='envoyproxy', help='GitHub organization name (default: envoyproxy)')
@@ -41,31 +41,28 @@ while True:
 
 log_info(f"Fetched {len(all_releases)} releases")
 
+# Parse version strings
 def parse_version(version_str):
-    # Split version into parts and handle RC versions
     parts = version_str.split('-')
     version_parts = parts[0].split('.')
     rc_part = parts[1].split('.')[1] if len(parts) > 1 else None
-    
-    # Convert to integers
     major = int(version_parts[0])
     minor = int(version_parts[1])
     patch = int(version_parts[2])
     rc = int(rc_part) if rc_part else float('inf')
-    
     return (major, minor, patch, rc)
 
 def version_key(version):
     try:
         return parse_version(version)
     except (IndexError, ValueError):
-        return (0, 0, 0, -1)  # Invalid versions sort to beginning
+        return (0, 0, 0, -1)
 
 # Extract and sort releases by version, excluding RC versions
 release_tags = [
     release["tag_name"].lstrip("v") for release in all_releases
-    if release["tag_name"].startswith("v") and 
-    re.match(r'^v\d+\.\d+\.\d+$', release["tag_name"])  # Only match standard versions
+    if release["tag_name"].startswith("v") and
+    re.match(r'^v\d+\.\d+\.\d+$', release["tag_name"])
 ]
 release_tags = sorted(release_tags, key=version_key, reverse=True)
 
@@ -83,11 +80,11 @@ release_info = {
         "url": release["html_url"],
         "published_at": datetime.strptime(release["published_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d")
     }
-    for release in all_releases 
+    for release in all_releases
     if release["tag_name"].startswith("v")
 }
 
-# Determine stable releases for the last four minor versions (excluding RC versions)
+# Determine stable releases for the last four minor versions
 stable_versions = set()
 for version, patches in sorted(grouped_releases.items(), key=lambda x: [int(part) for part in x[0].split(".")], reverse=True)[:4]:
     stable_patches = [p for p in patches if not p.endswith('-rc.1')]
@@ -97,36 +94,48 @@ for version, patches in sorted(grouped_releases.items(), key=lambda x: [int(part
 
 log_info(f"Identified {len(stable_versions)} stable versions")
 
-# Create the YAML data structure
-yaml_data = {"versions": []}
-for version, releases in sorted(grouped_releases.items(), key=lambda x: [int(part) for part in x[0].split(".")], reverse=True):
-    yaml_data["versions"].append({
-        "version": "v" + version,
-        "has_stable": any(release in stable_versions for release in releases),
-        "is_development": False,
+# Create the new YAML data structure
+yaml_data = {
+    "stable_releases": [],
+    "development_release": {
+        "version": "Development Version",
         "releases": [
             {
-                "release": release, 
-                "stable": release in stable_versions,
-                "url": release_info[release]["url"],
-                "published_at": release_info[release]["published_at"]
+                "release": "latest",
+                "url": "https://github.com/envoyproxy/envoy/",
+                "published_at": None
             }
-            for release in sorted(releases, key=version_key, reverse=True)
         ]
-    })
+    },
+    "older_releases": []
+}
 
-yaml_data["versions"].append({
-    "version": "Development Version",
-    "has_stable": False,
-    "is_development": True,
-    "releases": [
-        {
-            "release": "latest", 
-            "stable": False,
-            "url": "https://github.com/envoyproxy/envoy/"
-        }
-    ]
-})
+for version, releases in sorted(grouped_releases.items(), key=lambda x: [int(part) for part in x[0].split(".")], reverse=True):
+    stable_patches = [p for p in releases if p in stable_versions]
+    if stable_patches:
+        yaml_data["stable_releases"].append({
+            "version": "v" + version,
+            "releases": [
+                {
+                    "release": release,
+                    "url": release_info[release]["url"],
+                    "published_at": release_info[release]["published_at"]
+                }
+                for release in sorted(stable_patches, key=version_key, reverse=True)
+            ]
+        })
+    else:
+        yaml_data["older_releases"].append({
+            "version": "v" + version,
+            "releases": [
+                {
+                    "release": release,
+                    "url": release_info[release]["url"],
+                    "published_at": release_info[release]["published_at"]
+                }
+                for release in sorted(releases, key=version_key, reverse=True)
+            ]
+        })
 
 # Save to a YAML file
 output_file = f"{args.output}/{args.project}_versions.yml"

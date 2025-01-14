@@ -34,13 +34,21 @@
 {% endblock banner %}
 
 {% block content %}
-
-    {% block projects %}
-        {{ project.feature(projects['proxy']) }}
-        {{ project.feature(projects['gateway']) }}
-        {{ project.feature(projects['ai-gateway']) }}
-        {{ project.feature(projects['mobile']) }}
-    {% endblock %}
+<div class="section projects">
+    <div class="section-heading">
+      <span>Open Source <span class="pink-font">Tools</span></span>
+    </div>
+    <div class="section-content">
+        <div class="flex-center">
+            {% block projects %}
+                {{ project.feature(projects['proxy'], 1) }}
+                {{ project.feature(projects['gateway'], 0) }}
+                {{ project.feature(projects['ai-gateway'], 1) }}
+                {{ project.feature(projects['mobile'], 0) }}
+            {% endblock %}
+        </div>
+    </div> 
+</div>
 
 
 {% endblock %}

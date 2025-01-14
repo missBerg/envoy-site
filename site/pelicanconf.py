@@ -28,6 +28,7 @@ PLUGINS = [
     "pelican.plugins.yaml_metadata",
     "pelican.plugins.jinja2content",
     "load_yaml",
+    "envoy_releases",
     ]
 JINJA2CONTENT_TEMPLATES = "../theme/templates"
 
@@ -41,6 +42,14 @@ TIMEZONE = "Europe/London"
 TEMPLATE_PAGES = {
     "community.html": "community/index.html",
 }
+
+GITHUB_PROJECTS = [
+    "envoy",
+    "gateway",
+]
+GITHUB_ORG = "envoyproxy"
+RELEASES_OUTPUT_PATH = "content/releases"
+
 
 for yaml_file in pathlib.Path("data").glob("*.yaml"):
     locals()[yaml_file.stem.upper()] = yaml.safe_load(yaml_file.read_text())

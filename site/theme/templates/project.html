@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% import 'macros/hero.html' as hero %}
+{% import 'macros/project.html' as project_macros %}
 {% import 'macros/adopters.html' as feature_adopters %}
 {% set project = yaml_data['projects'][page.id] %}
 {% set adopters = yaml_data['adopters'] %}
 {% set github_url = 'https://github.io/envoyproxy/' + project.github %}
 
 {% block banner %}
-    {{ hero.hero(project.name, project.github, project.description, github_url, project.docs) }}
+    {{ project_macros.render_project_header(project) }}
 {% endblock banner %}
 
 {% block content %}
