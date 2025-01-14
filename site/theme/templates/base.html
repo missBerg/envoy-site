@@ -7,9 +7,12 @@
         <meta name="generator" content="Pelican" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ DESCRIPTION }}" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
         {% assets filters="scss", output="css/style.min.css", "css/main.scss" %}
             <link rel="stylesheet" href="/{{ASSET_URL}}">
         {% endassets %}
+        <script src="theme/scripts/stars.js"></script>
+        <script src="theme/scripts/toggle-releases.js"></script>
     {% endblock head %}
   </head>
 <body class="{{ body_class | default('') }}">
