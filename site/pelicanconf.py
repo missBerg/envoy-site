@@ -21,7 +21,7 @@ NOW = datetime.now()
 PATH = "content"
 PAGE_PATHS = ['pages']
 PAGE_URL = 'pages/{slug}/'
-PAGE_SAVE_AS = 'pages/{slug}/index.html'
+PAGE_SAVE_AS = '{slug}/index.html'
 PLUGIN_PATHS = ['plugins']
 PLUGINS = [
     "pelican.plugins.webassets",

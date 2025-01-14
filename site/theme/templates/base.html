@@ -12,18 +12,22 @@
         {% endassets %}
     {% endblock head %}
   </head>
-
 <body>
-    <header>
-        {% include 'components/navbar.html' %}
-        {% block banner %}
-        {% endblock banner %}
+    <header class="page-nav" role="banner">
+        <div class="header-container">
+            {% include 'components/navbar.html' %}
+        </div>
     </header>
+    {% block banner %}
+    {% endblock banner %}
     <main>
         {% block content %}
         {% endblock content %}
     </main>
-    <footer>
+
+    <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.io/envoyproxy">The Envoy Project</a> is a CNCF graduated project. See more details on Envoy GitHub Project.</span>
     </footer>
 </body>
+
 </html>
