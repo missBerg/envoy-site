@@ -28,6 +28,22 @@
         justify-content: center;
         gap: 2.5rem;
       }
+
+      .logo {
+        height: 17vh;
+        object-fit: contain;
+        padding: 1rem 2rem;
+        margin: auto;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          max-height: 100%;
+          max-width: 100%;
+        }
+      }
       
       .card {
         border-radius: 16px;
@@ -40,19 +56,21 @@
         justify-content: space-between;
         height: 40rem;
 
+      
+
         @include small {
           height: fit-content;
         }
       }
       
-      .card img {
-        height: 17vh;
-        object-fit: contain;
-        padding: 1rem 2rem;
-        margin: auto;
-        align-self: center;
-        display: block;
-      }
+      // .card {
+      //   height: 17vh;
+      //   object-fit: contain;
+      //   padding: 1rem 2rem;
+      //   margin: auto;
+      //   align-self: center;
+      //   display: block;
+      // }
       
       .information {
         background-color: #fff;

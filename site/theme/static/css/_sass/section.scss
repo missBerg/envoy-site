@@ -30,24 +30,61 @@
     }
   
     .section-heading {
-      font-size: 3rem;
-      font-weight: 800;
-      display: flex;
+      font-size: 1.2rem;
+      display: block;
       justify-content: center;
       padding: 2rem 0rem;
       color: variables.$section-headings-color;
       text-align: center;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 800;
+      }
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 800;
+      }
     
       @include large {
-        font-size: 3rem;
+
+        h1 {
+          font-size: 3rem;
+          font-weight: 800;
+        }
+  
+        h2 {
+          font-size: 2rem;
+          font-weight: 800;
+        }
+
       }
     
       @include medium {
-        font-size: 2.5rem;
+
+        h1 {
+          font-size: 2.5rem;
+          font-weight: 800;
+        }
+  
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 800;
+        }
       }
     
       @include small {
-        font-size: 2.5rem;
+
+        h1 {
+          font-size: 2.2rem;
+          font-weight: 800;
+        }
+  
+        h2 {
+          font-size: 1.8rem;
+          font-weight: 800;
+        }
       }
     }
   

@@ -27,9 +27,11 @@
                       </svg>
                     {{ release.release }}
                     </a>
-                    <span class="release-date">
-                       {{ release.published_at }}
-                    </span>
+                    {% if release.published_at %}
+                      <span class="release-date">
+                        {{ release.published_at }}
+                      </span>
+                    {% endif %}
                   </p>
                   <p class="release-link">
                     <a href="/docs/envoy/{% if include.versions != development %}v{% endif %}{{ release.release }}/" target="_blank">

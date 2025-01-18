@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+{% import 'macros/community.html' as community_macros %}
+{% set community = yaml_data['community'] %}
 
 {% block content %}
-    <h1>Welcome to the Community Page</h1>
-    <p>The community page</p>
+
+    {{ community_macros.feature_group('cncf', 'CNCF Solutions', community.cncf) }}
+    {{ community_macros.feature_group('oss', 'Open Source Solutions', community.oss) }}
+    {{ community_macros.feature_group('commercial', 'Commercial Solutions', community.commercial) }}
+    
 {% endblock %}

@@ -80,14 +80,11 @@ def process_releases(all_releases):
 
     stable_versions = set()
     for version, patches in sorted(grouped_releases.items(), key=lambda x: [int(part) for part in x[0].split(".")], reverse=True)[:4]:
-        stable_patches = [p for p in patches if not p.endswith('-rc.1')]
-        if stable_patches:
-            latest_patch = max(stable_patches, key=version_key)
-            stable_versions.add(latest_patch)
+        stable_versions.update(patches)
 
     yaml_data = {
         "stable_releases": [],
-        "development_release": {
+        "development_release": [{
             "version": "Development Version",
             "releases": [
                 {
@@ -96,13 +93,12 @@ def process_releases(all_releases):
                     "published_at": None
                 }
             ]
-        },
+        }],
         "older_releases": []
     }
 
     for version, releases in sorted(grouped_releases.items(), key=lambda x: [int(part) for part in x[0].split(".")], reverse=True):
-        stable_patches = [p for p in releases if p in stable_versions]
-        if stable_patches:
+        if any(release in stable_versions for release in releases):
             yaml_data["stable_releases"].append({
                 "version": "v" + version,
                 "releases": [
@@ -111,7 +107,7 @@ def process_releases(all_releases):
                         "url": release_info[release]["url"],
                         "published_at": release_info[release]["published_at"]
                     }
-                    for release in sorted(stable_patches, key=version_key, reverse=True)
+                    for release in sorted(releases, key=version_key, reverse=True)
                 ]
             })
         else:

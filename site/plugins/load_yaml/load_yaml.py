@@ -10,19 +10,30 @@ handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
 logger.addHandler(handler)
 
+def recursive_dict():
+    """Helper function to create a nested defaultdict-like structure."""
+    from collections import defaultdict
+    return defaultdict(recursive_dict)
+
 def load_yaml(generator):
     data_dir = os.path.join(generator.settings['PATH'], 'data')
-    yaml_data = { }
+    yaml_data = recursive_dict()
 
     logger.debug(f"Loading YAML files from directory: {data_dir}")
 
     for root, _, files in os.walk(data_dir):
         relative_dir = os.path.relpath(root, data_dir)
         if relative_dir == '.':
+            # Skip the root data directory
             continue
 
-        key = relative_dir.replace(os.path.sep, '_')  # Use directory as the key
-        yaml_data[key] = { }  # Initialize as a list
+        # Break relative_dir into components for nested dictionary structure
+        dir_parts = relative_dir.split(os.sep)
+        current_level = yaml_data
+
+        # Traverse or create the nested structure based on directories
+        for part in dir_parts:
+            current_level = current_level[part]
 
         logger.debug(f"Processing directory: {relative_dir}")
 
@@ -33,15 +44,13 @@ def load_yaml(generator):
                 with open(file_path, 'r') as yaml_file:
                     item_data = yaml.safe_load(yaml_file)
 
-                    file = os.path.splitext(filename)[0]
-                    logger.debug(f"Loaded data: {file}")
+                    file_key = os.path.splitext(filename)[0]
+                    current_level[file_key] = item_data
 
-                    yaml_data[key][file] = item_data
-                    
-                    logger.debug(f"Loaded data: {yaml_data}")
+                    logger.debug(f"Loaded data for {file_key} into {relative_dir}: {item_data}")
 
-    # Store YAML_DATA in settings to make it accessible in content
-    generator.settings['YAML_DATA'] = yaml_data
+    # Convert defaultdict to a standard dictionary before storing
+    generator.settings['YAML_DATA'] = dict(yaml_data)
 
 def add_settings_to_generator(generator, metadata):
     # Add specific settings to the global Jinja2 context

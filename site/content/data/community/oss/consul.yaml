@@ -1,5 +1,5 @@
 name: "Consul"
-logo: "logos/community/consul.svg"
+logo: "logos/consul.svg"
 learn_more: "https://www.consul.io/docs/guides/connect-envoy.html"
 source_code: "https://github.com/hashicorp/consul"
 type: oss

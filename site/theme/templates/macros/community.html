@@ -1,23 +1,41 @@
-{% macro training(courses) -%}
-    {% for key, course in courses %}
-        <p>
-            {{ course.name }}
-        </p>
-    {% endfor %}
-{%- endmacro %}
-
-{% macro commercial(commercial) -%}
-    {% for key, solution in commercial %}
-        <p>
-            {{ solution.name }}
-        </p>
-    {% endfor %}
-{%- endmacro %}
-
-{% macro open_source(open_source) -%}
-    {% for key, project in open_source %}
-    <p>
-        {{ project.name }}
-    </p>
-    {% endfor %}
-{%- endmacro %}
+{% macro feature_group(id, title, group) %}
+<div id="{{ id }}"></div>
+<div class="section community-features section-purple">
+    <div class="section-heading">
+        <a href="#{{ id }}"></a><h1>{{ title }}</h1>
+    </div>
+    <div class="section-content cards">
+        {% for key, member in group | dictsort %}
+        <article class="information card">
+            <div>
+                <div class="logo">
+                    <img src="/theme/{{ member.logo }}" alt="{{ member.name }}"/>
+                </div>
+                {% if member.type %}
+                    <span class="tag {{ member.type }}">{{ member.type | upper }}</span>
+                {% endif %}
+                <h2 class="title">{{ member.name }}</h2>
+                <span class="info">
+                    {{ member.description }}
+                </span>
+            </div>
+            <div>
+                {% if member.learn_more %}
+                  <a class="button" href="{{ member.learn_more }}" target="_blank">
+                    {% if member.cta %}
+                        <span>{{ member.cta }}</span>
+                    {% else %}
+                        <span>Learn more</span>
+                    {% endif %}
+                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="none">
+                          <path d="M0 0h24v24H0V0z" fill="none" />
+                          <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" fill="currentColor" />
+                      </svg>
+                  </a>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
