@@ -1,7 +1,5 @@
----
-name: "Airbnb"
-logo: "airbnb.svg"
-url: "https://airbnb.com"
+name: Airbnb
+logo: airbnb.svg
+url: https://airbnb.com
 projects:
-    - envoy-proxy
----
+- proxy

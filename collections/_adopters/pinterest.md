@@ -1,7 +1,5 @@
----
-name: "Pinterest"
-logo: "pinterest.svg"
-url: "https://pinterest.com"
+name: Pinterest
+logo: pinterest.svg
+url: https://pinterest.com
 projects:
-    - envoy-proxy
----
+- proxy

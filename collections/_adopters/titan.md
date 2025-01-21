@@ -1,7 +1,5 @@
----
-name: "Titan"
-logo: "titan.svg"
-url: "https://titan.email/"
+name: Titan
+logo: titan.svg
+url: https://titan.email/
 projects:
-    - envoy-gateway
----
+- gateway

@@ -15,7 +15,9 @@ description: |
     Aimed at making it easy to adopt, use, and manage Envoy Proxy.
   </p>
 capabilities:
-  - name: "gRPC-Web"
+  - title: "gRPC-Web"
     description: "Envoy Gateway supports gRPC-Web, enabling gRPC to be used in modern web browsers."
-  - name: "HTTP/2"
+    icon: "monitoring"
+  - title: "HTTP/2"
     description: "Envoy Gateway supports HTTP/2, enabling efficient multiplexing of requests and responses."
+    icon: "http"

@@ -1,3 +1,4 @@
+<!-- FEATURE SECTION ON HOME PAGE -->
 {% macro feature(project, order_mod_2) %}
 <div class="project-container {% if order_mod_2 == 0 %}row-reverse{% else %}row{% endif %}">
     <div class="project-graphic">
@@ -43,6 +44,7 @@
 </div>
 {%- endmacro %}
 
+<!-- HEADER MACRO -->
 
 {% macro render_project_header(project) %}
 <div class="page-header" role="banner">
@@ -79,6 +81,31 @@
 </div>
 {% endmacro %}
 
+<!-- CAPABILITIES FEATURE SECTION -->
+{% macro capabilities_section(section_class, heading, capabilities) %}
+<div class="section flex-center {{ section_class }}">
+  <div class="section-heading">
+    <h1>{{ heading }}</h1>
+  </div>
+  <div class="section-content dark-text">
+    <div class="capabilities-grid">
+      {% for capability in capabilities %}
+        <div class="capability-card">
+          <h3>
+            <span class="capability-icon material-symbols-outlined">{{ capability.icon }}</span>
+            {{ capability.title }}
+          </h3>
+          <p>{{ capability.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+
+<!-- RELEASE GRID MACROS -->
+
 {% macro render_release_link(name, github_url, docs_url) %}
 
 <p class="release-link">
@@ -96,7 +123,6 @@
     <span>View Docs</span>
     </a>
 </p>
-
 {% endmacro %}
 
 

@@ -8,11 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ DESCRIPTION }}" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-        {% assets filters="scss", output="css/style.min.css", "css/main.scss" %}
+        {% assets 'combined_css' %}
             <link rel="stylesheet" href="/{{ASSET_URL}}">
         {% endassets %}
         <script src="/theme/scripts/stars.js"></script>
         <script src="/theme/scripts/toggle-releases.js"></script>
+        <script src="/theme/scripts/join-slack.js"></script>
     {% endblock head %}
   </head>
 <body class="{{ body_class | default('') }}">
@@ -28,9 +29,68 @@
         {% endblock content %}
     </main>
 
-    <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.io/envoyproxy">The Envoy Project</a> is a CNCF graduated project. See more details on Envoy GitHub Project.</span>
-    </footer>
+    <footer>
+        <div class="footer-top row">
+            <div class="column60">
+                <div class="row">
+                    <div class="column">
+                        <h3>Quick Links</h3>
+                        <ul class="quick-links">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="https://github.com/envoyproxy/envoy" target="_blank">GitHub</a></li>
+                        </ul>
+                        <h3>Social Media</h3>
+                        <ul class="quick-links">
+                            <li><a href="https://www.linkedin.com/company/envoy-cloud-native/" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://www.reddit.com/r/EnvoyProxy/" target="_blank">Reddit</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Enovy Projects</h3>
+                        <ul class="quick-links">
+                            <li><a href="/envoy">Proxy</a></li>
+                            <li><a href="/gateway">Gateway</a></li>
+                            <li><a href="/ai-gateway">AI Gateway</a></li>
+                            <li><a href="/ai-gateway">Mobile</a></li>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column40">
+                <div class="row invite">
+                    <div class="column">
+                        <h3>Join us on Slack</h3>
+                        <form id="invite-form">
+                            <input type="email" id="email" placeholder="Enter your email" required />
+                            <button id="slack-invite-button" class="btn" type="submit">
+                                Get Invite
+                            </button>
+                            <div id="spinner">
+                                <div class="loader"></div>
+                            </div>
+                        </form>
+                        <div id="response-message">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="details">
+                        <p>
+                            2025 © Envoy Project Authors. All rights reserved.<br/>
+                            The Linux Foundation has registered trademarks and uses trademarks.
+                        </p>
+                        <p>
+                            For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        
+      </footer>
+      
 </body>
 
 </html>

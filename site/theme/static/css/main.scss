@@ -9,6 +9,7 @@
 @use "_sass/section";
 @use "_sass/toggle-menu";
 @use "_sass/project-page";
+@use "_sass/footer";
 @use "_sass/home/projects";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700,800');
@@ -63,8 +64,6 @@ body {
   word-wrap: break-word;
 
   @include large {
-    // max-width: 84rem;
-    // padding: 5rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem;
   }
@@ -284,10 +283,8 @@ a {
 .btn {
   display: inline-block;
   font-weight: 800;
-  margin-bottom: 1rem;
   color: rgba(255, 255, 255, 1);
   background-color: rgba(179, 25, 171, 1);
-  border-color: rgba(255, 255, 255, 0.2);
   border-style: solid;
   border-width: 0px;
   border-radius: 2rem;
@@ -295,10 +292,8 @@ a {
   width: fit-content;
 
   &:hover {
-    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    background-color: rgba(209, 98, 205, 0.7);
-    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgb(139, 0, 132);
   }
 
   + .btn {
@@ -517,33 +512,4 @@ a {
 
 .pink-font {
   color:#f3c;
-}
-
-.site-footer {
-  padding: 1rem;
-  background-color: variables.$footer-bg-color;
-  display: flex;
-  justify-content: center;
-  color: #ddd;
-
-  @include large {
-    font-size: 1rem;
-  }
-
-  @include medium {
-    font-size: 1rem;
-  }
-
-  @include small {
-    font-size: 0.9rem;
-  }
-}
-
-.site-footer-owner {
-  display: block;
-  font-weight: bold;
-}
-
-.site-footer-credits {
-  color: variables.$blockquote-text-color;
 }

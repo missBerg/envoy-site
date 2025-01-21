@@ -1,7 +1,5 @@
----
-name: "Salesforce"
-logo: "salesforce.svg"
-url: "https://salesforce.com"
+name: Salesforce
+logo: salesforce.svg
+url: https://salesforce.com
 projects:
-    - envoy-proxy
----
+- proxy

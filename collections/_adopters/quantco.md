@@ -1,7 +1,5 @@
----
-name: "Quantco"
-logo: "quantco.png"
-url: "https://www.quantco.com/"
+name: Quantco
+logo: quantco.png
+url: https://www.quantco.com/
 projects:
-    - envoy-gateway
----
+- gateway

@@ -1,7 +1,5 @@
----
-name: "Tencent Cloud"
-logo: "tencent-cloud.svg"
-url: "https://www.tencentcloud.com/"
+name: Tencent Cloud
+logo: tencent-cloud.svg
+url: https://www.tencentcloud.com/
 projects:
-    - envoy-gateway
----
+- gateway

@@ -1,7 +1,5 @@
----
-name: "Airspace Link"
-logo: "airspacelink.svg"
-url: "https://airspacelink.com/"
+name: Airspace Link
+logo: airspacelink.svg
+url: https://airspacelink.com/
 projects:
-    - envoy-gateway
----
+- gateway

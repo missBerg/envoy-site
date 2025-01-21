@@ -1,7 +1,5 @@
----
-name: "IBM"
-logo: "ibm.svg"
-url: "https://ibm.com"
+name: IBM
+logo: ibm.svg
+url: https://ibm.com
 projects:
-    - envoy-proxy
----
+- proxy

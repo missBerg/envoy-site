@@ -16,18 +16,6 @@
         {% block intro %}
         {% endblock intro %}
     </div>
-    <div class="section">
-        <div class="section-heading">
-            <span>Capabilities</span>
-        </div>
-        <div class="section-content">
-            <ul>
-                {% for capability in project.capabilities %}
-                    <li>{{ capability.name }} - {{ capability.description }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-
+    {{ project_macros.capabilities_section('section-purple', 'Capabilities', project.capabilities) }}
     {{ feature_adopters.adopters(project, adopters) }}
 {% endblock %}

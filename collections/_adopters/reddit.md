@@ -1,7 +1,5 @@
----
-name: "Reddit"
-logo: "reddit.svg"
-url: "https://reddit.com"
+name: Reddit
+logo: reddit.svg
+url: https://reddit.com
 projects:
-    - envoy-proxy
----
+- proxy

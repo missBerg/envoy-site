@@ -1,7 +1,5 @@
----
-name: "Lyft"
-logo: "lyft.svg"
-url: "https://lyft.com"
+name: Lyft
+logo: lyft.svg
+url: https://lyft.com
 projects:
-    - envoy-proxy
----
+- proxy

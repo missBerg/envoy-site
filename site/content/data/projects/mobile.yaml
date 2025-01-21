@@ -12,7 +12,9 @@ description: |
     Envoy Mobile brings the power and consistency of Envoy Proxy to the iOS and Android platforms, providing a ubiquitous API and abstraction for mobile application networking.
   </p>
 capabilities:
-  - name: "gRPC-Web"
+  - title: "gRPC-Web"
     description: "Envoy Gateway supports gRPC-Web, enabling gRPC to be used in modern web browsers."
-  - name: "HTTP/2"
+    icon: "monitoring"
+  - title: "HTTP/2"
     description: "Envoy Gateway supports HTTP/2, enabling efficient multiplexing of requests and responses."
+    icon: "http"

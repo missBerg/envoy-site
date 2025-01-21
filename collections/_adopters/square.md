@@ -1,7 +1,5 @@
----
-name: "Square"
-logo: "square.svg"
-url: "https://square.com"
+name: Square
+logo: square.svg
+url: https://square.com
 projects:
-    - envoy-proxy
----
+- proxy

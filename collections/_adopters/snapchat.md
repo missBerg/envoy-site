@@ -1,7 +1,5 @@
----
-name: "Snapchat"
-logo: "snapchat.svg"
-url: "https://snapchat.com"
+name: Snapchat
+logo: snapchat.svg
+url: https://snapchat.com
 projects:
-    - envoy-proxy
----
+- proxy

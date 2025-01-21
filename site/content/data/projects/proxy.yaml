@@ -13,3 +13,10 @@ description: |
   <p>
   Take control over your traffic.
   </p>
+capabilities:
+  - title: "gRPC-Web"
+    description: "Envoy Gateway supports gRPC-Web, enabling gRPC to be used in modern web browsers."
+    icon: "monitoring"
+  - title: "HTTP/2"
+    description: "Envoy Gateway supports HTTP/2, enabling efficient multiplexing of requests and responses."
+    icon: "http"
