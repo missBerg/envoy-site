@@ -17,5 +17,7 @@
         {% endblock intro %}
     </div>
     {{ project_macros.capabilities_section('section-purple', 'Capabilities', project.capabilities) }}
-    {{ feature_adopters.adopters(project, adopters) }}
+    {% if page.feature_adopters %}
+        {{ feature_adopters.adopters(project, adopters) }}
+    {% endif %}
 {% endblock %}
