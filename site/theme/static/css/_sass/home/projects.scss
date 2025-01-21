@@ -85,15 +85,13 @@
   }
   
   .project-graphic {
-    height: auto;
-    display: flex;
   
     .project-image {
-      max-width: 40vw;
-      height: auto;
+      display: flex;
   
       img {
         max-height: 40vh;
+        max-width: 40vw;
       }
     }
   }

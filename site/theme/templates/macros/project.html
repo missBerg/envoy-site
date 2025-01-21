@@ -2,7 +2,6 @@
 {% macro feature(project, order_mod_2) %}
 <div class="project-container {% if order_mod_2 == 0 %}row-reverse{% else %}row{% endif %}">
     <div class="project-graphic">
-        <div class="project-image-bg"></div>
         <div class="project-image">
             <img src="{{ project.image }}" alt="{{ project.name }}">
         </div>

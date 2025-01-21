@@ -152,8 +152,7 @@ footer {
       }
 
       @include medium {
-        flex-direction: row;
-        width: 25rem;
+        flex-direction: column;
       }
 
       @include small {
