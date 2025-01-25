@@ -91,6 +91,10 @@
     .section-content {
       max-width: 80vw;
       text-align: left;
+
+      h1, h2 {
+        color: variables.$h2-color;
+      }
     }
   
     .section-content p {

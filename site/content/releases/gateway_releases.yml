@@ -1,6 +1,9 @@
 stable_releases:
 - version: v1.2
   releases:
+  - release: 1.2.6
+    url: https://github.com/envoyproxy/gateway/releases/tag/v1.2.6
+    published_at: '2025-01-23'
   - release: 1.2.5
     url: https://github.com/envoyproxy/gateway/releases/tag/v1.2.5
     published_at: '2025-01-14'

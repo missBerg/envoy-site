@@ -64,14 +64,6 @@ RELEASES_OUTPUT_PATH = "content/releases"
 for yaml_file in pathlib.Path("data").glob("*.yaml"):
     locals()[yaml_file.stem.upper()] = yaml.safe_load(yaml_file.read_text())
 
-# LATEST_VERSION = max(
-#     chain.from_iterable(
-#         version["releases"]
-#         for version
-#         in yaml.safe_load(
-#             pathlib.Path("data/versions.yaml").read_text())[0]["versions"]),
-#     key=lambda release: _version.Version(release))
-
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
