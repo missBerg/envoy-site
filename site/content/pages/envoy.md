@@ -15,7 +15,6 @@ It is used as the core proxy component in API Gateways, Service Meshes, Cloud Lo
 Whether you know it or not, you are likely to have used Envoy Proxy if you have used a modern application.
 
 
-
 # Why Envoy Proxy?
 
 As on the ground microservice practitioners quickly realize, the majority of operational problems that arise when moving to a distributed architecture are ultimately grounded in two areas: networking and observability. It is simply an orders of magnitude larger problem to network and debug a set of intertwined distributed services versus a single monolithic application.
@@ -26,12 +25,11 @@ Built on the learnings of solutions such as NGINX, HAProxy, hardware load balanc
 
 <html>
     {% import 'macros/general.html' as general %}
-    {% set text = "hello" %}
     {% set quote %}
         At Lyft, we've made tremendous strides in our resilience and observability since we started deploying Envoy.
 
         We're excited to be open sourcing Envoy, and the community that's growing around Envoy will help both Lyft and others adopting a microservices architecture.
     {% endset %}
 
-    {{ general.quote_section(quote,"Erica","Awesome") }}
+    {{ general.quote_section(quote,"Peter Morelli","VP Engineering, Lyft") }}
 </html>

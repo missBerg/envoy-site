@@ -126,16 +126,36 @@ def process_releases(all_releases):
 
 # Main function to generate release data
 def generate_release_data(generator):
+    
     settings = generator.settings
     projects = settings.get("GITHUB_PROJECTS", [])
     org = settings.get("GITHUB_ORG", "envoyproxy")
     output_path = settings.get("RELEASES_OUTPUT_PATH", "content/releases")
 
+    log_info(f"Using settings: projects={projects}, org={org}, output_path={output_path}")
+
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
+    consolidated_file = os.path.join(output_path, "all_projects_releases.yml")
+
+    # Check if releases file exists and was updated today
+    if os.path.exists(consolidated_file):
+        file_mtime = datetime.fromtimestamp(os.path.getmtime(consolidated_file))
+        today = datetime.now().date()
+        if file_mtime.date() == today:
+            # Load existing data if updated today
+            with open(consolidated_file, 'r') as file:
+                consolidated_data = yaml.safe_load(file)
+            log_info("Using existing generated release file from today")
+            generator.settings['RELEASE_DATA'] = consolidated_data
+            return
+
+    log_info("Fetching fresh release data")
+    # Otherwise fetch fresh data
     consolidated_data = {}
     for project in projects:
+        log_info(f"Processing releases for project: {project}")
         all_releases = fetch_releases(org, project)
         if not all_releases:
             log_error(f"Skipping project {project} due to fetch failure.")
@@ -151,12 +171,10 @@ def generate_release_data(generator):
         log_info(f"YAML file generated for project {project}: {project_file}")
 
     # Write consolidated YAML file
-    consolidated_file = os.path.join(output_path, "all_projects_releases.yml")
     with open(consolidated_file, "w") as file:
         yaml.dump(consolidated_data, file, sort_keys=False)
     log_info(f"Consolidated YAML file generated: {consolidated_file}")
 
-    consolidated_data
     generator.settings['RELEASE_DATA'] = consolidated_data
 
 def add_settings_to_generator(generator, metadata):

@@ -1,5 +1,4 @@
 id: gateway
-order: 2
 name: "Envoy Gateway"
 website: "https://gateway.envoyproxy.io"
 link: /gateway
@@ -15,9 +14,19 @@ description: |
     Aimed at making it easy to adopt, use, and manage Envoy Proxy.
   </p>
 capabilities:
-  - title: "gRPC-Web"
-    description: "Envoy Gateway supports gRPC-Web, enabling gRPC to be used in modern web browsers."
+  - title: "Use Envoy Proxy as an API Gateway"
+    icon: "api"
+    description: |
+      Makes it easy to leverage Envoy Proxy as a Kubernetes Gateway. Envoy Gateway implements the Kubernetes Gateway API, and extends it to make it easy to leverage advanced Envoy features, without knowing details of Envoy proxy.
+  - title: "Security controls made easy"
+    icon: "security"
+    description: |
+      Leverage the Envoy Gateway Security Policy to enforce security controls including mTLS, JWT based access control, OIDC integration, API Key based authorization, and more.
+  - title: "Manage traffic"
+    icon: "alt_route"
+    description: |
+      Envoy Gateway supports advanced traffic management and control features including rate limiting, retry policies, circuit breaking, timeouts, failover, and more.
+  - title: "Observability"
     icon: "monitoring"
-  - title: "HTTP/2"
-    description: "Envoy Gateway supports HTTP/2, enabling efficient multiplexing of requests and responses."
-    icon: "http"
+    description: |
+      Envoy Gateway provides a rich set of observability features including metrics, access logging, distributed tracing, and more. 

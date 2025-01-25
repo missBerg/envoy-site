@@ -143,7 +143,7 @@ def devserver(c):
         CONFIG['settings_base'],
         f'{SETTINGS["PATH"]}/**/*.md',
         f'{SETTINGS["PATH"]}/**/*.html',
-        f'{SETTINGS["THEME"]}/templates/components/*.html',
+        f'{SETTINGS["PATH"]}/**/*.yaml',
         f'{SETTINGS["THEME"]}/templates/**/*',
         f'{SETTINGS["THEME"]}/static/**/*',
     ]
