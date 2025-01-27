@@ -60,7 +60,7 @@ development_release:
   releases:
   - release: latest
     url: https://github.com/envoyproxy/envoy/
-    published_at: null
+    published_at: Built off main branch
 older_releases:
 - version: v0.5
   releases:

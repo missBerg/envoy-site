@@ -2,3 +2,5 @@
 /build/docker
 /site/output
 /site/output
+/site/__pycache__
+/site/__pycache__
