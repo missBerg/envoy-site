@@ -1,7 +1,0 @@
----
-name: "Booking"
-logo: "booking.svg"
-url: "https://booking.com"
-projects:
-    - envoy-proxy
----

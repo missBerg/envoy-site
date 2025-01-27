@@ -1,0 +1,269 @@
+{% import 'macros/general.html' as general %}
+
+<!-- QUOTE MACROS -->
+{% macro render_quote(quote) %}
+<div class="quote">
+    <div class="quote-container">
+        <div class="quote-content">
+            {{ quote.content | safe }}
+        </div>
+        <div class="quote-author">
+            {% if quote.author_image %}
+            <div class="author-image">
+                <img src="{{ quote.author_image }}" alt="{{ quote.author_name }}">
+            </div>
+            {% endif %}
+            <div class="author-info">
+                <p class="name">{{ quote.author_name }}</p>
+                {% if quote.author_title %}
+                <p class="title">{{ quote.author_title }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro quotes_section(section_class, heading, quotes) %}
+<div class="section flex-center {{ section_class }}">
+    {% if heading %}
+    <div class="section-heading">
+        <h1>{{ heading }}</h1>
+    </div>
+    {% endif %}
+    <div class="section-content">
+        {% if quotes is sequence and quotes|length > 1 %}
+        <div class="grid quotes-grid">
+            {% for quote in quotes %}
+                {{ render_quote(quote) }}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{ render_quote(quotes[0] if quotes is sequence else quotes) }}
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
+<!-- FEATURE SECTION ON HOME PAGE -->
+{% macro feature(project, order_mod_2) %}
+<div class="project-container {% if order_mod_2 == 0 %}row-reverse{% else %}row{% endif %}">
+    <div class="project-graphic">
+        <div class="project-image">
+            <img src="{{ project.image }}" alt="{{ project.name }}">
+        </div>
+    </div>
+    <div class="project-info">
+        <div class="project-content">
+            <div class="project-name">
+                <h1>{{ project.name }}</h1>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/envoyproxy/{{ project.github }}" target="_blank">
+                    {{ general.github_icon() }}
+                    {% if project.show_stars %}
+                    {{ general.star_icon() }}
+                    <span id="github-stars-{{ project.github }}">Loading...</span>
+                    {% else %}
+                    View on GitHub
+                    {% endif %}
+                </a>
+                <a href="{{ project.docs }}" target="_blank">
+                    <span class="link-icon material-symbols-outlined">docs</span>
+                    <span>View Docs</span>
+                </a>
+            </div>
+            <div class="project-description">
+                {{ project.description | safe }}
+            </div>
+            <a href="{{ project.link }}" class="btn">
+                Learn More
+            </a>
+        </div>
+    </div>
+</div>
+{%- endmacro %}
+
+<!-- LINK FEATURE MACRO -->
+
+{% macro project_links(project) %}
+    <div class="project-links">
+        <a href="https://github.com/envoyproxy/{{ project.github }}" target="_blank">
+            {{ general.github_icon() }}
+            {% if project.show_stars %}
+            {{ general.star_icon() }}
+            <span id="github-stars-{{ project.github }}">Loading...</span>
+            {% else %}
+            View on GitHub
+            {% endif %}
+        </a>
+        <a href="{{ project.docs }}" target="_blank">
+            <span class="link-icon material-symbols-outlined">docs</span>
+            <span>View Docs</span>
+        </a>
+    </div>
+{% endmacro %}
+
+{% macro project_link_buttons(project) %}
+    {% set link = "https://github.com/envoyproxy/" + project.github %}
+    {{ general.button("View on GitHub", link ) }}
+    {{ general.button("Documentation", project.docs ) }}
+{% endmacro %}
+
+
+<!-- HEADER MACRO -->
+
+{% macro render_project_header(project) %}
+<div class="page-header" role="banner">
+    <div class="header-content">
+        <div class="header-text">
+            <h1 class="project-name">{{ project.name }}</h1>
+            <div class="project-tagline">
+                {% if project.show_stars %}
+                <div class="github-stats">
+                    {{ general.github_icon() }}
+                    {{ general.star_icon() }}
+                    <span id="github-stars-{{ project.github }}">Loading...</span>
+                </div>
+                {% endif %}
+                    {{ project.description|safe }}
+            </div>
+            <div class="header-actions">
+                {{ project_link_buttons(project) }}
+            </div>
+        </div>
+
+        <div class="header-logo">
+            <img src="{{ project.image }}" alt="{{ project.name }}">
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+<!-- CAPABILITIES FEATURE SECTION -->
+{% macro capabilities_section(section_class, heading, capabilities) %}
+<div class="section flex-center {{ section_class }}">
+  <div class="section-heading">
+    <h1>{{ heading }}</h1>
+  </div>
+  <div class="section-content dark-text">
+    <div class="grid capabilities-grid">
+      {% for capability in capabilities %}
+        <div class="capability-card">
+          <h3>
+            <span class="capability-icon material-symbols-outlined">{{ capability.icon }}</span>
+            {{ capability.title }}
+          </h3>
+          <p>{{ capability.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+
+<!-- RELEASE GRID MACROS -->
+
+{% macro render_release_link(name, github_url, docs_url) %}
+
+<p class="release-link">
+    <a href="{{ github_url }}">
+        {{ general.github_icon() }}
+        {{ name }}
+    </a>
+    <a href="{{ docs_url }}" target="_blank">
+    <span class="link-icon material-symbols-outlined">
+        docs
+    </span>
+    <span>View Docs</span>
+    </a>
+</p>
+{% endmacro %}
+
+
+
+{% macro render_release_grid(project, versions, docs_base_url, stable) %}
+
+    <div class="section-content dark-text">
+        <div class="grid">
+            {% for version_group in versions %}
+                <div class="version-group">
+                    <div class="release-list">
+                        
+                        {% for release in version_group.releases %}
+                            {% set docs_url %}
+                                {{ docs_base_url }}{% if release.release != "latest" %}v{% endif %}{{ release.release }}/
+                            {% endset %}
+
+                            {% if loop.first %}
+                            <!-- For Latest Release in Version Group -->
+                                <div class="latest-release">
+                                    <span class="heading">
+                                        <strong>{{ version_group.version }}</strong>
+                                        <span class="pill release-number">{{ release.release }}</span>
+                                        {% if stable %}<span class="pill stable">Stable</span>{% endif %}
+                                    </span>
+                                    <div class="release-item">
+                                        {% if release.published_at %}
+                                        <p class="release-date">
+                                            {{ release.published_at }}
+                                        </p>
+                                        {% endif %}
+                                        {{ render_release_link(release.release, release.url, docs_url) }}
+                                    </div>
+                                </div>
+
+                                {% if version_group.releases|length > 1 %}
+                                <div class="toggle-wrapper" onclick="toggleReleases(this)">
+                                    <div class="toggle-releases" aria-label="Toggle previous releases"></div>
+                                    <span class="toggle-text">Previous releases</span>
+                                </div>
+                                {% else %}
+                                    {% if release.release != "latest" %}
+                                        <span>No previous releases</span>
+                                    {% endif %}
+                                {% endif %}
+                            <!-- For all other Releases in Version Group -->
+                            {% else %}
+                                <div class="release-item hidden-release previous" style="display: none;">
+                                    <p class="release-date">
+                                        {{ release.published_at }}
+                                    </p>
+                                    {{ render_release_link(release.release, release.url, docs_url) }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro adopters(project, adopters) -%}
+<div class="section flex-center adopters">
+    <div class="section-heading">
+        <h1>Used By</h1>
+    </div>
+    <div class="section-content">
+        <div class="adopters-grid">
+            {% for adopter in adopters %}
+                {% set company = adopters[adopter] %}
+                {% if project.id in company.projects %}
+                    <div class="adopter-card">
+                    <div class="adopter-name">
+                        <span>{{ company.name }}</span>
+                    </div>
+                    <div class="adopter-logo">
+                        <a href="{{ company.url }}" target="_blank">
+                            <img src="/theme/logos/{{ company.logo }}" alt="{{ adopter.name }}">
+                            </a>
+                    </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+          </div>
+    </div>
+</div>
+{%- endmacro %}

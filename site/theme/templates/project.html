@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% import 'macros/project.html' as project_macros %}
+{% set project = yaml_data['projects'][page.id] %}
+{% set adopters = yaml_data['adopters'] %}
+{% set github_url = 'https://github.io/envoyproxy/' + project.github %}
+{% set body_class = "project-page" %}
+
+{% block banner %}
+    {{ project_macros.render_project_header(project) }}
+{% endblock banner %}
+
+{% block content %}
+    <div class="section">
+        <div class="section-heading">
+            <h1>About</h1>
+        </div>
+        <div class="section-content">
+            <div class="rich-content">
+                {{ page.content }}
+                {{ page.intro }}
+            </div>
+        </div>
+    </div>
+
+    {{ project_macros.capabilities_section('section-purple', 'Capabilities', project.capabilities) }}
+
+    {% if project.quotes %}
+        {{ project_macros.quotes_section('section-light', 'What People Say', project.quotes) }}
+    {% endif %}
+
+    {% if page.feature_adopters %}
+        {{ project_macros.adopters(project, adopters) }}
+    {% endif %}
+
+    <div class="section">
+        <div class="section-content flex-center">
+            {{ project_macros.project_link_buttons(project) }}
+        </div>
+    </div>
+{% endblock %}

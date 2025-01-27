@@ -1,0 +1,655 @@
+stable_releases:
+- version: v1.33
+  releases:
+  - release: 1.33.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.33.0
+    published_at: '2025-01-14'
+- version: v1.32
+  releases:
+  - release: 1.32.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.32.3
+    published_at: '2024-12-18'
+  - release: 1.32.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.32.2
+    published_at: '2024-12-08'
+  - release: 1.32.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.32.1
+    published_at: '2024-10-30'
+  - release: 1.32.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.32.0
+    published_at: '2024-10-15'
+- version: v1.31
+  releases:
+  - release: 1.31.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.31.5
+    published_at: '2024-12-18'
+  - release: 1.31.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.31.4
+    published_at: '2024-12-08'
+  - release: 1.31.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.31.3
+    published_at: '2024-10-29'
+  - release: 1.31.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.31.2
+    published_at: '2024-09-19'
+  - release: 1.31.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.31.1
+    published_at: '2024-09-14'
+  - release: 1.31.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.31.0
+    published_at: '2024-07-19'
+- version: v1.30
+  releases:
+  - release: 1.30.9
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.9
+    published_at: '2024-12-18'
+  - release: 1.30.8
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.8
+    published_at: '2024-12-08'
+  - release: 1.30.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.7
+    published_at: '2024-10-29'
+  - release: 1.30.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.6
+    published_at: '2024-09-19'
+  - release: 1.30.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.5
+    published_at: '2024-09-14'
+  - release: 1.30.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.4
+    published_at: '2024-07-01'
+  - release: 1.30.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.3
+    published_at: '2024-06-26'
+  - release: 1.30.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.2
+    published_at: '2024-06-05'
+  - release: 1.30.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.1
+    published_at: '2024-04-19'
+  - release: 1.30.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.30.0
+    published_at: '2024-04-16'
+development_release:
+- version: Development Version
+  releases:
+  - release: latest
+    url: https://github.com/envoyproxy/envoy/
+    published_at: null
+older_releases:
+- version: v1.29
+  releases:
+  - release: 1.29.12
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.12
+    published_at: '2024-12-18'
+  - release: 1.29.11
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.11
+    published_at: '2024-12-08'
+  - release: 1.29.10
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.10
+    published_at: '2024-10-29'
+  - release: 1.29.9
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.9
+    published_at: '2024-09-19'
+  - release: 1.29.8
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.8
+    published_at: '2024-09-14'
+  - release: 1.29.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.7
+    published_at: '2024-06-30'
+  - release: 1.29.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.6
+    published_at: '2024-06-26'
+  - release: 1.29.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.5
+    published_at: '2024-06-05'
+  - release: 1.29.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.4
+    published_at: '2024-04-18'
+  - release: 1.29.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.3
+    published_at: '2024-04-05'
+  - release: 1.29.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.2
+    published_at: '2024-03-07'
+  - release: 1.29.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.1
+    published_at: '2024-02-10'
+  - release: 1.29.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.29.0
+    published_at: '2024-01-16'
+- version: v1.28
+  releases:
+  - release: 1.28.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.28.7
+    published_at: '2024-09-19'
+  - release: 1.28.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.28.6
+    published_at: '2024-09-13'
+  - release: 1.28.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.28.5
+    published_at: '2024-06-30'
+  - release: 1.28.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.28.4
+    published_at: '2024-06-05'
+  - release: 1.28.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.28.3
+    published_at: '2024-04-18'
+  - release: 1.28.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.28.2
+    published_at: '2024-04-04'
+  - release: 1.28.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.28.1
+    published_at: '2024-02-09'
+  - release: 1.28.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.28.0
+    published_at: '2023-10-19'
+- version: v1.27
+  releases:
+  - release: 1.27.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.27.7
+    published_at: '2024-06-29'
+  - release: 1.27.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.27.6
+    published_at: '2024-06-04'
+  - release: 1.27.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.27.5
+    published_at: '2024-04-18'
+  - release: 1.27.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.27.4
+    published_at: '2024-04-04'
+  - release: 1.27.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.27.3
+    published_at: '2024-02-09'
+  - release: 1.27.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.27.2
+    published_at: '2023-10-17'
+  - release: 1.27.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.27.1
+    published_at: '2023-10-11'
+  - release: 1.27.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.27.0
+    published_at: '2023-07-26'
+- version: v1.26
+  releases:
+  - release: 1.26.8
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.8
+    published_at: '2024-04-04'
+  - release: 1.26.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.7
+    published_at: '2024-02-09'
+  - release: 1.26.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.6
+    published_at: '2023-10-17'
+  - release: 1.26.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.5
+    published_at: '2023-10-11'
+  - release: 1.26.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.4
+    published_at: '2023-07-26'
+  - release: 1.26.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.3
+    published_at: '2023-07-14'
+  - release: 1.26.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.2
+    published_at: '2023-06-05'
+  - release: 1.26.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.1
+    published_at: '2023-04-27'
+  - release: 1.26.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.26.0
+    published_at: '2023-04-18'
+- version: v1.25
+  releases:
+  - release: 1.25.11
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.11
+    published_at: '2023-10-17'
+  - release: 1.25.10
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.10
+    published_at: '2023-10-10'
+  - release: 1.25.9
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.9
+    published_at: '2023-07-26'
+  - release: 1.25.8
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.8
+    published_at: '2023-07-13'
+  - release: 1.25.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.7
+    published_at: '2023-06-02'
+  - release: 1.25.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.6
+    published_at: '2023-04-27'
+  - release: 1.25.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.5
+    published_at: '2023-04-13'
+  - release: 1.25.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.4
+    published_at: '2023-04-05'
+  - release: 1.25.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.3
+    published_at: '2023-03-24'
+  - release: 1.25.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.2
+    published_at: '2023-03-02'
+  - release: 1.25.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.1
+    published_at: '2023-02-07'
+  - release: 1.25.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.25.0
+    published_at: '2023-01-18'
+- version: v1.24
+  releases:
+  - release: 1.24.12
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.12
+    published_at: '2023-10-16'
+  - release: 1.24.11
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.11
+    published_at: '2023-10-10'
+  - release: 1.24.10
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.10
+    published_at: '2023-07-25'
+  - release: 1.24.9
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.9
+    published_at: '2023-07-13'
+  - release: 1.24.8
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.8
+    published_at: '2023-06-02'
+  - release: 1.24.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.7
+    published_at: '2023-04-27'
+  - release: 1.24.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.6
+    published_at: '2023-04-12'
+  - release: 1.24.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.5
+    published_at: '2023-04-05'
+  - release: 1.24.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.4
+    published_at: '2023-03-23'
+  - release: 1.24.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.3
+    published_at: '2023-02-28'
+  - release: 1.24.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.2
+    published_at: '2023-02-07'
+  - release: 1.24.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.1
+    published_at: '2022-12-06'
+  - release: 1.24.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.24.0
+    published_at: '2022-10-19'
+- version: v1.23
+  releases:
+  - release: 1.23.12
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.12
+    published_at: '2023-07-25'
+  - release: 1.23.11
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.11
+    published_at: '2023-07-13'
+  - release: 1.23.10
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.10
+    published_at: '2023-06-02'
+  - release: 1.23.9
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.9
+    published_at: '2023-04-26'
+  - release: 1.23.8
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.8
+    published_at: '2023-04-12'
+  - release: 1.23.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.7
+    published_at: '2023-04-05'
+  - release: 1.23.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.6
+    published_at: '2023-03-23'
+  - release: 1.23.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.5
+    published_at: '2023-02-28'
+  - release: 1.23.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.4
+    published_at: '2023-02-08'
+  - release: 1.23.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.3
+    published_at: '2022-12-03'
+  - release: 1.23.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.2
+    published_at: '2022-10-18'
+  - release: 1.23.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.1
+    published_at: '2022-08-26'
+  - release: 1.23.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.23.0
+    published_at: '2022-07-15'
+- version: v1.22
+  releases:
+  - release: 1.22.11
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.11
+    published_at: '2023-04-12'
+  - release: 1.22.10
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.10
+    published_at: '2023-04-04'
+  - release: 1.22.9
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.9
+    published_at: '2023-03-22'
+  - release: 1.22.8
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.8
+    published_at: '2023-02-24'
+  - release: 1.22.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.7
+    published_at: '2023-02-08'
+  - release: 1.22.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.6
+    published_at: '2022-12-01'
+  - release: 1.22.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.5
+    published_at: '2022-08-12'
+  - release: 1.22.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.4
+    published_at: '2022-08-03'
+  - release: 1.22.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.3
+    published_at: '2022-07-28'
+  - release: 1.22.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.2
+    published_at: '2022-06-10'
+  - release: 1.22.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.1
+    published_at: '2022-06-09'
+  - release: 1.22.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.22.0
+    published_at: '2022-04-15'
+- version: v1.21
+  releases:
+  - release: 1.21.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.21.6
+    published_at: '2022-11-29'
+  - release: 1.21.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.21.5
+    published_at: '2022-07-27'
+  - release: 1.21.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.21.4
+    published_at: '2022-06-15'
+  - release: 1.21.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.21.3
+    published_at: '2022-06-09'
+  - release: 1.21.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.21.2
+    published_at: '2022-04-27'
+  - release: 1.21.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.21.1
+    published_at: '2022-02-22'
+  - release: 1.21.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.21.0
+    published_at: '2022-01-12'
+- version: v1.20
+  releases:
+  - release: 1.20.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.20.7
+    published_at: '2022-07-21'
+  - release: 1.20.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.20.6
+    published_at: '2022-06-23'
+  - release: 1.20.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.20.5
+    published_at: '2022-06-17'
+  - release: 1.20.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.20.4
+    published_at: '2022-06-09'
+  - release: 1.20.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.20.3
+    published_at: '2022-04-26'
+  - release: 1.20.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.20.2
+    published_at: '2022-02-22'
+  - release: 1.20.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.20.1
+    published_at: '2021-11-30'
+  - release: 1.20.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.20.0
+    published_at: '2021-10-05'
+- version: v1.19
+  releases:
+  - release: 1.19.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.19.5
+    published_at: '2022-06-09'
+  - release: 1.19.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.19.4
+    published_at: '2022-04-25'
+  - release: 1.19.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.19.3
+    published_at: '2022-02-22'
+  - release: 1.19.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.19.1
+    published_at: '2021-08-24'
+  - release: 1.19.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.19.0
+    published_at: '2021-07-14'
+- version: v1.18
+  releases:
+  - release: 1.18.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.18.6
+    published_at: '2022-02-22'
+  - release: 1.18.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.18.4
+    published_at: '2021-08-24'
+  - release: 1.18.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.18.3
+    published_at: '2021-05-11'
+  - release: 1.18.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.18.2
+    published_at: '2021-04-16'
+  - release: 1.18.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.18.1
+    published_at: '2021-04-15'
+  - release: 1.18.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.18.0
+    published_at: '2021-04-15'
+- version: v1.17
+  releases:
+  - release: 1.17.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.17.4
+    published_at: '2021-08-24'
+  - release: 1.17.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.17.3
+    published_at: '2021-05-11'
+  - release: 1.17.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.17.2
+    published_at: '2021-04-15'
+  - release: 1.17.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.17.1
+    published_at: '2021-02-26'
+  - release: 1.17.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.17.0
+    published_at: '2021-01-11'
+- version: v1.16
+  releases:
+  - release: 1.16.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.16.5
+    published_at: '2021-08-24'
+  - release: 1.16.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.16.4
+    published_at: '2021-05-11'
+  - release: 1.16.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.16.3
+    published_at: '2021-04-15'
+  - release: 1.16.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.16.2
+    published_at: '2020-12-08'
+  - release: 1.16.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.16.1
+    published_at: '2020-11-21'
+  - release: 1.16.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.16.0
+    published_at: '2020-10-08'
+- version: v1.15
+  releases:
+  - release: 1.15.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.15.5
+    published_at: '2021-05-11'
+  - release: 1.15.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.15.4
+    published_at: '2021-04-15'
+  - release: 1.15.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.15.3
+    published_at: '2020-12-07'
+  - release: 1.15.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.15.2
+    published_at: '2020-09-30'
+  - release: 1.15.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.15.1
+    published_at: '2020-09-29'
+  - release: 1.15.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.15.0
+    published_at: '2020-07-07'
+- version: v1.14
+  releases:
+  - release: 1.14.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.14.7
+    published_at: '2021-04-15'
+  - release: 1.14.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.14.6
+    published_at: '2020-12-07'
+  - release: 1.14.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.14.5
+    published_at: '2020-09-29'
+  - release: 1.14.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.14.4
+    published_at: '2020-07-07'
+  - release: 1.14.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.14.3
+    published_at: '2020-06-30'
+  - release: 1.14.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.14.2
+    published_at: '2020-06-08'
+  - release: 1.14.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.14.1
+    published_at: '2020-04-08'
+  - release: 1.14.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.14.0
+    published_at: '2020-04-08'
+- version: v1.13
+  releases:
+  - release: 1.13.8
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.8
+    published_at: '2021-01-19'
+  - release: 1.13.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.7
+    published_at: '2020-12-07'
+  - release: 1.13.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.6
+    published_at: '2020-09-29'
+  - release: 1.13.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.5
+    published_at: '2020-09-29'
+  - release: 1.13.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.4
+    published_at: '2020-07-07'
+  - release: 1.13.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.3
+    published_at: '2020-06-30'
+  - release: 1.13.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.2
+    published_at: '2020-06-08'
+  - release: 1.13.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.1
+    published_at: '2020-03-03'
+  - release: 1.13.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.13.0
+    published_at: '2020-01-20'
+- version: v1.12
+  releases:
+  - release: 1.12.7
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.12.7
+    published_at: '2020-09-29'
+  - release: 1.12.6
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.12.6
+    published_at: '2020-07-07'
+  - release: 1.12.5
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.12.5
+    published_at: '2020-06-30'
+  - release: 1.12.4
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.12.4
+    published_at: '2020-06-08'
+  - release: 1.12.3
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.12.3
+    published_at: '2020-03-03'
+  - release: 1.12.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.12.2
+    published_at: '2019-12-10'
+  - release: 1.12.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.12.1
+    published_at: '2019-11-09'
+  - release: 1.12.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.12.0
+    published_at: '2019-11-01'
+- version: v1.11
+  releases:
+  - release: 1.11.2
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.11.2
+    published_at: '2019-10-08'
+  - release: 1.11.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.11.1
+    published_at: '2019-08-13'
+  - release: 1.11.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.11.0
+    published_at: '2019-07-11'
+- version: v1.10
+  releases:
+  - release: 1.10.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.10.0
+    published_at: '2019-04-05'
+- version: v1.9
+  releases:
+  - release: 1.9.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.9.1
+    published_at: '2019-04-05'
+  - release: 1.9.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.9.0
+    published_at: '2018-12-20'
+- version: v1.8
+  releases:
+  - release: 1.8.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.8.0
+    published_at: '2018-10-04'
+- version: v1.7
+  releases:
+  - release: 1.7.1
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.7.1
+    published_at: '2018-08-04'
+  - release: 1.7.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.7.0
+    published_at: '2018-06-21'
+- version: v1.6
+  releases:
+  - release: 1.6.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.6.0
+    published_at: '2018-03-20'
+- version: v1.5
+  releases:
+  - release: 1.5.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.5.0
+    published_at: '2017-12-05'
+- version: v1.4
+  releases:
+  - release: 1.4.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.4.0
+    published_at: '2017-08-24'
+- version: v1.3
+  releases:
+  - release: 1.3.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.3.0
+    published_at: '2017-05-17'
+- version: v1.2
+  releases:
+  - release: 1.2.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.2.0
+    published_at: '2017-03-07'
+- version: v1.1
+  releases:
+  - release: 1.1.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.1.0
+    published_at: '2016-11-30'
+- version: v1.0
+  releases:
+  - release: 1.0.0
+    url: https://github.com/envoyproxy/envoy/releases/tag/v1.0.0
+    published_at: '2016-09-12'

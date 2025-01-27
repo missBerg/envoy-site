@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import 'macros/project.html' as project_macros %}
+{% set project = yaml_data['projects'][page.id] %}
+{% set versions = release_data %}
+
+{% block content %}
+    {{ page.content }}
+
+    <div class="section flex-center release-grid">
+        <div class="section-heading">
+                <h1>
+                    <span class="pink-font">{{ project.name }} Releases</span>
+                </h1>
+                <h2>
+                    Stable Releases
+                </h2>
+        </div>
+        {{ project_macros.render_release_grid(project, versions[project.github].stable_releases, page.docs_base_url, true) }}
+    </div>
+    <div class="section flex-center release-grid">
+        <div class="section-heading">
+            <h2>Development Version</h2>
+            <p>
+                Only use this version for experimental and development purposes.
+                <br/>
+                It is not recommended to run in production.
+            </p> 
+        </div>
+        {{ project_macros.render_release_grid(project, versions[project.github].development_release, page.docs_base_url, false) }}
+    </div>
+    <div class="section flex-center release-grid">
+        <div class="section-heading">
+            <span>
+                <h2>Older Releases</h2>
+            </span>
+        </div>
+        {{ project_macros.render_release_grid(project, versions[project.github].older_releases, page.docs_base_url, false) }}
+    </div>
+{% endblock %}

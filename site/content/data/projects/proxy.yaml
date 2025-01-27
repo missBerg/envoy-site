@@ -1,0 +1,40 @@
+id: proxy
+name: "Envoy Proxy"
+link: "/envoy"
+docs: /envoy/docs/
+github: envoy
+image: /theme/images/envoy-proxy.svg
+show_stars: true
+description: |
+  <p>
+  Envoy Proxy is an edge and service proxy, designed for cloud-native applications. Providing powerful traffic management, routing, observability, and extensibility features.
+  </p>
+  <p>
+  Take control over your traffic.
+  </p>
+capabilities:
+  - title: "Out of process architecture"
+    icon: "architecture"
+    description: |
+      Envoy is a self contained, high performance server with a small memory footprint. It runs alongside any application language or framework.
+  - title: "HTTP/2 and gRPC support"
+    icon: "http"
+    description: |
+      Envoy has first class support for HTTP/2 and gRPC for both incoming and outgoing connections. It is a transparent HTTP/1.1 to HTTP/2 proxy.
+  - title: "Advanced load balancing"
+    icon: "alt_route"
+    description: |
+      Envoy supports advanced load balancing features including automatic retries, circuit breaking, global rate limiting, request shadowing, zone local load balancing, etc.
+  - title: "APIs for configuration"
+    icon: "tune"
+    description: |
+      Envoy provides robust APIs for dynamically managing its configuration.
+  - title: "Observability"
+    icon: "monitoring"
+    description: |
+      Deep observability of L7 traffic, native support for distributed tracing, and wire-level observability of MongoDB, DynamoDB, and more.
+quotes:
+  - content: |
+      At Lyft, we've made tremendous strides in our resilience and observability since we started deploying Envoy. We're excited to be open sourcing Envoy, and the community that's growing around Envoy will help both Lyft and others adopting a microservices architecture.
+    author_name: "Peter Morelli"
+    author_title: "VP Engineering, Lyft"

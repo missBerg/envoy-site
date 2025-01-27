@@ -1,9 +1,0 @@
----
-name: Envoy Basics
-provider: Solo.io
-logo: /logos/solo-academy.png
-learn_more: https://academy.solo.io/learn/courses/81/envoy-basics
-cta: Access free course
-project: proxy
----
-The course introduces Envoy, its key features, and its role in connecting modern cloud-native applications. Participants will gain an understanding of Envoy and explain how it fits into Cloud-native and microservices architectures.

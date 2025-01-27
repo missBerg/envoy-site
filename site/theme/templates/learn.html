@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% import 'macros/community.html' as community_macros %}
+{% set courses = yaml_data['courses'] %}
+
+{% block content %}
+
+    {{ community_macros.feature_group('cncf', 'Courses', courses) }}
+    
+{% endblock %}

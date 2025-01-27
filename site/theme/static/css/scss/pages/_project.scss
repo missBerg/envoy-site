@@ -1,0 +1,43 @@
+@use "../abstracts" as *;
+@use "sass:map";
+
+.project-page {
+
+  .project-container {
+    @include flex(row, space-between, center, spacing('xl'));
+    padding: spacing('xl') 0;
+    
+    @include respond-to(medium) {
+      flex-direction: column;
+      padding: spacing('md') 0;
+      gap: spacing('lg');
+    }
+
+    @include respond-to(small) {
+      flex-direction: column;
+      padding: spacing('sm') 0;
+      gap: spacing('md');
+    }
+  }
+}
+
+.capability-card {
+  @include card;
+  
+  h3 {
+    @include flex(row, flex-start, center, spacing('xs'));
+    margin-top: 0;
+    font-size: font-size('h5');
+    font-weight: 700;
+    color: color('secondary');
+  }
+
+  .capability-icon {
+    font-size: font-size('h4');
+    color: color('secondary');
+  }
+
+  p {
+    color: color('text');
+  }
+}

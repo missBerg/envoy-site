@@ -1,0 +1,37 @@
+{% macro feature_group(id, title, group) %}
+<div id="{{ id }}"></div>
+<div class="section community-features section-purple">
+    <div class="section-heading">
+        <a href="#{{ id }}"></a><h1>{{ title }}</h1>
+    </div>
+    <div class="section-content cards">
+        {% for key, member in group | dictsort %}
+        <article class="information card">
+            <div>
+                <div class="logo">
+                    <img src="/theme/{{ member.logo }}" alt="{{ member.name }}"/>
+                </div>
+                {% if member.type %}
+                    <span class="tag {{ member.type }}">{{ member.type | upper }}</span>
+                {% endif %}
+                <h2 class="title">{{ member.name }}</h2>
+                <span class="info">
+                    {{ member.description }}
+                </span>
+            </div>
+            <div>
+                {% if member.learn_more %}
+                  <a class="button" href="{{ member.learn_more }}" target="_blank">
+                    {% if member.cta %}
+                        <span>{{ member.cta }}</span>
+                    {% else %}
+                        <span>Learn more</span>
+                    {% endif %}
+                  </a>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
