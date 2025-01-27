@@ -130,13 +130,6 @@
 }
 
 
-// Community Features Grid
-.community-features {
-  .cards {
-    @include flex(row, center, flex-start, map.get($spacing, lg));
-    flex-wrap: wrap;
-  }
-}
 
 // Utility Classes
 .flex-center {

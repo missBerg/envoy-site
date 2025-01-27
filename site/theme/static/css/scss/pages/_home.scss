@@ -118,37 +118,5 @@
     margin: spacing('md') 0;
     line-height: 1.6;
     
-    p {
-      margin: 0;
-    }
-  }
-}
-
-// Community Features
-.community-features {
-  .cards {
-    @include flex(row, center, flex-start, spacing('lg'));
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    height: 17vh;
-    object-fit: contain;
-    padding: spacing('sm') spacing('md');
-    margin: auto;
-    @include flex(row, center, center);
-
-    img {
-      max-height: 100%;
-      max-width: 100%;
-    }
-  }
-  
-  .card {
-    border-radius: rem(16);
-    box-shadow: 0 rem(30) rem(30) rem(-25) rgba(color('primary'), 0.25);
-    max-width: rem(350);
-    @include flex(column, space-between, center, spacing('md'));
-    height: rem(640); // 40rem
   }
 }

@@ -19,7 +19,6 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: color('text');
-  padding: spacing('xl') 0 0 0;
   margin: 0;
   height: 100%;
 }
@@ -80,7 +79,7 @@ a {
 
 // Lists
 ul, ol {
-  margin: 0 0 map.get($spacing, md) map.get($spacing, md);
+  margin: 0 0 map.get($spacing, xs) map.get($spacing, xs);
   
   li {
     margin-bottom: map.get($spacing, xs);

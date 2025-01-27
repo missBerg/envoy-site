@@ -1,9 +1,33 @@
 @use "../abstracts" as *;
 @use "sass:map";
 
+// Header Logo
+.header-logo {
+  display: flex;
+  align-items: center;
+  z-index: 102; // Higher than menu overlay
+
+  a {
+    display: block;
+    
+    img {
+      height: 2rem;
+      width: auto;
+    }
+  }
+}
+
 // Main Navigation
 .main-nav {
   display: flex;
+
+  @include respond-to(medium) {
+    display: none !important; // Force hide on medium screens
+  }
+
+  @include respond-to(small) {
+    display: none !important; // Force hide on small screens
+  }
 
   ul {
     list-style: none;
@@ -46,54 +70,119 @@
       }
     }
   }
+}
 
-  // Responsive styles
-  @include respond-to(medium) {
-    background-color: map.get($colors, primary);
-  }
+// Project Page Styles
+.project-page {
+  .main-nav {
+    ul li a {
+      color: map.get($colors, tertiary);
 
-  @include respond-to(small) {
-    background-color: map.get($colors, primary);
+      &:hover {
+        color: #f3c;
+      }
+    }
   }
 }
 
-// Toggle Menu
+// Menu Open State
+.menuopen {
+  .main-nav {
+    display: flex !important; // Override the default hidden state
+    width: 100%;
+    background-color: map.get($colors, primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 3.2rem 0 1.5rem;
+    z-index: 100;
+    box-shadow: 0 0 rem(30) rem(5) rgba(color('primary'), 0.15);
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 0.4rem 2rem;
+      width: 100%;
+
+      li a {
+        color: #fff; // Force white text in mobile menu
+      }
+    }
+  }
+}
+
+// Toggle Menu Button
 #togglemenu {
   display: none;
   cursor: pointer;
+  z-index: 101;
 
-  > span > span {
-    background: map.get($colors, tertiary);
+  @include respond-to(medium) {
+    display: block;
   }
 
-  @media (max-width: map.get($breakpoints, medium)) {
-    display: flex;
+  @include respond-to(small) {
+    display: block;
+  }
 
-    & + #menu ul {
-      display: none;
-    }
+  > span {
+    display: inline-block;
+    margin-left: 0.4rem;
+    width: 1.5rem;
+    height: 1rem;
+    position: relative;
+    vertical-align: middle;
+    bottom: 1px;
 
-    .menuopen & + #menu ul {
-      display: flex;
-      flex-direction: row-reverse;
+    > span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      transition: all 0.25s ease;
+
+      &:nth-child(1) {
+        top: 0;
+        transform-origin: 50% 0%;
+      }
+
+      &:nth-child(2) {
+        top: 50%;
+        margin-top: -1px;
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+        transform-origin: 50% 100%;
+      }
     }
   }
 }
 
-// Toggle Menu Animations
+// Menu Open State Animations
+.menuopen {
+  #togglemenu > span > span {
+    &:nth-child(1) {
+      animation: span1 0.25s forwards;
+    }
+
+    &:nth-child(2) {
+      animation: span2 0.25s forwards;
+    }
+
+    &:nth-child(3) {
+      animation: span3 0.25s forwards;
+    }
+  }
+}
+
+// Animation Keyframes
 @keyframes span1 {
-  0%   { 
-    top: 0%; 
-    transform-origin: 50% 50%;
-  }
-  50%  { 
-    top: 50%; 
-    transform: rotate(0deg) translateY(-50%);
-  }
-  100% { 
-    top: 50%; 
-    transform: rotate(45deg) translateY(-50%);
-  }
+  0%   { top: 0%; transform-origin: 50% 50%; }
+  50%  { top: 50%; transform: rotate(0deg) translateY(-50%); }
+  100% { top: 50%; transform: rotate(45deg) translateY(-50%); }
 }
 
 @keyframes span2 {
@@ -104,60 +193,14 @@
 }
 
 @keyframes span3 {
-  0%   { 
-    bottom: 0%; 
-    transform-origin: 50% 50%;
-  }
-  45%  { 
-    bottom: 50%; 
-    transform: rotate(0deg) translateY(50%);
-  }
-  100% { 
-    bottom: 50%; 
-    transform: rotate(-45deg) translateY(50%);
-  }
-}
-
-// Header Logo
-.header-logo {
-  a {
-    display: block;
-    
-    img {
-      max-height: map.get($spacing, xl);
-      width: auto;
-    }
-  }
-}
-
-// Header Container
-.header-container {
-  @include flex(row, space-between, center);
-  padding: map.get($spacing, sm) map.get($spacing, md);
-  max-width: $container-max-width;
-  margin: 0 auto;
-  width: 100%;
+  0%   { bottom: 0%; transform-origin: 50% 50%; }
+  45%  { bottom: 50%; transform: rotate(0deg) translateY(50%); }
+  100% { bottom: 50%; transform: rotate(-45deg) translateY(50%); }
 }
 
 // Project Page Specific Styles
 .project-page {
   #togglemenu > span > span {
     background: map.get($colors, tertiary);
-  }
-}
-
-// Mobile Menu Styles
-@media only screen and (max-width: map.get($breakpoints, medium)) {
-  #menu {
-    display: none;
-    
-    .menuopen & {
-      display: block;
-    }
-  }
-  
-  #togglemenu {
-    display: block;
-    cursor: pointer;
   }
 }

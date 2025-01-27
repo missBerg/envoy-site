@@ -1,6 +1,10 @@
 <div class="header-logo">
     <a href="/">
-        <img src="/theme/images/envoy-horizontal-white.png" alt="">
+        {% if body_class == 'project-page' %}
+            <img src="/theme/images/envoy-horizontal-color.png" alt="Envoy">
+        {% else %}
+            <img src="/theme/images/envoy-horizontal-white.png" alt="Envoy">
+        {% endif %}
     </a>
 </div>
 
@@ -30,3 +34,12 @@
         </li>
     </ul>
 </nav>
+<a id="togglemenu" onclick="document.body.classList.toggle('menuopen');">
+    <span><span>
+
+    </span><span>
+
+    </span><span>
+
+    </span></span>
+</a>

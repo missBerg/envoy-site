@@ -180,7 +180,6 @@
 
     color: white; // Default text color
     background-color: map.get($gradients, header, end);
-    padding: 0.2rem 2rem; // Padding for the header
     position: fixed; // Fix header at the top
     top: 0;
     left: 0;
@@ -193,7 +192,7 @@
       align-items: center;
       // max-width: 1200px; // Set a max width for the container
       margin: 0 auto; // Center the container
-      padding: 0.2rem 2rem;
+      padding: 0.2rem 1rem;
     }
   
     .header-logo {
