@@ -1,5 +1,0 @@
-name: Airbnb
-logo: airbnb.svg
-url: https://airbnb.com
-projects:
-- proxy

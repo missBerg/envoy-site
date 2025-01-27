@@ -1,7 +1,0 @@
----
-name: "Alibaba Cloud Native Gateway"
-logo: "logos/alibaba-cloud.svg"
-learn_more: "https://www.alibabacloud.com/help/en/mse/product-overview/cloud-native-gateway-overview"
-type: commercial
----
-Alibaba Cloud Native Gateway is a cloud product based on Envoy and is also the commercial version of Higress.

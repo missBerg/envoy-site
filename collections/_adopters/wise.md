@@ -1,5 +1,0 @@
-name: Wise
-logo: wise.svg
-url: https://wise.com
-projects:
-- proxy

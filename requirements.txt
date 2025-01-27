@@ -1,6 +1,0 @@
-pyyaml
-requests
-pelican[markdown]
-invoke
-livereload
-watchdog
