@@ -1,112 +1,89 @@
-# Site Data Directory
+# Content Directory
 
-This directory contains YAML data files that are used to generate content for the Envoy Project site. The data here is structured and organized by category to make it easy to maintain and update the site's content.
+This directory contains all the content for the Envoy website. The content is organized into several key sections, each serving a specific purpose.
 
 ## Directory Structure
 
-- **adopters/** - YAML files for organizations using Envoy projects
-- **features/** - Feature descriptions and metadata for different Envoy projects
-- **releases/** - Release information and changelogs
-- **team/** - Team member information and roles
-
-## Adding New Data
-
-### Adopter Data
-Create a new YAML file in `adopters/` directory with the following structure:
-```yaml
-name: "Company Name" # name of the company  
-logo: "company-logo.svg" # logo of the company
-url: "https://company.com" # URL to learn more about the company
-projects: # list of Envoy projects used by the company, delete as appropriate
-    - proxy
-    - gateway
-    - mobile
-    - ai-gateway
+```
+content/
+├── data/              # YAML-based structured content
+│   ├── adopters/     # Organizations using Envoy
+│   ├── community/    # Community projects and companies
+│   ├── courses/      # Educational content and tutorials
+│   └── projects/     # Envoy-related projects
+├── pages/            # Static pages (About, Contact, etc.)
+├── releases/         # Release information
+└── index.html        # Main landing page
 ```
 
-### Community Data
+## Adding Content
 
-The community data is stored in the `community/` directory.
+### Data Files (YAML)
 
-There are three types of community directories:
-- CNCF Projects
-- Commercial Projects
-- Open Source Solutions (OSS) Projects
+Most content is managed through YAML files in the `data/` directory. The site uses a custom `load_yaml` plugin that automatically loads these files and makes them available to templates.
 
-Valid types are:
-- `cncf`
-- `commercial`
-- `oss`
+#### Directory-specific Guidelines:
 
-Each of these directories contains YAML files with the following structure:
-```yaml
-name: "Solution Name" # name of the solution
-logo: "logos/logo.svg" # logo of the solution
-learn_more: "URL" # URL to learn more about the solution
-type: "cncf" # type of the solution (cncf, commercial, oss)
-# source_code: "githuborg/githubrepo" # optional, used for OSS and CNCF projects
-description: |
-  Description of the solution
-``` 
+1. **Adopters** (`data/adopters/`)
+   - Envoy adopters
 
-### Courses Data
 
-The course data is stored in the `courses/` directory.
+2. **Community** (`data/community/`)
+   - Organized into subdirectories:
+     - `cncf/` - CNCF projects using Envoy
+     - `commercial/` - Commercial products and services
+     - `oss/` - Open source projects
 
-Each course is a YAML file with the following structure:
-```yaml
-name: "Course Name" # name of the course
-provider: "Provider Name" # name of the provider
-logo: "logos/logo.svg" # logo of the course
-learn_more: "URL" # URL to learn more about the course
-cta: "CTA Text" # text of the CTA button
-project: "proxy" # project the course is about
-description: |
-  Description of the course
-```
 
-### Projects Data
+3. **Courses** (`data/courses/`)
+   - Courses to be featured on the sites learning page
 
-The project data is stored in the `projects/` directory.
-This is a list of projects that are part of the Envoy project.
+4. **Projects** (`data/projects/`)
+   - Envoy projects shown on the site
+     - Proxy
+     - Gateway
+     - Mobile
+     - AI Gateway
 
-Each project is a YAML file with the following structure:
-```yaml
-id: "proxy" # id of the project
-name: "Envoy Proxy" # name of the project
-link: "/envoy" # site link to the project
-docs: /envoy/docs/ # site link to the project docs
-github: envoy # github repo of the project in the Envoyproxy GitHub org
-image: /theme/images/envoy-proxy.svg # image of the project
-show_stars: true # show stars on the project page
-description: |
-  Description of the project
-capabilities: # list of capabilities of the project
-  - title: "Capability Name"
-    icon: "icon-name" # material icon name
-    description: |
-      Description of the capability
-quotes:
-  - content: |
-      Quote from adopters of the project
-    author_name: "Author Name"
-    author_title: "Author Title"
-``` 
 
-## Data Usage
+### Static Pages
 
-The data files in this directory are processed by the site's build system and used to generate various pages and components. The data is accessed through Pelican's data loading mechanism and can be referenced in templates and content files.
+To add a new static page:
 
-## File Naming Conventions
+1. Create a new Markdown file in the `pages/` directory
+2. Include the required metadata at the top:
+   ```markdown
+   Title: Page Title
+   Slug: url-friendly-name
+   Template: page
+   ```
 
-- Use lowercase letters and hyphens for file names
-- Use descriptive names that reflect the content
-- Always use the `.yaml` extension
-- Example: `company-name.yaml`, `feature-security.yaml`
+### Release Information
 
-## Validation
+Release information is automatically managed by the `envoy_releases` plugin. Manual updates to the `releases/` directory are not required.
 
-All YAML files should be valid YAML format. You can validate your YAML files using tools like:
-- `yamllint` command line tool
-- Online YAML validators
-- Your IDE's built-in YAML validation 
+## Content Guidelines
+
+1. **YAML Formatting**
+   - Use 2-space indentation
+   - Quote string values containing special characters
+   - Use list format for multiple values
+
+2. **Images and Assets**
+   - Store images in the appropriate theme directory
+   - Use SVG format for logos when possible
+   - Optimize images before committing
+
+3. **Markdown Content**
+   - Use standard Markdown syntax
+   - Include alt text for images
+   - Use relative links for internal references
+
+
+## Getting Help
+
+- Check the [load_yaml plugin documentation](../plugins/load_yaml/README.md) for YAML file handling
+- Review existing content files for examples
+- Submit issues for content-related questions
+
+Remember to run the development server and verify your changes locally before submitting a pull request.
