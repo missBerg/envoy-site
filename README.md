@@ -2,61 +2,61 @@
 
 This repository contains the source code and scripts for the Envoy Project site.
 
-This is a **Jekyll** project deployed on **Netlify**, with some additional helper scripts.
-To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-build.sh` script that checkouts the Envoy respostory and builds the latest docs using Bazel, the docs are only regenenerated when a change has happened in the docs directory of Envoy.
+This is a **Pelican** project deployed on **Netlify**, with some additional helper scripts.
+To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-build.sh` script that checkouts the Envoy repository and builds the latest docs using Bazel, the docs are only regenerated when a change has happened in the docs directory of Envoy.
 
 The archived docs are accessed via proxying requests to a separate **Netlify** deployment of the archived docs sites. This ensures we are not rebuilding and deploying archive for each site change.
 
 ## Overview
 
 - **Directories**
-    - **_data/** - Data files used in the site
-    - **_includes/** - Reusable HTML components included in pages
-    - **_layouts/** - Jekyll Page layouts that are used by site pages
-    - **_sass/** - Partials that are used from the style.scss in the css/ directory
+    - **content/** - Content files (markdown, rst) used in the site
+    - **theme/** - The Pelican theme containing templates and static files
+    - **output/** - The generated static site (not tracked in git)
     - **.netlify/** - Configurations for the Netlify deployment
     - **assets/** - Common assets like scripts and images for the site
     - **collections/** - Collections of data for the site used in pages
-    - **css/** - The main style.scss file
     - **deploy/** - Deployment script for Netlify deployment
     - **local/** - Resources to run the site locally while developing
     - **logos/** - Logos for community and adopters of Envoy Project
-    - **pages/** - The site pages
     - **scripts/** - Shared scripts for the site
 - **Files**
-    - **_config.yml** - the Jekyll configuration
+    - **pelicanconf.py** - The Pelican configuration
     - **_redirects** - Netlify redirects
-    - **.ruby-version** - The ruby version
+    - **requirements.txt** - Python dependencies for the project
     - **package.json** - NPM package dependencies for Netlify deploy
-    - **requirements.txt** - Python dependencies for Netlify deploy
 
 ## Running Locally
 
-### Using Jekyll
+### Using Python
 
-Use Jekyll on host machine for developing for the website, without docs.
+Use Python on host machine for developing the website, without docs.
 
 #### Prerequisites
-- Ruby 3.3.5
-- Bundler
+- Python 3.8+
+- pip
 
 #### Steps
 
-1. **Install Jekyll**: Follow the [Jekyll installation guide](https://jekyllrb.com/docs/installation/).
+1. **Create and activate a virtual environment**:
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows use: venv\Scripts\activate
+    ```
 
 2. **Install Dependencies**:
     ```sh
-    bundle install
+    pip install -r requirements.txt
     ```
 
 3. **Build the Site**:
     ```sh
-    bundle exec jekyll build
+    pelican content
     ```
 
 4. **Serve the Site**:
     ```sh
-    bundle exec jekyll serve
+    pelican --listen
     ```
 
 ### Using Docker
@@ -91,28 +91,24 @@ The site is automatically deployed on Netlify. The `build/netlify-build.sh` scri
 
 See README in `build/` directory for more information about the build process.
 
-
 ## Add Adopter Logo
 
-Create a markdown file in the collection `collections/_adopters`
+Create a markdown file in the `content/adopters` directory.
 Under projects, list all Envoy projects your company is adopting.
 
 **Projects:**
-- envoy-proxy
-- envoy-gateway
-- envoy-ai-gateway
-- envoy-mobile
+- proxy
+- gateway
+- ai-gateway
+- mobile
 
-```
----
-name: "Company"
-logo: "logo.svg"
-url: "https://mycompany.com"
-projects:
-    - envoy-proxy
-    - envoy-gateway
----
-
+```yaml
+Title: Company Name
+Logo: logo.svg
+URL: https://mycompany.com
+Projects:
+    - proxy
+    - gateway
 ```
 
-Add logo to `logos` directory.
+Add logo to `theme/static/images/logos` directory.
