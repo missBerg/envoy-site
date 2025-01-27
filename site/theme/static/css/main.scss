@@ -281,49 +281,6 @@ a {
     }
 }
 
-.btn {
-  display: inline-block;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(179, 25, 171, 1);
-  border-style: solid;
-  border-width: 0px;
-  border-radius: 2rem;
-  transition: color 0.5s, background-color 0.5s, border-color 0.5s;
-  width: fit-content;
-
-  &:hover {
-    text-decoration: none;
-    background-color: rgb(139, 0, 132);
-  }
-
-  + .btn {
-    margin-left: 1rem;
-  }
-
-  @include large {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-  }
-
-  @include medium {
-    padding: 0.6rem 0.9rem;
-    font-size: 0.9rem;
-  }
-
-  @include small {
-    // display: block;
-    // width: 100%;
-    padding: 0.75rem;
-    font-size: 0.9rem;
-
-    + .btn {
-      margin-top: 1rem;
-      margin-left: 0;
-    }
-  }
-}
-
 .pill {
   display: inline-block;
   padding: 0.2rem 0.5rem;

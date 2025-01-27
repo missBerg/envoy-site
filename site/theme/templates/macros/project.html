@@ -1,5 +1,50 @@
 {% import 'macros/general.html' as general %}
 
+<!-- QUOTE MACROS -->
+{% macro render_quote(quote) %}
+<div class="quote">
+    <div class="quote-container">
+        <div class="quote-content">
+            {{ quote.content | safe }}
+        </div>
+        <div class="quote-author">
+            {% if quote.author_image %}
+            <div class="author-image">
+                <img src="{{ quote.author_image }}" alt="{{ quote.author_name }}">
+            </div>
+            {% endif %}
+            <div class="author-info">
+                <p class="name">{{ quote.author_name }}</p>
+                {% if quote.author_title %}
+                <p class="title">{{ quote.author_title }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro quotes_section(section_class, heading, quotes) %}
+<div class="section flex-center {{ section_class }}">
+    {% if heading %}
+    <div class="section-heading">
+        <h1>{{ heading }}</h1>
+    </div>
+    {% endif %}
+    <div class="section-content">
+        {% if quotes is sequence and quotes|length > 1 %}
+        <div class="grid quotes-grid">
+            {% for quote in quotes %}
+                {{ render_quote(quote) }}
+            {% endfor %}
+        </div>
+        {% else %}
+            {{ render_quote(quotes[0] if quotes is sequence else quotes) }}
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
 <!-- FEATURE SECTION ON HOME PAGE -->
 {% macro feature(project, order_mod_2) %}
 <div class="project-container {% if order_mod_2 == 0 %}row-reverse{% else %}row{% endif %}">
@@ -9,7 +54,7 @@
         </div>
     </div>
     <div class="project-info">
-        <div>
+        <div class="project-content">
             <div class="project-name">
                 <h1>{{ project.name }}</h1>
             </div>
@@ -28,13 +73,13 @@
                     <span>View Docs</span>
                 </a>
             </div>
-            <div class="project-content">
+            <div class="project-description">
                 {{ project.description | safe }}
             </div>
+            <a href="{{ project.link }}" class="btn">
+                Learn More
+            </a>
         </div>
-        <a href="{{ project.link }}" class="btn">
-            Learn More
-        </a>
     </div>
 </div>
 {%- endmacro %}
@@ -73,17 +118,19 @@
     <div class="header-content">
         <div class="header-text">
             <h1 class="project-name">{{ project.name }}</h1>
-            <h2 class="project-tagline">
+            <div class="project-tagline">
                 {% if project.show_stars %}
-                <div>
+                <div class="github-stats">
                     {{ general.github_icon() }}
                     {{ general.star_icon() }}
                     <span id="github-stars-{{ project.github }}">Loading...</span>
                 </div>
                 {% endif %}
-                {{ project.description|safe }}
-            </h2>
-            {{ project_link_buttons(project) }}
+                    {{ project.description|safe }}
+            </div>
+            <div class="header-actions">
+                {{ project_link_buttons(project) }}
+            </div>
         </div>
 
         <div class="header-logo">
@@ -100,7 +147,7 @@
     <h1>{{ heading }}</h1>
   </div>
   <div class="section-content dark-text">
-    <div class="capabilities-grid">
+    <div class="grid capabilities-grid">
       {% for capability in capabilities %}
         <div class="capability-card">
           <h3>
@@ -139,7 +186,7 @@
 {% macro render_release_grid(project, versions, docs_base_url, stable) %}
 
     <div class="section-content dark-text">
-        <div class="versions">
+        <div class="grid">
             {% for version_group in versions %}
                 <div class="version-group">
                     <div class="release-list">
@@ -158,16 +205,18 @@
                                         {% if stable %}<span class="pill stable">Stable</span>{% endif %}
                                     </span>
                                     <div class="release-item">
+                                        {% if release.published_at %}
                                         <p class="release-date">
                                             {{ release.published_at }}
                                         </p>
+                                        {% endif %}
                                         {{ render_release_link(release.release, release.url, docs_url) }}
                                     </div>
                                 </div>
 
                                 {% if version_group.releases|length > 1 %}
                                 <div class="toggle-wrapper" onclick="toggleReleases(this)">
-                                    <button class="toggle-releases" aria-label="Toggle previous releases"></button>
+                                    <div class="toggle-releases" aria-label="Toggle previous releases"></div>
                                     <span class="toggle-text">Previous releases</span>
                                 </div>
                                 {% else %}

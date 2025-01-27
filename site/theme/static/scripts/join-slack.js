@@ -16,9 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
           return;
         }
 
-        inviteButton.style.display = 'none';
-        spinner.style.display = 'flex';
+        // Disable the button while processing
+        inviteButton.disabled = true;
+        inviteButton.style.opacity = '0.5';
         responseMessage.textContent = ' ';
+        responseMessage.textContent =
+              'Sending invite...';
 
         const payload = {
           user: email,
@@ -46,10 +49,12 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         } catch (error) {
           responseMessage.textContent =
-            'Error: Could not connect to the server. Plesae try again later.';
+            'Error: Could not connect to the server. Please try again later.';
         } finally {
-          spinner.style.display = 'none';
           inviteButton.style.display = 'flex';
+          // Re-enable the button after processing
+          inviteButton.disabled = false;
+          inviteButton.style.opacity = '1';
         }
       });
     } else {

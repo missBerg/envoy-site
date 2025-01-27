@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="center-horizontal" id="adopter-feature">
-        <h2 class="pink-font">Trusted by</h2>
+        <span class="pink-font">Trusted by</span>
         <div class="logos">
         <img src="theme/logos/trusted-by/airbnb.svg"/>
         <img src="theme/logos/trusted-by/booking.svg"/>
@@ -27,7 +27,7 @@
         <img src="theme/logos/trusted-by/reddit.svg"/>
         <img src="theme/logos/trusted-by/netflix.svg"/>
         </div>
-        <h3>and many more</h3>
+        <span>and many more</span>
     </div>
 </div>
   
@@ -39,7 +39,7 @@
       <h1>Open Source <span class="pink-font">Tools</span></h1>
     </div>
     <div class="section-content">
-        <div class="flex-center">
+        <div>
             {% block projects %}
                 {{ project.feature(projects['proxy'], 1) }}
                 {{ project.feature(projects['gateway'], 0) }}

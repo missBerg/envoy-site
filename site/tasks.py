@@ -146,9 +146,19 @@ def devserver(c):
         f'{SETTINGS["PATH"]}/**/*.yaml',
         f'{SETTINGS["THEME"]}/templates/**/*',
         f'{SETTINGS["THEME"]}/static/**/*',
+        f'{SETTINGS["THEME"]}/static/css/scss/**/*.scss',  # Explicitly watch SCSS files
     ]
+    
+    # Force clean build on server start
+    clean(c)
+    
+    def rebuild():
+        clean(c)  # Clean output before each build
+        build(c)
+        
     for glob in watched_globs:
-        server.watch(glob, lambda: build(c))
+        server.watch(glob, rebuild)
+    
     build(c)
     server.serve(host=CONFIG['host'], port=CONFIG['port'], root=CONFIG['deploy_path'])
 

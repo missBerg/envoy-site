@@ -7,3 +7,4 @@ watchdog
 pelican-webassets
 pelican-jinja2content
 pelican-yaml-metadata
+libsass==0.22.0 

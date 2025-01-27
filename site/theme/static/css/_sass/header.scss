@@ -133,6 +133,7 @@
     .project-tagline {
         margin-bottom: 2rem;
         font-weight: normal;
+        color: variables.$section-headings-color;
     
         @include large {
             font-size: 1.25rem;

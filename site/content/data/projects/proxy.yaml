@@ -33,3 +33,8 @@ capabilities:
     icon: "monitoring"
     description: |
       Deep observability of L7 traffic, native support for distributed tracing, and wire-level observability of MongoDB, DynamoDB, and more.
+quotes:
+  - content: |
+      At Lyft, we've made tremendous strides in our resilience and observability since we started deploying Envoy. We're excited to be open sourcing Envoy, and the community that's growing around Envoy will help both Lyft and others adopting a microservices architecture.
+    author_name: "Peter Morelli"
+    author_title: "VP Engineering, Lyft"

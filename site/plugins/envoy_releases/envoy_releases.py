@@ -140,7 +140,7 @@ def process_releases(all_releases: List[Dict]) -> Dict:
             "releases": [{
                 "release": "latest",
                 "url": "https://github.com/envoyproxy/envoy/",
-                "published_at": None
+                "published_at": "Built off main branch"
             }]
         }],
         "older_releases": []

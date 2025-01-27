@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ DESCRIPTION }}" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-        {% assets 'combined_css' %}
+        {% assets 'new_css' %}
             <link rel="stylesheet" href="/{{ASSET_URL}}">
         {% endassets %}
         <script src="/theme/scripts/stars.js"></script>
@@ -76,9 +76,6 @@
                             <button id="slack-invite-button" class="btn" type="submit">
                                 Get Invite
                             </button>
-                            <div id="spinner">
-                                <div class="loader"></div>
-                            </div>
                         </form>
                         <div id="response-message">
                         </div>

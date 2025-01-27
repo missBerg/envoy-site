@@ -1,0 +1,112 @@
+@use "variables" as *;
+@use "sass:math";
+@use "sass:map";
+@use "sass:meta";
+@use "sass:color";
+
+// Color functions
+@function tint($color, $percentage) {
+  @return color.mix(#fff, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return color.mix(#000, $color, $percentage);
+}
+
+// Map deep get
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map.get($map, $key);
+  }
+  @return $map;
+}
+
+// Z-index management
+$z-indexes: (
+  modal: 1000,
+  overlay: 900,
+  dropdown: 800,
+  header: 700,
+  footer: 600
+);
+
+@function z($key) {
+  @return map.get($z-indexes, $key);
+}
+
+// Unit conversion
+@function strip-unit($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+// Convert pixels to rem
+@function rem($pixels) {
+  @return math.div($pixels, 16) * 1rem;
+}
+
+@function em($pixels, $context: 16) {
+  $em: strip-unit($pixels) / strip-unit($context);
+  @return #{$em}em;
+}
+
+// String replacement
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+// Math functions
+@function pow($number, $exponent) {
+  $value: 1;
+  
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+  
+  @return $value;
+}
+
+// Color contrast
+@function color-contrast($color) {
+  $r: color.channel($color, "red", $space: rgb);
+  $g: color.channel($color, "green", $space: rgb);
+  $b: color.channel($color, "blue", $space: rgb);
+  
+  $yiq: math.div(($r * 299) + ($g * 587) + ($b * 114), 1000);
+  
+  @return if($yiq >= 128, #000, #fff);
+}
+
+// Get value from breakpoints
+@function breakpoint($key) {
+  @return map.get($breakpoints, $key);
+}
+
+// Get spacing value
+@function spacing($key) {
+  @return map.get($spacing, $key);
+}
+
+// Get color value
+@function color($key) {
+  @return map.get($colors, $key);
+}
+
+// Get font-size value
+@function font-size($key) {
+  @return map.get($font-sizes, $key);
+}

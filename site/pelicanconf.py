@@ -33,14 +33,18 @@ PLUGINS = [
 JINJA2CONTENT_TEMPLATES = "../theme/templates"
 
 WEBASSETS_BUNDLES = (
-     ("combined_css", ("css/main.scss", "css/_sass/*.scss", "_sass/*/*.scss"),
-     {"output": "style.min.css", "filters": ["scss"]}),
+    ('new_css', ['css/scss/main.scss'],
+     {'filters': 'scss',
+      'output': 'css/main.css',
+      'debug': True}),
 )
 
 WEBASSETS_CONFIG = [
-    ("cache", False),
-    ("manifest", False),
+    ("auto_build", True),
+    ("clean_output", True),
+    ("url_expire", False),
 ]
+
     
 SITENAME = "Envoy proxy"
 SITEURL = "https://www.envoyproxy.io"
