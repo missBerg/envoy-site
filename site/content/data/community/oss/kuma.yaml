@@ -3,7 +3,5 @@ logo: "logos/kuma.svg"
 learn_more: "https://www.kuma.io"
 source_code: "https://github.com/kumahq/kuma"
 type: oss
-projects:
-    - envoy-proxy
 description: |
     Kuma is a platform agnostic open-source control plane for Service Mesh and Microservices. It can run and be operated natively across both Kubernetes and VM environments, making it easy to adopt by every team in the organization.
