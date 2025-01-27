@@ -30,7 +30,11 @@ PLUGINS = [
     "load_yaml",
     "envoy_releases",
     ]
-JINJA2CONTENT_TEMPLATES = "../theme/templates"
+
+# Template settings
+TEMPLATE_PATHS = ['theme/templates']
+DIRECT_TEMPLATES = ['index']
+JINJA2CONTENT_TEMPLATES = "theme/templates"
 
 WEBASSETS_BUNDLES = (
     ('new_css', ['css/scss/main.scss'],
