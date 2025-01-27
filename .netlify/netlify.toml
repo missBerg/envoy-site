@@ -6,13 +6,12 @@ headers = []
 [functions."*"]
 
 [build]
-publish = "_site"
-command = "./deploy/netlify-build.sh"
+base = "site"
+publish = "output"
+command = "pelican -s publishconf.py"
 
 [build.environment]
-  YARN_VERSION = "1.22.10"
-  NODE_OPTIONS = "--max-old-space-size=8192"
-  RUBY_VERSION = "3.3.5"
+  PYTHON_VERSION = "3.13.1"
 
 [build.processing]
 
