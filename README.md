@@ -1,118 +1,91 @@
-# Envoy Site Repository
+# Envoy Site
 
-This repository contains the source code and scripts for the Envoy Project site.
+This repository contains the source code for the Envoy website, built using [Pelican](https://getpelican.com/), a static site generator written in Python.
 
-This is a **Jekyll** project deployed on **Netlify**, with some additional helper scripts.
-To build the latest docs for Envoy Proxy, there are steps in the `build/netlify-build.sh` script that checkouts the Envoy respostory and builds the latest docs using Bazel, the docs are only regenenerated when a change has happened in the docs directory of Envoy.
+## Project Structure
 
-The archived docs are accessed via proxying requests to a separate **Netlify** deployment of the archived docs sites. This ensures we are not rebuilding and deploying archive for each site change.
+```
+.
+├── site/                  # Main project directory
+│   ├── content/          # Site content (data, articles, pages)
+│   ├── theme/           # Site theme and templates
+│   ├── plugins/         # Pelican plugins
+│   ├── pelicanconf.py   # Pelican configuration
+│   ├── publishconf.py   # Production settings
+│   └── requirements.txt # Python dependencies
+```
 
-## Overview
+## Prerequisites
 
-- **Directories**
-    - **_data/** - Data files used in the site
-    - **_includes/** - Reusable HTML components included in pages
-    - **_layouts/** - Jekyll Page layouts that are used by site pages
-    - **_sass/** - Partials that are used from the style.scss in the css/ directory
-    - **.netlify/** - Configurations for the Netlify deployment
-    - **assets/** - Common assets like scripts and images for the site
-    - **collections/** - Collections of data for the site used in pages
-    - **css/** - The main style.scss file
-    - **deploy/** - Deployment script for Netlify deployment
-    - **local/** - Resources to run the site locally while developing
-    - **logos/** - Logos for community and adopters of Envoy Project
-    - **pages/** - The site pages
-    - **scripts/** - Shared scripts for the site
-- **Files**
-    - **_config.yml** - the Jekyll configuration
-    - **_redirects** - Netlify redirects
-    - **.ruby-version** - The ruby version
-    - **package.json** - NPM package dependencies for Netlify deploy
-    - **requirements.txt** - Python dependencies for Netlify deploy
+- Python 3.x
+- pip (Python package installer)
+
+## Local Development Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/envoyproxy/envoy-site.git
+   cd envoy-site
+   ```
+
+2. Create and activate a virtual environment (recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
+
+3. Install dependencies:
+   ```bash
+   cd site
+   pip install -r requirements.txt
+   ```
 
 ## Running Locally
 
-### Using Jekyll
+You can run the site locally in three ways:
 
-Use Jekyll on host machine for developing for the website, without docs.
+1. Using the provided script:
+   ```bash
+   cd site
+   chmod +x run.sh  # Make the script executable
+   ./run.sh
+   ```
 
-#### Prerequisites
-- Ruby 3.3.5
-- Bundler
+2. Using Invoke (recommended for development):
+   ```bash
+   cd site
+   invoke devserver
+   ```
+   This starts a development server with live-reload capability, automatically rebuilding the site when files are modified.
 
-#### Steps
+3. Or manually using Pelican:
+   ```bash
+   cd site
+   pelican --autoreload --listen --bind 0.0.0.0
+   ```
 
-1. **Install Jekyll**: Follow the [Jekyll installation guide](https://jekyllrb.com/docs/installation/).
+The site will be available at `http://localhost:8000`. Both the `invoke devserver` and `--autoreload` options enable automatic rebuilding when files are modified.
 
-2. **Install Dependencies**:
-    ```sh
-    bundle install
-    ```
+## Project Components
 
-3. **Build the Site**:
-    ```sh
-    bundle exec jekyll build
-    ```
+- **Content**: Located in `site/content/`, includes YAML files for projects, courses, and community information
+- **Theme**: Custom theme files in `site/theme/`
+- **Plugins**: Additional functionality through Pelican plugins in `site/plugins/`
 
-4. **Serve the Site**:
-    ```sh
-    bundle exec jekyll serve
-    ```
+## Contributing
 
-### Using Docker
+1. Fork the repository
+2. Create a new branch for your changes
+3. Make your changes
+4. Commit your changes and DCO sign the commit 
+5. Submit a pull request
 
-With Docker you can serve the site locally with docs, both latest and archive.
+## Dependencies
 
-#### Prerequisites
-
-- Docker
-- Docker Compose
-
-#### Steps
-
-1. **Build the Docker Image**:
-    ```sh
-    docker compose build
-    ```
-
-2. **Run the Docker Container**:
-    ```sh
-    docker compose up --watch --remove-orphans
-    ```
-
-3. **Stop the Docker Container**:
-    ```sh
-    docker compose down
-    ```
-
-## Deployment
-
-The site is automatically deployed on Netlify. The `build/netlify-build.sh` script is used to build the site and generate the necessary documentation.
-
-See README in `build/` directory for more information about the build process.
-
-
-## Add Adopter Logo
-
-Create a markdown file in the collection `collections/_adopters`
-Under projects, list all Envoy projects your company is adopting.
-
-**Projects:**
-- envoy-proxy
-- envoy-gateway
-- envoy-ai-gateway
-- envoy-mobile
-
-```
----
-name: "Company"
-logo: "logo.svg"
-url: "https://mycompany.com"
-projects:
-    - envoy-proxy
-    - envoy-gateway
----
-
-```
-
-Add logo to `logos` directory.
+Key dependencies include:
+- Pelican (with Markdown support)
+- PyYAML
+- Jinja2 content plugin
+- YAML metadata plugin
+- Web assets plugin
+- libsass for SASS processing
