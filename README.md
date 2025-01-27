@@ -15,6 +15,16 @@ This repository contains the source code for the Envoy website, built using [Pel
 │   └── requirements.txt # Python dependencies
 ```
 
+## Documentation
+
+Detailed documentation can be found in the following READMEs:
+
+- [Content Structure and Guidelines](site/content/README.md)
+- [Data Files Documentation](site/content/data/README.md)
+- [Custom Plugins Documentation](site/plugins/README.md)
+  - [Load YAML Plugin](site/plugins/load_yaml/README.md)
+  - [Envoy Releases Plugin](site/plugins/envoy_releases/README.md)
+
 ## Prerequisites
 
 - Python 3.x
