@@ -2,6 +2,7 @@
 
 This repository contains the source code for the Envoy website, built using [Pelican](https://getpelican.com/), a static site generator written in Python.
 
+
 ## Project Structure
 
 ```
