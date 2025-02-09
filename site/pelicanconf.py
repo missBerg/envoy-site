@@ -38,7 +38,7 @@ JINJA2CONTENT_TEMPLATES = "theme/templates"
 
 WEBASSETS_BUNDLES = (
     ('new_css', ['css/scss/main.scss'],
-     {'filters': 'scss',
+     {'filters': 'pyscss',
       'output': 'css/main.css',
       'debug': True}),
 )
@@ -47,8 +47,12 @@ WEBASSETS_CONFIG = [
     ("auto_build", True),
     ("clean_output", True),
     ("url_expire", False),
+    ("load_paths", ["theme/static/css/scss"]),
+    ("debug_info", True),
+    ("PYSCSS_LOAD_PATHS", ["theme/static/css/scss"]),
+    ("debug_info", True),
 ]
-
+PYSCSS_LOAD_PATHS = ["theme/static/css/scss"]
     
 SITENAME = "Envoy proxy"
 SITEURL = "https://www.envoyproxy.io"
